@@ -2,26 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .all-\[unset\] {
+    all: unset;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+:root {
+  --basewhite: rgba(255, 255, 255, 1);
+  --gray-500: rgba(102, 112, 133, 1);
+  --gray-600: rgba(71, 84, 103, 1);
+  --primary-600: rgba(64, 134, 239, 1);
+  --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --text-sm-medium-font-family: "Inter-Medium", Helvetica;
+  --text-sm-medium-font-size: 14px;
+  --text-sm-medium-font-style: normal;
+  --text-sm-medium-font-weight: 500;
+  --text-sm-medium-letter-spacing: 0px;
+  --text-sm-medium-line-height: 20px;
 }

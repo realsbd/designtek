@@ -7,12 +7,22 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        basewhite: "var(--basewhite)",
+        "gray-500": "var(--gray-500)",
+        "gray-600": "var(--gray-600)",
+        "primary-600": "var(--primary-600)",
+      },
+      fontFamily: {
+        "text-sm-medium": "var(--text-sm-medium-font-family)",
+      },
+      boxShadow: {
+        "shadow-xs": "var(--shadow-xs)",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 }
