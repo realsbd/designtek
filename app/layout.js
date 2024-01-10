@@ -3,6 +3,7 @@ import './globals.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 
 config.autoAddCss = false
@@ -18,10 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="w-10/12 mx-auto flex flex-col mt-3">
-          <Navbar />
           {children}
-          </div>
       </body>
     </html>
   )
