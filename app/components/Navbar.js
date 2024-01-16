@@ -14,7 +14,7 @@ export default function Navbar() {
             Update
           </Link>
           <Link
-            href="#"
+            href="about"
             className="text-zinc-800 text-sm leading-10 tracking-tight"
             role="link"
           >
