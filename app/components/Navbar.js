@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="items-center flex justify-between gap-5">
         <Image src="/img/logo.png" alt="logo" width={113} height={32} className="aspect-[3.9] object-contain object-center w-[113px] overflow-hidden shrink-0 max-w-full my-auto" />
         <div className="self-stretch flex gap-3.5 px-5 items-start">
-          <Link href="#"
+          <Link href="/"
             className="text-cyan-600 text-sm leading-10 tracking-tight whitespace-nowrap items-stretch self-stretch aspect-[1.0909090909090908] justify-center"
           >
             Update
@@ -21,7 +21,7 @@ export default function Navbar() {
             About us
           </Link>
           <Link
-            href="#"
+            href="signal"
             className="text-zinc-800 text-sm leading-10 tracking-tight self-stretch grow whitespace-nowrap"
             role="link"
           >
