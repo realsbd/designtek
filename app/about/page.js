@@ -13,7 +13,7 @@ export default function About() {
     return (
         <PageLayout>
             <div className="mx-auto">
-                <Image src="/img/blurb-2.png" width={966} height={482} className="mx-auto my-8 w-full" />
+                <Image src="/img/blurb-2.png" width={966} height={482} alt="blurb" className="mx-auto my-8 w-full" />
                 <div className="">
                     <p className="text-green-400">20 Jan 2024</p>
                     <h1 className="text-3xl font-bold mt-5 mb-10">Latest Updates On The Financial Exchange Market</h1>
