@@ -19,61 +19,73 @@ export default function Home() {
     {
       link: "#",
       img: "/img/blurb-1.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-2.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-3.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-4.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-5.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-6.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-7.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-8.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-9.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-10.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-11.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
     {
       link: "#",
       img: "/img/blurb-12.png",
+      title: "When an unknown printer took a galley of type and scrambled",
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
     },
   ]
@@ -83,6 +95,7 @@ export default function Home() {
       key={blurb.img}
       link={blurb.link}
       img={blurb.img}
+      title={blurb.title}
       text={blurb.text}
     />
   ))
@@ -102,8 +115,8 @@ export default function Home() {
             The latest industry blog posts, finance, technology and forex signals.
           </div>
           <form className="flex justify-center">
-            <div className="w-full mt-6 mb-4">
-              <input className="shadow appearance-none border rounded w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search updates" />
+            <div className="flex justify-center gap-2 mt-6 mb-4" style={{width: '500px'}}>
+              <input className="shadow appearance-none border rounded w-2/3 py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search updates" />
               <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>

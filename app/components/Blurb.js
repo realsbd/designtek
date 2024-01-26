@@ -11,6 +11,7 @@ export default function Blurb(props) {
                 </Link>
             </div>
             <div>
+                <Link href={props.link}><h3 className="text-xl bold my-3 hover:underline">{props.title}</h3></Link>
                 <p>{props.text}</p>
             </div>
         </div>
