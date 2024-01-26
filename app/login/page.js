@@ -50,7 +50,7 @@ export default function Login() {
                     <button className="login-button w-full bg-gray-300 rounded py-2 my-3">Log in</button>
                 </form>
                 <div className="form-footer">
-                    <p>Don't have an account? <span className="text-indigo-500"><Link href="/signup">Sign up for free</Link></span></p>
+                    <p>Don&apos;t have an account? <span className="text-indigo-500"><Link href="/signup">Sign up for free</Link></span></p>
                 </div>
             </div>
         </AuthLayout>

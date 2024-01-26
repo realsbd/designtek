@@ -32,7 +32,7 @@ export default function Dashboard() {
                     <div className="text-white text-base leading-6">Earnings</div>
                 </a>
                 <a href="#" className="items-stretch flex my-4 gap-3 mt-10" role="link">
-                    <img
+                    <Image
                         loading="lazy"
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/4914bf6f5b3a5b39bc93c3646d2fe8b8cb35b219b04d283cfb9ec46bee0a2cd8?apiKey=6444ce9d0f924ecb8e73f73084cc2824&"
                         className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
@@ -42,7 +42,7 @@ export default function Dashboard() {
                     <div className="text-white text-base leading-6">Drafts</div>
                 </a>
                 <a href="#" className="items-stretch flex my-4 gap-3 mt-10" role="link">
-                    <img
+                    <Image
                         loading="lazy"
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/246136989ae3f207d717b3e74e1c64ddccf4e7d658fffad96b109d18a140ea07?apiKey=6444ce9d0f924ecb8e73f73084cc2824&"
                         className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
@@ -52,7 +52,7 @@ export default function Dashboard() {
                     <div className="text-white text-base leading-6">Settings</div>
                 </a>
                 <a href="#" className="items-stretch flex my-4 gap-3 mt-10" role="link">
-                    <img
+                    <Image
                         loading="lazy"
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/a0d83e1eda9d60883b0302827dc7debb9acf456a6884e820061b98953c27f83b?apiKey=6444ce9d0f924ecb8e73f73084cc2824&"
                         className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
