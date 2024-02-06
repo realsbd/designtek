@@ -1,17 +1,7 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import PageLayout from './components/Layout/PageLayout'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import Blurb from './components/Blurb'
-import FooterSection from './components/FooterSection'
-import Bottom from './components/Bottom'
 import Pagination from "@/app/components/Pagination";
 
 export default function Home() {
