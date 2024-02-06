@@ -12,6 +12,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import Blurb from './components/Blurb'
 import FooterSection from './components/FooterSection'
 import Bottom from './components/Bottom'
+import Pagination from "@/app/components/Pagination";
 
 export default function Home() {
 
@@ -125,7 +126,7 @@ export default function Home() {
         </div>
 
         <div className="mt-16 w-4/5 pt-80 mx-auto relative" style={{ backgroundImage: "url('/img/blurb-2.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <div className="min-h-96 text-white ml-8 ">
+          <div className="text-white ml-8 ">
             <p className="text-2xl font-normal">David Nelson. 20.Jan.2024</p>
             <h3 className="text-4xl font-medium tracking-tighter">Latest updates on the financial exchange market</h3>
             <p className="text-2xl font-normal mb-3">Latest update on forex news</p>
@@ -135,46 +136,7 @@ export default function Home() {
         <div className="flex flex-row flex-wrap justify-center">
           {blurbs}
         </div>
-        <div className="items-stretch flex justify-end gap-5 pr-4 py-3.5">
-          <div className="items-stretch rounded flex justify-between gap-5">
-            <button
-              className="text-white text-justify text-base leading-6 tracking-tight whitespace-nowrap justify-center items-center rounded border bg-cyan-600 aspect-square h-6 px-2.5 border-solid border-cyan-600"
-              aria-label="Button 1"
-              role="button"
-            >
-              1
-            </button>
-            <button
-              className="text-black text-justify text-base leading-6 tracking-tight whitespace-nowrap justify-center items-center rounded border aspect-square h-6 px-2 border-solid border-cyan-600"
-              aria-label="Button 2"
-              role="button"
-            >
-              2
-            </button>
-            <button
-              className="text-black text-justify text-base leading-6 tracking-tight whitespace-nowrap justify-center items-center rounded border aspect-square h-6 px-2 border-solid border-cyan-600"
-              aria-label="Button 3"
-              role="button"
-            >
-              3
-            </button>
-            <button
-              className="text-black text-justify text-base leading-6 tracking-tight whitespace-nowrap justify-center items-center rounded border aspect-square h-6 px-2 border-solid border-cyan-600"
-              aria-label="Button 4"
-              role="button"
-            >
-              4
-            </button>
-            <button
-              className="text-black text-justify text-base leading-6 tracking-tight whitespace-nowrap justify-center items-center rounded border aspect-square h-6 px-2 border-solid border-cyan-600"
-              aria-label="Button 5"
-              role="button"
-            >
-              5
-            </button>
-          </div>
-          <FontAwesomeIcon icon={faChevronRight} />
-        </div>
+        <Pagination />
       </div>
     </PageLayout>
   )

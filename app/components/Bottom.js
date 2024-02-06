@@ -34,7 +34,7 @@ export default function Bottom() {
           </div>
 
           <div className="flex mx-auto mt-10 justify-center gap-14 pb-6 border-b border-gray-400">
-            <header className="header w-1/4">
+            <header className="header w-1/3">
               <Image
                 src="/img/logo.png"
                 alt="Logo"
@@ -46,7 +46,7 @@ export default function Bottom() {
                 Your gateway to a verified financial future.
               </div>
             </header>
-            <div className="contact w-1/4">
+            <div className="contact w-1/3">
               <div className="text-zinc-800 text-justify text-xl leading-9 tracking-tight">
                 <span className="font-medium text-sm">Contact us</span>
               </div>

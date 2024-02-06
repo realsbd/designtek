@@ -8,10 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        basewhite: "var(--basewhite)",
-        "gray-500": "var(--gray-500)",
-        "gray-600": "var(--gray-600)",
-        "primary-600": "var(--primary-600)",
+        'customBlue' : '#02A29E'
       },
       fontFamily: {
         "text-sm-medium": "var(--text-sm-medium-font-family)",
