@@ -10,7 +10,7 @@ export default function Navbar() {
           <Image src="/img/logo.png" alt="logo" width={113} height={32} className="aspect-[3.9] object-contain object-center w-[113px] overflow-hidden shrink-0 max-w-full my-auto" />
         </Link>
         <div className="self-stretch flex gap-3.5 px-5 items-start">
-          <Link href="/"
+          <Link href="/update"
             className="active:text-cyan-600 text-sm leading-10 tracking-tight whitespace-nowrap items-stretch self-stretch aspect-[1.0909090909090908] justify-center"
           >
             Update

@@ -1,6 +1,4 @@
 import PageLayout from '../components/Layout/PageLayout';
-import Navbar from '../components/Navbar';
-// import FooterSection from '../components/FooterSection';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,8 +6,37 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import Comment from '../components/Comment';
 import AuthorCard from '../components/AuthorCard';
+import Reaction from "@/app/components/Reaction";
+import Blurb from "@/app/components/Blurb";
 
 export default function About() {
+
+    const blurbsData = [
+        {
+            link: "#",
+            img: "/img/blurb-1.png",
+            text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+        },
+        {
+            link: "#",
+            img: "/img/blurb-2.png",
+            text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+        },
+        {
+            link: "#",
+            img: "/img/blurb-3.png",
+            text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+        },
+    ]
+
+    const blurbs = blurbsData.map(blurb => (
+        <Blurb
+            key={blurb.img}
+            link={blurb.link}
+            img={blurb.img}
+            text={blurb.text}
+        />
+    ))
     return (
         <PageLayout>
             <div className="mx-auto">
@@ -23,19 +50,13 @@ export default function About() {
                         is simply dummy text of the printing and typesetting industry. <br /> Lorem Ipsum has been the industry&lsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
                         is simply dummy text of the printing and typesetting industry. <br />
                         Lorem Ipsum has been the industry&lsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</article>
-                    <div className="flex justify-left my-8 gap-4">
-                        <div className="flex gap-3 items-center my-2">
-                            <FontAwesomeIcon icon={faThumbsUp} />
-                            <p>25</p>
-                        </div>
-                        <div className="flex gap-3 items-center my-2">
-                            <FontAwesomeIcon icon={faHeart} />
-                            <p>3.1k</p>
-                        </div>
-                    </div>
+                    <Reaction />
                     <AuthorCard />
                 </div>
                 <Comment />
+                <div className="flex flex-row gap-10 flex-wrap justify-center">
+                    {blurbs}
+                </div>
             </div>
         </PageLayout>
     )

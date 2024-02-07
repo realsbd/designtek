@@ -1,5 +1,4 @@
 import PageLayout from "@/app/components/Layout/PageLayout";
-import Image from "next/image";
 
 export default function About() {
     return (
