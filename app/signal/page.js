@@ -38,7 +38,7 @@ function Signal() {
         <PageLayout>
             <div className="w-4/5 mx-auto">
                 <p className="mt-10 mb-9">
-                    Disclaimer: Despite the meticulous nature of our trading analysis, it's imperative to understand that trading signals are not infallible, and their accuracy cannot be guaranteed at 100%. We explicitly absolve ourselves from any liability for losses incurred by users, emphasizing that the decision to act on signals is entirely at the owner's risk. This acknowledgment underscores the inherent unpredictability of financial markets, where past performance serves as a guide but does not assure future outcomes. Users are urged to exercise caution, recognizing the inherent uncertainties associated with trading decisions, and seek additional professional advice if needed.
+                    Disclaimer: Despite the meticulous nature of our trading analysis, it&lsquo;s imperative to understand that trading signals are not infallible, and their accuracy cannot be guaranteed at 100%. We explicitly absolve ourselves from any liability for losses incurred by users, emphasizing that the decision to act on signals is entirely at the owner&lsquo;s risk. This acknowledgment underscores the inherent unpredictability of financial markets, where past performance serves as a guide but does not assure future outcomes. Users are urged to exercise caution, recognizing the inherent uncertainties associated with trading decisions, and seek additional professional advice if needed.
                 </p>
                 <div className="flex mx-auto gap-2">
                     <div className="w-1/2">
