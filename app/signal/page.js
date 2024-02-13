@@ -1,13 +1,105 @@
 "use client"
 
 import PageLayout from '../components/Layout/PageLayout';
-import { useRef, useEffect, memo } from 'react';
+import { useRef, useEffect, useState, memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import {columns} from "@/app/signal/columns";
+import {
+    ColumnDef,
+    ColumnFiltersState,
+    SortingState,
+    VisibilityState,
+    flexRender,
+    getCoreRowModel,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+    useReactTable,
+} from "@tanstack/react-table"
 
+// import { Button } from "@/components/ui/button"
+// import { Checkbox } from "@/components/ui/checkbox"
+// import { Input } from "@/components/ui/input"
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
+import {Input} from "@/components/ui/input";
 function Signal() {
 
     const container = useRef();
+
+    const data = [
+            {
+                id: 1,
+                logo: "/img/signal/hfm.png",
+                proTrader: "Hot Forex Market",
+                time: "12:00 GMT",
+                order: "BUY",
+                symbol: "GBP/USD",
+                price: "SL 1.024567 - TP 1.90945",
+                outcome: true
+            },
+            {
+                id: 2,
+                logo: "/img/signal/kfa.png",
+                proTrader: "Kojo Forex Academy",
+                time: "12:00 GMT",
+                order: "BUY",
+                symbol: "GBP/USD",
+                price: "SL 1.024567 - TP 1.90945",
+                outcome: true
+            },
+            {
+                id: 3,
+                logo: "/img/signal/mff.png",
+                proTrader: "My Forex Fund",
+                time: "12:00 GMT",
+                order: "BUY",
+                symbol: "GBP/USD",
+                price: "SL 1.024567 - TP 1.90945",
+                outcome: false
+            },
+            {
+                id: 4,
+                logo: "/img/signal/exness.png",
+                proTrader: "Exness",
+                time: "12:00 GMT",
+                order: "BUY",
+                symbol: "GBP/USD",
+                price: "SL 1.024567 - TP 1.90945",
+                outcome: true
+            },
+        ]
+
+    const [sorting, setSorting] = useState([]);
+    const [columnFilters, setColumnFilters] = useState([]);
+    const [columnVisibility, setColumnVisibility] = useState({});
+    const [rowSelection, setRowSelection] = useState({});
+
+    const table = useReactTable({
+        data,
+        columns,
+        onSortingChange: setSorting,
+        onColumnFiltersChange: setColumnFilters,
+        getCoreRowModel: getCoreRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        onColumnVisibilityChange: setColumnVisibility,
+        onRowSelectionChange: setRowSelection,
+        state: {
+            sorting,
+            columnFilters,
+            columnVisibility,
+            rowSelection,
+        },
+    })
 
     useEffect(
         () => {
@@ -36,33 +128,73 @@ function Signal() {
 
     return (
         <PageLayout>
-            <div className="w-4/5 mx-auto">
+            <div>
                 <p className="mt-10 mb-9">
-                    Disclaimer: Despite the meticulous nature of our trading analysis, it&lsquo;s imperative to understand that trading signals are not infallible, and their accuracy cannot be guaranteed at 100%. We explicitly absolve ourselves from any liability for losses incurred by users, emphasizing that the decision to act on signals is entirely at the owner&lsquo;s risk. This acknowledgment underscores the inherent unpredictability of financial markets, where past performance serves as a guide but does not assure future outcomes. Users are urged to exercise caution, recognizing the inherent uncertainties associated with trading decisions, and seek additional professional advice if needed.
+                    <span className="text-red-600 font-bold">Disclaimer:</span> Despite the meticulous nature of our trading analysis, it&lsquo;s imperative to understand that trading signals are not infallible, and their accuracy cannot be guaranteed at 100%. We explicitly absolve ourselves from any liability for losses incurred by users, emphasizing that the decision to act on signals is entirely at the owner&lsquo;s risk. This acknowledgment underscores the inherent unpredictability of financial markets, where past performance serves as a guide but does not assure future outcomes. Users are urged to exercise caution, recognizing the inherent uncertainties associated with trading decisions, and seek additional professional advice if needed.
                 </p>
-                <div className="flex mx-auto gap-2">
-                    <div className="w-1/2">
-                        <div className="h-52 bg-black text-white text-center flex flex-wrap flex-col content-center justify-center">
-                            <h3>EUR/USD <span><FontAwesomeIcon icon={faAngleDown} /></span></h3>
-                            <div className="flex gap-1 text-md my-6">
-                                <p>Sell: @1.0604</p>
-                                <p>SL: @1.0607</p>
-                                <p>TP: @1.0600</p>
-                            </div>
-                        </div>
-                        <div className="h-52 bg-gray-300 p-8 flex flex-wrap flex-col content-center justify-center">
-                            <p>Details: The details below contains information about the signal</p>
-                            <p>Published: 03-January-2024</p>
-                            <p>Time: 12:03am PST</p>
-                        </div>
-                    </div>
-                    <div className="w-1/2">
-                        <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%" }}>
-                            <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
-                            <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
-                        </div>
-                    </div>
+                <div className="tradingview-widget-container" ref={container} style={{ height: "500px", width: "100%" }}>
+                    <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
+                    <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
                 </div>
+            </div>
+            <div className="flex items-center justify-center py-14">
+                <Input
+                    placeholder="Search Pro Trader"
+                    value={(table.getColumn("proTrader")?.getFilterValue()) ?? ""}
+                    onChange={(event) =>
+                        table.getColumn("proTrader")?.setFilterValue(event.target.value)
+                    }
+                    className="max-w-sm border border-blue-600"
+                />
+            </div>
+            <div className="rounded-md border">
+                <Table>
+                    <TableHeader>
+                        {table.getHeaderGroups().map((headerGroup) => (
+                            <TableRow key={headerGroup.id}>
+                                {headerGroup.headers.map((header) => {
+                                    return (
+                                        <TableHead key={header.id}>
+                                            {header.isPlaceholder
+                                                ? null
+                                                : flexRender(
+                                                    header.column.columnDef.header,
+                                                    header.getContext()
+                                                )}
+                                        </TableHead>
+                                    )
+                                })}
+                            </TableRow>
+                        ))}
+                    </TableHeader>
+                    <TableBody>
+                        {table.getRowModel().rows?.length ? (
+                            table.getRowModel().rows.map((row) => (
+                                <TableRow
+                                    key={row.id}
+                                >
+                                    {row.getVisibleCells().map((cell) => (
+                                        <TableCell key={cell.id}>
+                                            {flexRender(
+                                                cell.column.columnDef.cell,
+                                                cell.getContext()
+                                            )}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            ))
+                        ) : (
+                            <TableRow>
+                                <TableCell
+                                    colSpan={columns.length}
+                                    className="h-24 text-center"
+                                >
+                                    No results.
+                                </TableCell>
+                            </TableRow>
+                        )}
+                    </TableBody>
+                </Table>
             </div>
         </PageLayout>
     )
