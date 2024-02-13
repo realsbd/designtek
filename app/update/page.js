@@ -76,7 +76,7 @@ export default function Update() {
                 <h1 className="my-6 font-bold text-4xl">Latest Updates On The Financial Exchange Market</h1>
                 <div className="mb-5">
                     <Image src="/img/blurb-2.png" alt="blurb" width={1200} height={500} />
-                    <p className="mt-8">When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                    <p className="mt-8">When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&lsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
                 </div>
                 <div>{blurbs}</div>
                 <Reaction />
