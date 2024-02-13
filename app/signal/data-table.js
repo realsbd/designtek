@@ -1,6 +1,6 @@
 "use client";
 
-const { ColumnDef, flexRender, getCoreRowModel, useReactTable } = require("@tanstack/react-table");
+const { flexRender, getCoreRowModel, useReactTable } = require("@tanstack/react-table");
 const { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } = require("@/components/ui/table");
 
 function DataTable ({ columns, data }) {

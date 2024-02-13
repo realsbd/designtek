@@ -1,5 +1,4 @@
 import Navbar from "../Navbar"
-import FooterSection from "../FooterSection"
 import Bottom from "../Bottom"
 
 export default function PageLayout({ children }) {
