@@ -118,7 +118,6 @@ function Signal() {
           "locale": "en",
           "enable_publishing": false,
           "allow_symbol_change": true,
-          "support_host": "https://www.tradingview.com"
         }`;
             container.current.appendChild(script);
         },
@@ -132,9 +131,8 @@ function Signal() {
                 <p className="mt-10 mb-9">
                     <span className="text-red-600 font-bold">Disclaimer:</span> Despite the meticulous nature of our trading analysis, it&lsquo;s imperative to understand that trading signals are not infallible, and their accuracy cannot be guaranteed at 100%. We explicitly absolve ourselves from any liability for losses incurred by users, emphasizing that the decision to act on signals is entirely at the owner&lsquo;s risk. This acknowledgment underscores the inherent unpredictability of financial markets, where past performance serves as a guide but does not assure future outcomes. Users are urged to exercise caution, recognizing the inherent uncertainties associated with trading decisions, and seek additional professional advice if needed.
                 </p>
-                <div className="tradingview-widget-container" ref={container} style={{ height: "500px", width: "100%" }}>
+                <div className="tradingview-widget-container" ref={container} style={{ height: "50vh", width: "100%" }}>
                     <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
-                    <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
                 </div>
             </div>
             <div className="flex items-center justify-center py-14">

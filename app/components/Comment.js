@@ -8,7 +8,7 @@ export default function Comment() {
         <div className="w-full mx-auto">
             <h2 className="text-3xl font-bold my-10">Share your thoughts!</h2>
             <div className="flex gap-4 w-full justify-space-between mx-auto justify-center mb-10">
-                <form className="w-2/3">
+                <form className="w-auto md:w-2/3">
                     <div className="flex flex-col gap-6">
                         <div className="flex w-auto gap-2">
                             <label className="block flex-1">
@@ -38,7 +38,7 @@ export default function Comment() {
                     </div>
                     <button type="submit" className="bg-gray-200 p-3 w-full rounded mt-4">Submit</button>
                 </form>
-                <Image src="/img/cta.jpg" width={245} height={406} className="rounded" alt="cta" />
+                <Image src="/img/cta.jpg" width={245} height={406} className="max-sm:hidden rounded" alt="cta" />
             </div>
         </div>
     )

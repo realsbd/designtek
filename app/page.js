@@ -81,15 +81,6 @@ export default function Home() {
     },
   ]
 
-  const blurbs = blurbsData.map(blurb => (
-    <Blurb
-      key={blurb.img}
-      link={blurb.link}
-      img={blurb.img}
-      title={blurb.title}
-      text={blurb.text}
-    />
-  ))
 
 
   return (
@@ -115,7 +106,7 @@ export default function Home() {
           </form>
         </div>
 
-        <div className="mt-16 w-4/5 pt-80 mx-auto relative" style={{ backgroundImage: "url('/img/blurb-2.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="mt-8 lg:mt-16 w-11/12 md:w-4/5 pt-40 lg:pt-80 mx-auto relative" style={{ backgroundImage: "url('/img/blurb-2.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="text-white ml-8 ">
             <p className="text-2xl font-normal">David Nelson. 20.Jan.2024</p>
             <h3 className="text-4xl font-medium tracking-tighter">Latest updates on the financial exchange market</h3>
@@ -124,7 +115,15 @@ export default function Home() {
         </div>
 
         <div className="flex flex-row flex-wrap justify-center">
-          {blurbs}
+          {blurbsData.map(blurb => (
+              <Blurb
+                  key={blurb.title}
+                  link={blurb.link}
+                  img={blurb.img}
+                  title={blurb.title}
+                  text={blurb.text}
+              />
+          ))}
         </div>
         <Pagination />
       </div>

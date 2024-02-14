@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 export default function Blurb(props) {
     return (
-        <div className="self-stretch w-1/4 my-6 mx-4 max-md:max-w-full">
+        <div className="self-stretch w-full md:w-1/3 md:justify-between lg:justify-between lg:w-1/4 my-6 mx-4">
             <div>
                 <Link href={props.link}>
-                    <Image src={props.img} width={310} height={227} alt="blurb" />
+                    <Image src={props.img} width={500} height={227} alt="blurb" />
                 </Link>
             </div>
             <div>
