@@ -39,7 +39,7 @@ function Signal() {
                 id: 1,
                 logo: "/img/signal/hfm.png",
                 proTrader: "Hot Forex Market",
-                time: "12:00 GMT",
+                time: "1707990253",
                 order: "BUY",
                 symbol: "GBP/USD",
                 price: "SL 1.024567 - TP 1.90945",
@@ -49,7 +49,7 @@ function Signal() {
                 id: 2,
                 logo: "/img/signal/kfa.png",
                 proTrader: "Kojo Forex Academy",
-                time: "12:00 GMT",
+                time: "1707990253",
                 order: "BUY",
                 symbol: "GBP/USD",
                 price: "SL 1.024567 - TP 1.90945",
@@ -59,7 +59,7 @@ function Signal() {
                 id: 3,
                 logo: "/img/signal/mff.png",
                 proTrader: "My Forex Fund",
-                time: "12:00 GMT",
+                time: "1707990253",
                 order: "BUY",
                 symbol: "GBP/USD",
                 price: "SL 1.024567 - TP 1.90945",
@@ -69,7 +69,7 @@ function Signal() {
                 id: 4,
                 logo: "/img/signal/exness.png",
                 proTrader: "Exness",
-                time: "12:00 GMT",
+                time: "1707990253",
                 order: "BUY",
                 symbol: "GBP/USD",
                 price: "SL 1.024567 - TP 1.90945",
@@ -100,6 +100,8 @@ function Signal() {
             rowSelection,
         },
     })
+
+
 
     useEffect(
         () => {
@@ -170,6 +172,7 @@ function Signal() {
                             table.getRowModel().rows.map((row) => (
                                 <TableRow
                                     key={row.id}
+                                    data-state={row.getIsSelected() && "selected"}
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
