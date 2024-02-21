@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faCircleCheck, faCircleXmark, faClock, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faCircleCheck, faCircleXmark, faClock} from "@fortawesome/free-solid-svg-icons";
 
-export default function FilterPosts(Props){
+export default function FilterPosts(){
     return  (
         <div className={'flex flex-wrap justify-between items-center m-3'}>
             <div className={'flex items-center'}>

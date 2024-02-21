@@ -2,8 +2,6 @@
 
 import PageLayout from '../components/Layout/PageLayout';
 import { useRef, useEffect, useState, memo } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import {columns} from "@/app/signal/columns";
 import {
     ColumnDef,
