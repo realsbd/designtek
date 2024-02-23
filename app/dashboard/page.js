@@ -105,7 +105,7 @@ export default function Dashboard() {
       <NavDashboard />
       <div className="flex flex-col justify-center w-full">
         {/*<FilterPosts />*/}
-        <div className={"flex gap-8 w-full items-center"}>
+        <div className={"flex flex-wrap gap-8 w-full items-center"}>
           <div
             onClick={() => setFilter("all")}
             className={`flex items-center cursor-pointer ${
@@ -146,7 +146,7 @@ export default function Dashboard() {
         <h2 className={"my-8 mx-3 text-2xl text-gray-700"}>
           All Posts ({formatCount(filteredBlurbs.length)})
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full">
+        <div className="flex flex-wrap justify-center">
           {filteredBlurbs.map((blurb, index) => (
             <Blurb
               key={index}
