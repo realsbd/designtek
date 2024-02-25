@@ -8,6 +8,7 @@ import {
   faCircleCheck,
   faCircleXmark,
   faClock,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
@@ -105,7 +106,8 @@ export default function Dashboard() {
       <NavDashboard />
       <div className="flex flex-col justify-center w-full">
         {/*<FilterPosts />*/}
-        <div className={"flex gap-8 w-full items-center"}>
+
+        <div className={"flex flex-wrap gap-8 w-full items-center"}>
           <div
             onClick={() => setFilter("all")}
             className={`flex items-center cursor-pointer ${
@@ -143,10 +145,27 @@ export default function Dashboard() {
             <div className={"pl-2"}>Disapproved posts</div>
           </div>
         </div>
-        <h2 className={"my-8 mx-3 text-2xl text-gray-700"}>
-          All Posts ({formatCount(filteredBlurbs.length)})
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full">
+
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center">
+          <h2 className={"my-8 mx-3 text-2xl text-gray-700"}>
+            All Posts ({formatCount(filteredBlurbs.length)})
+          </h2>
+
+          <div className="flex items-center border border-solid border-gray-300 rounded-lg overflow-hidden px-3 py-1">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search posts"
+              className="outline-none text-sm w-full"
+            />
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{ color: "#63E6BE" }}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-wrap justify-center">
           {filteredBlurbs.map((blurb, index) => (
             <Blurb
               key={index}
