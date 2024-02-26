@@ -31,7 +31,7 @@ export default function Bottom() {
         <header className="text-zinc-800 text-xl font-semibold leading-6 self-center whitespace-nowrap">
           Never Miss A Post!
         </header>
-        <div className="text-zinc-900 text-sm leading-6 self-center whitespace-nowrap mt-4">
+        <div className="text-zinc-900 text-sm text-center leading-6 self-center mt-4">
           Sign up for free and be the first to get notified about updates.
         </div>
         <form className="items-center rounded flex w-full gap-2 mt-4 md:max-w-full">
