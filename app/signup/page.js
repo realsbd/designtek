@@ -15,6 +15,7 @@ import "../styles/style.css";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -60,14 +61,34 @@ export default function Login() {
             </div>
           </button>
         </div>
-        <div className="divider flex items-center gap-2 my-5 text-center">
+        <div className="divider flex items-center gap-2 my-3 text-center">
           <div className="divider-line bg-gray-300" />
           <div className="divider-text">or</div>
           <div className="divider-line bg-gray-300" />
         </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username" className="text-sm">
+              Username
+            </label>
+            <div className="input-field">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={username}
+                aria-label="Enter your username"
+                placeholder="Enter your username"
+                required
+                className="w-full rounded border text-sm border-solid border-gray-300 px-3 py-[5px]"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="form-group mb-3">
+            <label htmlFor="email" className="text-sm">
+              Email
+            </label>
             <div className="input-field">
               <input
                 type="email"
@@ -77,13 +98,15 @@ export default function Login() {
                 aria-label="Enter your email"
                 placeholder="Enter your email"
                 required
-                className="w-full rounded border border-solid border-gray-300 px-3 py-[5px]"
+                className="w-full rounded text-sm  border border-solid border-gray-300 px-3 py-[5px]"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
           <div className="form-group my-3">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className="text-sm">
+              Password
+            </label>
             <div className="input-field">
               <input
                 type="password"
@@ -93,7 +116,7 @@ export default function Login() {
                 aria-label="Enter your password"
                 placeholder="Enter your password"
                 required
-                className="w-full rounded border border-solid border-gray-300 px-3 py-[5px]"
+                className="w-full rounded text-sm  border border-solid border-gray-300 px-3 py-[5px]"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
