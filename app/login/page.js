@@ -11,11 +11,15 @@ import Loading from "./loading";
 import { useRouter } from "next/navigation";
 
 import "../styles/style.css";
+import ForgotPassword from "../components/ForgotPassword";
+import CodeSent from "../components/CodeSent";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [forgotPassword, setForgotPassword] = useState(false);
+  const [codeSent, setCodeSent] = useState(false);
 
   const router = useRouter();
 
@@ -37,6 +41,19 @@ export default function Login() {
 
   if (loading) {
     return <Loading />;
+  }
+
+  if (forgotPassword) {
+    return (
+      <ForgotPassword
+        setForgotPassword={setForgotPassword}
+        setCodeSent={setCodeSent}
+      />
+    );
+  }
+
+  if (codeSent) {
+    return <CodeSent />;
   }
 
   return (
@@ -100,9 +117,12 @@ export default function Login() {
             </div>
           </div>
           <div className="forgot-password my-3 text-right">
-            <Link href="#" className="text-right hover:text-indigo-300">
+            <button
+              onClick={() => setForgotPassword(true)}
+              className="text-right border-0 hover:text-indigo-300"
+            >
               Forgot password?
-            </Link>
+            </button>
           </div>
           <button
             type="submit"
