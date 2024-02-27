@@ -1,26 +1,61 @@
-import ModalFullLayout from './Layout/ModalFullLayout'
-import Link from 'next/link'
+"use client";
 
-export default function ForgotPassword() {
-    return (
-        <ModalFullLayout>
-            <div className="mx-auto">
-                <div className="login-title text-xl mb-3" style={{ color: "#02A29E" }}>Recover my Profile</div>
-                <div className="welcome-message text-gray-500 mb-6">This is an attempt to recover for existing profile</div>
+import { useState } from "react";
+import ModalFullLayout from "./Layout/ModalFullLayout";
 
-                <form>
-                    <div className="form-group mb-3">
-                        <label htmlFor="email">Enter recovery email</label>
-                        <div className="input-field">
-                            <input type="text" id="email" aria-label="Enter recovery email" className="w-full rounded" />
-                        </div>
-                    </div>
-                    <button className="login-button w-full bg-gray-300 rounded py-2 my-3">Log in</button>
-                </form>
-                <div className="form-footer">
-                    <p>Did not receive the code? <span className="text-indigo-500"><Link href="#">Resend code</Link></span></p>
-                </div>
+export default function ForgotPassword({ setForgotPassword, setCodeSent }) {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setForgotPassword(false);
+    setCodeSent(true);
+  };
+
+  return (
+    <ModalFullLayout>
+      <div className="mx-auto">
+        <div className="login-title text-xl mb-3" style={{ color: "#02A29E" }}>
+          Recover my Profile
+        </div>
+        <div className="welcome-message text-gray-500 mb-6">
+          This is an attempt to recover for existing profile
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-group mb-3">
+            <label htmlFor="email">Enter recovery email</label>
+            <div className="input-field">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={email}
+                aria-label="Enter recovery email"
+                className="w-full border border-solid border-gray-300 px-3 py-1 rounded"
+                placeholder="Enter recovery email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-        </ModalFullLayout>
-    )
+          </div>
+          <button
+            type="submit"
+            className="login-button w-full bg-gray-300 rounded py-2 my-3"
+          >
+            Send code
+          </button>
+        </form>
+        <div className="form-footer">
+          <p>
+            Did not receive the code?{" "}
+            <span className="text-indigo-500">
+              <button className="border-0">Resend code</button>
+            </span>
+          </p>
+        </div>
+      </div>
+    </ModalFullLayout>
+  );
 }
