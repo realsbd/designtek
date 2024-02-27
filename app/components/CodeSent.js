@@ -49,7 +49,7 @@ export default function CodeSent() {
                 type="text"
                 maxLength="1"
                 value={digit}
-                className="w-[57px] h-[44px] text-cyan-600 font-bold border border-solid border-gray-300 flex text-center rounded-lg items-center"
+                className="w-[44px] sm:w-[57px] h-[44px] text-cyan-600 font-bold border border-solid border-gray-300 flex text-center rounded-lg items-center"
                 onChange={(e) => handleChange(index, e)}
               />
             ))}
