@@ -70,7 +70,7 @@ export default function Update() {
 
   return (
     <PageLayout>
-      <div className="">
+      <div className="px-3">
         <div className="date mt-16">
           <p className="text-customBlue font-semibold">20. Jan, 2024</p>
         </div>
@@ -78,8 +78,14 @@ export default function Update() {
           Latest Updates On The Financial Exchange Market
         </h1>
         <div className="mb-5">
-          <Image src="/img/blurb-2.png" alt="blurb" width={1200} height={500} />
-          <p className="mt-8">
+          <Image
+            src="/img/blurb-2.png"
+            alt="blurb"
+            width={966}
+            height={482}
+            className="mx-auto"
+          />
+          <p className="mt-8 text-justify">
             When an unknown printer took a galley of type and scrambled it to
             make a type specimen book. It has survived not only five centuries,
             but also the leap into.is simply dummy text of the printing and
@@ -96,7 +102,7 @@ export default function Update() {
 
         <div
           id="recent"
-          className="flex flex-row flex-wrap justify-center justify-between"
+          className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2"
         >
           {recent}
         </div>

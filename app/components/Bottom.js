@@ -26,7 +26,7 @@ export default function Bottom() {
   ];
 
   return (
-    <div className="p-6 w-full mt-24 md:mt-52">
+    <div className="p-6 w-full mt-24 md:mt-32">
       <div className="flex max-w-[501px] flex-col mx-auto">
         <header className="text-zinc-800 text-xl font-semibold leading-6 self-center whitespace-nowrap">
           Never Miss A Post!
@@ -38,12 +38,12 @@ export default function Bottom() {
           <input
             type="email"
             id="email"
-            className="text-gray-500 px-3 py-1 w-full text-lg whitespace-nowrap border border-solid border-cyan-600 justify-center items-stretch rounded"
+            className="text-gray-500 px-3 py-1 w-full text-lg whitespace-nowrap border border-solid border-primary-green focus:outline-primary-green justify-center items-stretch rounded"
             placeholder="Email Address"
           />
           <button
             type="submit"
-            className="text-white text-sm leading-10 whitespace-nowrap justify-center items-stretch rounded bg-zinc-900 self-stretch px-6 max-md:px-5"
+            className="text-white text-sm leading-10 whitespace-nowrap justify-center items-stretch rounded bg-zinc-900 self-stretch px-6 max-md:px-5 hover:bg-primary-green duration-300"
             aria-label="Subscribe"
           >
             Subscribe
@@ -64,14 +64,7 @@ export default function Bottom() {
             Your gateway to a verified financial future.
           </div>
         </div>
-        <div className="contact">
-          <div className="text-zinc-800 text-justify leading-9 tracking-tight">
-            <span className="font-medium text-sm">Contact us</span>
-          </div>
-          <div className="text-zinc-800 text-justify text-sm font-light leading-6 tracking-tight whitespace-nowrap mt-4">
-            +234 (0) 906 336 6118, +234 (0) 70 567 745 6578
-          </div>
-        </div>
+
         <div className="follow-us">
           <div className="text-zinc-800 text-justify text-sm font-semibold leading-6 tracking-tight">
             Follow us
@@ -125,7 +118,11 @@ export default function Bottom() {
         <div className="flex items-center gap-5 flex-wrap">
           <p className="text-xs">All rights reserved by verified</p>
           {footerLinks.map(({ link, text }, index) => (
-            <Link key={index} href={link} className="text-cyan-600 text-xs">
+            <Link
+              key={index}
+              href={link}
+              className="text-primary-green text-xs"
+            >
               {text}
             </Link>
           ))}

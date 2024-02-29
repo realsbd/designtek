@@ -1,8 +1,12 @@
+"use client";
+
 import PageLayout from "./components/Layout/PageLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Blurb from "./components/Blurb";
 import Pagination from "@/app/components/Pagination";
+import Image from "next/image";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default function Home() {
   const blurbsData = [
@@ -82,25 +86,35 @@ export default function Home() {
 
   return (
     <PageLayout>
-      <div>
-        <div className="text-center mt-20">
+      <div className="w-full">
+        <div className="text-center px-5 sm:px-0 mt-20">
           <header className="text-zinc-800 text-xl leading-10 whitespace-nowrap">
             The blog
           </header>
-          <h1 className="text-cyan-600 text-5xl font-medium leading-10 tracking-tighter self-stretch w-full mt-4 max-md:max-w-full max-md:text-4xl max-md:leading-10">
-            Writings from our <span className="text-cyan-600">team</span>
+          <h1 className="text-black inline text-5xl font-medium leading-10 tracking-tighter self-stretch w-full mt-4 max-md:max-w-full max-md:text-4xl max-md:leading-10">
+            Writings from our{" "}
+            <span className="text-primary-green relative">
+              team
+              <Image
+                src="/img/splash.png"
+                alt="splash"
+                width={45}
+                height={45}
+                className="absolute top-2 md:-top-1 -right-4 md:-right-9 max-md:w-5 max-md:h-5"
+              />
+            </span>
           </h1>
-          <div className="text-zinc-800 text-base leading-10 tracking-tight self-stretch w-full mt-4 max-md:max-w-full">
+          <div className="text-zinc-800 text-base leading-5 tracking-tight self-stretch w-full mt-4 max-md:max-w-full">
             The latest industry blog posts, finance, technology and forex
             signals.
           </div>
           <form className="flex justify-center">
             <div
-              className="flex justify-center gap-2 mt-6 mb-4"
+              className="flex justify-center mt-6 mb-4"
               style={{ width: "500px" }}
             >
               <input
-                className="shadow appearance-none border rounded w-2/3 py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 focus:outline-primary-green focus:shadow-outline"
                 id="username"
                 type="text"
                 placeholder="Search updates"
@@ -109,21 +123,22 @@ export default function Home() {
                 className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
                 type="button"
               >
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="w-6" />
               </button>
             </div>
           </form>
         </div>
 
         <div
-          className="mt-8 lg:mt-16 w-11/12 md:w-4/5 pt-40 lg:pt-80 mx-auto relative"
+          className="mt-8 h-[482px] p-10 flex items-center max-sm:justify-center sm:items-end"
           style={{
-            backgroundImage: "url('/img/blurb-2.png')",
+            backgroundImage: "url('/img/hero-image.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgorundRepeat: "no-repeat",
           }}
         >
-          <div className="text-white ml-8 ">
+          <div className="text-white max-sm:text-center">
             <p className="text-2xl font-normal">David Nelson. 20.Jan.2024</p>
             <h3 className="text-4xl font-medium tracking-tighter">
               Latest updates on the financial exchange market
@@ -131,10 +146,22 @@ export default function Home() {
             <p className="text-2xl font-normal mb-3">
               Latest update on forex news
             </p>
+
+            <div className="flex gap-2 max-sm:justify-center items-center">
+              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
+                Crypto
+              </button>
+              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
+                Money
+              </button>
+              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
+                Market
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-row flex-wrap justify-center">
+        <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
           {blurbsData.map((blurb) => (
             <Blurb
               key={blurb.title}
@@ -146,6 +173,7 @@ export default function Home() {
           ))}
         </div>
         <Pagination />
+        <ScrollToTopButton />
       </div>
     </PageLayout>
   );

@@ -59,19 +59,21 @@ export default function Login() {
   return (
     <AuthLayout>
       <div className="w-full">
-        <div className="login-title text-indigo-300 text-xl mb-3">Log in</div>
+        <div className="login-title text-primary-green text-xl mb-3">
+          Log in
+        </div>
         <div className="welcome-message text-gray-500 mb-6">
           Welcome! Please enter your details.
         </div>
         <div className="flex flex-col">
-          <button className="form-group">
-            <div className="flex items-center gap-2 login-with-google border rounded border-gray-300 justify-center py-[5px] my-2">
+          <button className="form-group hover:bg-primary-green hover:text-white border rounded duration-300 border-gray-300 py-[5px] my-2">
+            <div className="flex items-center gap-2 login-with-google justify-center">
               <FontAwesomeIcon icon={faGoogle} className="w-6" />
               <div>Log in with Google</div>
             </div>
           </button>
-          <button className="form-group">
-            <div className="flex items-center gap-2 login-with-apple border rounded border-gray-300 justify-center py-[5px] my-2">
+          <button className="form-group hover:bg-primary-green hover:text-white border rounded duration-300 border-gray-300 py-[5px] my-2">
+            <div className="flex items-center gap-2 login-with-apple justify-center">
               <FontAwesomeIcon icon={faApple} className="w-6" />
               <div>Log in with Apple</div>
             </div>
@@ -95,7 +97,7 @@ export default function Login() {
                 aria-label="Enter your email"
                 placeholder="Enter your email"
                 required
-                className="w-full rounded border border-solid border-gray-300 px-3 py-[5px]"
+                className="w-full rounded border border-solid border-gray-300 px-3 py-[5px] focus:outline-primary-green"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -111,7 +113,7 @@ export default function Login() {
                 aria-label="Enter your password"
                 placeholder="Enter your password"
                 required
-                className="w-full rounded border border-solid border-gray-300 px-3 py-[5px]"
+                className="w-full rounded border border-solid border-gray-300 px-3 py-[5px] focus:outline-primary-green"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
@@ -119,14 +121,14 @@ export default function Login() {
           <div className="forgot-password my-3 text-right">
             <button
               onClick={() => setForgotPassword(true)}
-              className="text-right border-0 hover:text-indigo-300"
+              className="text-right border-0 hover:text-primary-green"
             >
               Forgot password?
             </button>
           </div>
           <button
             type="submit"
-            className="login-button w-full bg-gray-300 rounded py-2 my-3"
+            className="login-button w-full bg-gray-300 hover:bg-primary-green hover:text-white rounded py-2 my-3"
           >
             Log in
           </button>
@@ -134,7 +136,7 @@ export default function Login() {
         <div className="form-footer">
           <p>
             Don&lsquo;t have an account?{" "}
-            <span className="text-indigo-500">
+            <span className="text-primary-green">
               <Link href="/signup">Sign up for free</Link>
             </span>
           </p>
