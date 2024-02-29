@@ -165,7 +165,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center">
+        <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
           {filteredBlurbs.map((blurb, index) => (
             <Blurb
               key={index}
