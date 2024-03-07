@@ -6,8 +6,14 @@ export default function Blurb(props) {
   return (
     <div className="">
       <div className="flex justify-center">
-        <Link href={props.link}>
-          <Image src={props.img} width={500} height={227} alt="blurb" />
+        <Link href={props.link} className="w-full">
+          <Image
+            src={props.img}
+            width={500}
+            height={227}
+            alt="blurb"
+            className="w-full"
+          />
         </Link>
       </div>
       <div className="tracking-tighter">

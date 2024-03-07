@@ -72,43 +72,58 @@ export default function Bottom() {
           <div className="social-links flex gap-4 py-5">
             <Link
               href="#"
-              className="flex-1 overflow-hidden shrink-0 max-w-full"
+              className="overflow-hidden bg-[#F6FAFF] flex justify-center items-center rounded-full h-[50px] w-[50px]"
               aria-label="Facebook"
               aria-role="link"
             >
-              <FontAwesomeIcon icon={faFacebook} style={{ color: "#0866FF" }} />
+              <FontAwesomeIcon
+                icon={faFacebook}
+                style={{ color: "#0866FF", width: "24px", height: "24px" }}
+              />
             </Link>
             <Link
               href="#"
-              className="flex-1 overflow-hidden shrink-0 max-w-full"
+              className="overflow-hidden bg-[#F6FAFF] flex justify-center items-center rounded-full h-[50px] w-[50px]"
               aria-label="Twitter"
               aria-role="link"
             >
-              <FontAwesomeIcon icon={faXTwitter} />
+              <FontAwesomeIcon
+                icon={faXTwitter}
+                style={{ width: "24px", height: "24px" }}
+              />
             </Link>
             <Link
               href="#"
-              className="flex-1 overflow-hidden shrink-0 max-w-full"
+              className="overflow-hidden bg-[#F6FAFF] flex justify-center items-center rounded-full h-[50px] w-[50px]"
               aria-label="Instagram"
               aria-role="link"
             >
-              <FontAwesomeIcon icon={faInstagram} />
+              <FontAwesomeIcon
+                icon={faInstagram}
+                style={{ width: "24px", height: "24px" }}
+              />
             </Link>
             <Link
               href="#"
-              className="flex-1 overflow-hidden shrink-0 max-w-full"
+              className="overflow-hidden bg-[#F6FAFF] flex justify-center items-center rounded-full h-[50px] w-[50px]"
               aria-label="YouTube"
               aria-role="link"
             >
-              <FontAwesomeIcon icon={faWhatsapp} style={{ color: "#25D366" }} />
+              <FontAwesomeIcon
+                icon={faWhatsapp}
+                style={{ color: "#25D366", width: "24px", height: "24px" }}
+              />
             </Link>
             <Link
               href="#"
-              className="flex-1 overflow-hidden shrink-0 max-w-full"
+              className="overflow-hidden bg-[#F6FAFF] flex justify-center items-center rounded-full h-[50px] w-[50px]"
               aria-label="LinkedIn"
               aria-role="link"
             >
-              <FontAwesomeIcon icon={faLinkedin} style={{ color: "#0A66C2" }} />
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                style={{ color: "#0A66C2", width: "24px", height: "24px" }}
+              />
             </Link>
           </div>
         </div>
