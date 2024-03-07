@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { faApple } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle, faApple} from "@fortawesome/free-brands-svg-icons";
+import { faEye, faEyeSlash  } from "@fortawesome/free-solid-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
 import Loading from "./loading";
 
@@ -17,6 +17,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const router = useRouter();
 
@@ -36,6 +37,10 @@ export default function Login() {
     }, 3000);
   };
 
+  const toggleVisible = () => {
+    setIsVisible(!isVisible)
+  }
+
   if (loading) {
     return <Loading />;
   }
@@ -49,25 +54,7 @@ export default function Login() {
         <div className="welcome-message text-gray-500 mb-6">
           Welcome! Please enter your details.
         </div>
-        <div className="flex flex-col">
-          <button className="form-group hover:bg-primary-green hover:text-white border rounded duration-300 border-gray-300 py-[5px] my-2">
-            <div className="flex items-center gap-2 login-with-google justify-center">
-              <FontAwesomeIcon icon={faGoogle} className="w-6" />
-              <div>Log in with Google</div>
-            </div>
-          </button>
-          <button className="form-group hover:bg-primary-green hover:text-white border rounded duration-300 border-gray-300 py-[5px] my-2">
-            <div className="flex items-center gap-2 login-with-apple justify-center">
-              <FontAwesomeIcon icon={faApple} className="w-6" />
-              <div>Log in with Apple</div>
-            </div>
-          </button>
-        </div>
-        <div className="divider flex items-center gap-2 my-3 text-center">
-          <div className="divider-line bg-gray-300" />
-          <div className="divider-text">or</div>
-          <div className="divider-line bg-gray-300" />
-        </div>
+
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="username" className="text-sm">
@@ -82,7 +69,7 @@ export default function Login() {
                 aria-label="Enter your username"
                 placeholder="Enter your username"
                 required
-                className="w-full rounded border text-sm border-solid focus:outline-primary-green border-gray-300 px-3 py-[5px]"
+                className="w-full rounded border text-sm border-solid outline-none border-gray-300 px-3 py-[5px]"
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
@@ -100,7 +87,7 @@ export default function Login() {
                 aria-label="Enter your email"
                 placeholder="Enter your email"
                 required
-                className="w-full rounded text-sm  border border-solid focus:outline-primary-green border-gray-300 px-3 py-[5px]"
+                className="w-full rounded text-sm  border border-solid outline-none border-gray-300 px-3 py-[5px]"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -109,33 +96,33 @@ export default function Login() {
             <label htmlFor="password" className="text-sm">
               Password
             </label>
-            <div className="input-field">
+            <div className="flex gap-1 items-center input-field w-full rounded border border-solid border-gray-300 px-3 py-[5px]">
               <input
-                type="password"
+                type={isVisible ? "text" : "password"}
                 id="password"
                 name="password"
                 value={password}
                 aria-label="Enter your password"
                 placeholder="Enter your password"
                 required
-                className="w-full rounded text-sm  border border-solid focus:outline-primary-green border-gray-300 px-3 py-[5px]"
+                className="text-sm w-full outline-none"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <span onClick={toggleVisible} className="pointer">
+                {isVisible ? (<FontAwesomeIcon icon={faEye} />) : (<FontAwesomeIcon icon={faEyeSlash} />)}
+              
+              </span>
             </div>
           </div>
           <div className=" my-3 flex items-center gap-2">
-            <input type="checkbox" className="align self-start" />
+            <input type="checkbox" className="" />
             <p className="text-sm">
-              By signing up, you{" "}
-              <Link href="#" className="text-indigo-500">
-                Agree
-              </Link>{" "}
-              to our{" "}
-              <Link href="#" className="text-indigo-500">
+              By signing up, you Agree to our{" "}
+              <Link href="/terms-condition" className="text-primary-green">
                 Terms
               </Link>{" "}
               &{" "}
-              <Link href="#" className="text-indigo-500">
+              <Link href="/terms-condition" className="text-primary-green">
                 Conditions
               </Link>
             </p>
@@ -147,6 +134,28 @@ export default function Login() {
             Sign up
           </button>
         </form>
+
+        <div className="divider flex items-center gap-2 my-3 text-center">
+          <div className="divider-line bg-gray-300" />
+          <div className="divider-text">or</div>
+          <div className="divider-line bg-gray-300" />
+        </div>
+
+        <div className="flex flex-col">
+          <button className="form-group hover:bg-primary-green hover:text-white border rounded duration-300 border-gray-300 py-[5px] my-2">
+            <div className="flex items-center gap-2 login-with-google justify-center">
+              <FontAwesomeIcon icon={faGoogle} className="w-6" />
+              <div>Log in with Google</div>
+            </div>
+          </button>
+          <button className="form-group hover:bg-primary-green hover:text-white border rounded duration-300 border-gray-300 py-[5px] my-2">
+            <div className="flex items-center gap-2 login-with-apple justify-center">
+              <FontAwesomeIcon icon={faApple} className="w-6" />
+              <div>Log in with Apple</div>
+            </div>
+          </button>
+        </div>
+
         <div className="form-footer">
           <p>
             Already have an account?{" "}
