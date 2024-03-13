@@ -26,7 +26,7 @@ export default function Bottom() {
   ];
 
   return (
-    <div className="p-6 w-full mt-24 md:mt-32">
+    <div className="p-6 w-full mt-24 md:mt-38">
       <div className="flex max-w-[501px] flex-col mx-auto">
         <header className="text-zinc-800 text-xl font-semibold leading-6 self-center whitespace-nowrap">
           Never Miss A Post!
@@ -51,7 +51,7 @@ export default function Bottom() {
         </form>
       </div>
 
-      <div className="flex flex-wrap gap-4 mt-10 items-center justify-between pb-6 border-b border-gray-400">
+      <div className="flex flex-wrap gap-4 mt-36 items-center justify-between pb-6 border-b border-gray-400">
         <div className="header">
           <Image
             src="/img/logo.png"

@@ -139,25 +139,22 @@ export default function Home() {
           }}
         >
           <div className="text-white max-sm:text-center">
-            <p className="text-2xl font-normal">David Nelson. 20.Jan.2024</p>
-            <h3 className="text-4xl font-medium tracking-tighter">
-              Latest updates on the financial exchange market
-            </h3>
-            <p className="text-2xl font-normal mb-3">
-              Latest update on forex news
-            </p>
+            <div className="flex gap-5 items-center">
+              <div className="w-[44px] h-[44px] flex justify-center items-center rounded-full overflow-hidden">
+                <Image
+                  src="/img/author.jpg"
+                  width={50}
+                  height={50}
+                  alt="blog user"
+                />
+              </div>
 
-            <div className="flex gap-2 max-sm:justify-center items-center">
-              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
-                Crypto
-              </button>
-              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
-                Money
-              </button>
-              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
-                Market
-              </button>
+              <p className="text-lg">David Nelson. 20.Jan.2024</p>
             </div>
+            <p className="text-[32px] font-semibold tracking-tighter">
+              Latest updates on the financial exchange market that led to the
+              crash of NGN
+            </p>
           </div>
         </div>
 

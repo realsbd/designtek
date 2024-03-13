@@ -103,77 +103,79 @@ export default function Dashboard() {
   });
   return (
     <DashboardLayout>
-      <NavDashboard />
-      <div className="flex flex-col justify-center w-full">
-        {/*<FilterPosts />*/}
+      <div className="px-5 md:px-20">
+        <NavDashboard />
+        <div className="flex flex-col justify-center w-full">
+          {/*<FilterPosts />*/}
 
-        <div className={"flex flex-wrap gap-8 w-full items-center"}>
-          <div
-            onClick={() => setFilter("all")}
-            className={`flex items-center cursor-pointer ${
-              filter === "all" ? "text-customBlue" : "text-gray-700"
-            }`}
-          >
-            <FontAwesomeIcon icon={faBars} />
-            <div className={"pl-2"}>All posts</div>
+          <div className={"flex flex-wrap gap-8 w-full items-center"}>
+            <div
+              onClick={() => setFilter("all")}
+              className={`flex items-center cursor-pointer ${
+                filter === "all" ? "text-customBlue" : "text-gray-700"
+              }`}
+            >
+              <FontAwesomeIcon icon={faBars} />
+              <div className={"pl-2"}>All posts</div>
+            </div>
+            <div
+              onClick={() => setFilter("published")}
+              className={`flex items-center cursor-pointer ${
+                filter === "published" ? "text-customBlue" : "text-gray-700"
+              }`}
+            >
+              <FontAwesomeIcon icon={faCircleCheck} />
+              <div className={"pl-2"}>Approved posts</div>
+            </div>
+            <div
+              onClick={() => setFilter("pending")}
+              className={`flex items-center cursor-pointer ${
+                filter === "pending" ? "text-customBlue" : "text-gray-700"
+              }`}
+            >
+              <FontAwesomeIcon icon={faClock} />
+              <div className={"pl-2"}>Pending posts</div>
+            </div>
+            <div
+              onClick={() => setFilter("disapproved")}
+              className={`flex items-center cursor-pointer ${
+                filter === "disapproved" ? "text-customBlue" : "text-gray-700"
+              }`}
+            >
+              <FontAwesomeIcon icon={faCircleXmark} />
+              <div className={"pl-2"}>Disapproved posts</div>
+            </div>
           </div>
-          <div
-            onClick={() => setFilter("published")}
-            className={`flex items-center cursor-pointer ${
-              filter === "published" ? "text-customBlue" : "text-gray-700"
-            }`}
-          >
-            <FontAwesomeIcon icon={faCircleCheck} />
-            <div className={"pl-2"}>Approved posts</div>
-          </div>
-          <div
-            onClick={() => setFilter("pending")}
-            className={`flex items-center cursor-pointer ${
-              filter === "pending" ? "text-customBlue" : "text-gray-700"
-            }`}
-          >
-            <FontAwesomeIcon icon={faClock} />
-            <div className={"pl-2"}>Pending posts</div>
-          </div>
-          <div
-            onClick={() => setFilter("disapproved")}
-            className={`flex items-center cursor-pointer ${
-              filter === "disapproved" ? "text-customBlue" : "text-gray-700"
-            }`}
-          >
-            <FontAwesomeIcon icon={faCircleXmark} />
-            <div className={"pl-2"}>Disapproved posts</div>
-          </div>
-        </div>
 
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center">
-          <h2 className={"my-8 mx-3 text-2xl text-gray-700"}>
-            All Posts ({formatCount(filteredBlurbs.length)})
-          </h2>
+          <div className="flex flex-col sm:flex-row justify-between sm:items-center">
+            <h2 className={"my-8 mx-3 text-2xl text-gray-700"}>
+              All Posts ({formatCount(filteredBlurbs.length)})
+            </h2>
 
-          <div className="flex items-center border border-solid border-gray-300 rounded-lg overflow-hidden px-3 py-1">
-            <input
-              type="text"
-              name="search"
-              placeholder="Search posts"
-              className="outline-none text-sm w-full"
-            />
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              style={{ color: "#63E6BE" }}
-            />
+            <div className="flex items-center border border-solid border-gray-300 rounded-lg overflow-hidden px-3 py-1">
+              <input
+                type="text"
+                name="search"
+                placeholder="Search posts"
+                className="outline-none text-sm w-full"
+              />
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                style={{ color: "#63E6BE" }}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
-          {filteredBlurbs.map((blurb, index) => (
-            <Blurb
-              key={index}
-              link={blurb.link}
-              img={blurb.img}
-              title={blurb.title}
-            />
-          ))}
+          <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
+            {filteredBlurbs.map((blurb, index) => (
+              <Blurb
+                key={index}
+                link={blurb.link}
+                img={blurb.img}
+                title={blurb.title}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </DashboardLayout>

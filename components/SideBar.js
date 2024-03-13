@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -40,6 +40,11 @@ export default function Sidebar() {
       icon: faPenToSquare,
     },
     {
+      title: "Become a partner",
+      href: "/dashboard/partner",
+      icon: faUserGroup,
+    },
+    {
       title: "Settings",
       href: "/dashboard/settings",
       icon: faGear,
@@ -55,7 +60,7 @@ export default function Sidebar() {
     <>
       {open ? (
         <aside
-          className={`bg-gray-800 flex flex-col h-full z-40 w-64 py-4 px-6 transition-transform duration-300 `}
+          className={`bg-black flex flex-col h-full z-40 w-64 py-4 px-6 transition-transform border-none duration-300 `}
         >
           {/* Hamburger menu icon */}
           <button

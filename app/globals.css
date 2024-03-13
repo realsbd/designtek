@@ -5,6 +5,11 @@
 @layer base {
   :root {
     --primary-green: #02a29e;
+    --gray-shade-0: #d0d5dd;
+    --gray-shade-5: #72757e;
+    --gray-shade-10: #e0e5fa;
+    --gray-shade-15: #f8f9fb;
+    --black-shade-0: #323232;
 
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -74,6 +79,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .gray-intput-field {
+    @apply border border-solid border-gray-shade-0 px-3 py-1 rounded-md w-full outline-primary-green;
+  }
+
+  .become-a-partner-submit-btn {
+    @apply bg-[#E8EDF4] text-black duration-300 px-4 py-1 rounded-sm text-sm;
   }
 }
 
