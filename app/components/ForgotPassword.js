@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ModalFullLayout from "./Layout/ModalFullLayout";
 
-export default function ForgotPassword({ setForgotPassword, setCodeSent }) {
+export default function ForgotPassword() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {

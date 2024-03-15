@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import {redirect} from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faApple} from "@fortawesome/free-brands-svg-icons";
 import { faEye, faEyeSlash  } from "@fortawesome/free-solid-svg-icons";
@@ -11,39 +8,11 @@ import AuthLayout from "../components/Layout/AuthLayout";
 import Loading from "./loading";
 
 import "../styles/style.css";
+import {register} from "@/lib/auth";
+import PasswordField from "@/components/PasswordField";
 
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+export default function Signup() {
 
-  const router = useRouter();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setLoading(true);
-
-    console.log({
-      email: email,
-      password: password,
-    });
-
-    setTimeout(() => {
-      router.push("/login");
-      setLoading(false);
-    }, 3000);
-  };
-
-  const toggleVisible = () => {
-    setIsVisible(!isVisible)
-  }
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <AuthLayout>
@@ -55,7 +24,13 @@ export default function Login() {
           Welcome! Please enter your details.
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form
+            action={async (formData) => {
+              "use server";
+              await register(formData)
+              // redirect("/dashboard")
+            }}
+        >
           <div className="form-group mb-3">
             <label htmlFor="username" className="text-sm">
               Username
@@ -65,12 +40,10 @@ export default function Login() {
                 type="text"
                 id="username"
                 name="username"
-                value={username}
                 aria-label="Enter your username"
                 placeholder="Enter your username"
                 required
                 className="w-full rounded border text-sm border-solid outline-none border-gray-300 px-3 py-[5px]"
-                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
           </div>
@@ -83,12 +56,10 @@ export default function Login() {
                 type="email"
                 id="email"
                 name="email"
-                value={email}
                 aria-label="Enter your email"
                 placeholder="Enter your email"
                 required
                 className="w-full rounded text-sm  border border-solid outline-none border-gray-300 px-3 py-[5px]"
-                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -96,23 +67,7 @@ export default function Login() {
             <label htmlFor="password" className="text-sm">
               Password
             </label>
-            <div className="flex gap-1 items-center input-field w-full rounded border border-solid border-gray-300 px-3 py-[5px]">
-              <input
-                type={isVisible ? "text" : "password"}
-                id="password"
-                name="password"
-                value={password}
-                aria-label="Enter your password"
-                placeholder="Enter your password"
-                required
-                className="text-sm w-full outline-none"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <span onClick={toggleVisible} className="pointer">
-                {isVisible ? (<FontAwesomeIcon icon={faEye} />) : (<FontAwesomeIcon icon={faEyeSlash} />)}
-              
-              </span>
-            </div>
+            <PasswordField />
           </div>
           <div className=" my-3 flex items-center gap-2">
             <input type="checkbox" className="" />
