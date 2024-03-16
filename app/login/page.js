@@ -2,7 +2,6 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faApple} from "@fortawesome/free-brands-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
-import Loading from "./loading";
 import { redirect } from "next/navigation";
 import {login} from "@/lib/auth";
 

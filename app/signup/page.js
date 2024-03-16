@@ -1,11 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
-import {redirect} from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faApple} from "@fortawesome/free-brands-svg-icons";
-import { faEye, faEyeSlash  } from "@fortawesome/free-solid-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
-import Loading from "./loading";
 
 import "../styles/style.css";
 import {register} from "@/lib/auth";
