@@ -11,7 +11,8 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
+import {useLogout} from "@/app/hooks/useLogout";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
@@ -50,6 +51,11 @@ export default function Sidebar() {
       icon: faPhone,
     },
   ];
+  const {logout} = useLogout()
+
+  const handleLogout = async () => {
+    logout()
+  };
 
   return (
     <>
@@ -92,7 +98,7 @@ export default function Sidebar() {
                 </div>
                 <div className="text-white text-sm leading-5">Contributor</div>
               </div>
-              <FontAwesomeIcon icon={faArrowRightFromBracket} color="white" />
+              <FontAwesomeIcon icon={faArrowRightFromBracket} color="white" className={"cursor-pointer"} onClick={handleLogout} />
             </div>
           </div>
         </aside>
