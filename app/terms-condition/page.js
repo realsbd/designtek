@@ -14,7 +14,7 @@ const TermsPage = () => {
       <div className="px-4 md:px-0">
         <button
           href=""
-          className="w-9 h-9 rounded-full bg-cyan-600 flex items-center justify-center"
+          className="w-9 h-9 rounded-full bg-primary-green flex items-center justify-center"
           onClick={() => router.back()}
         >
           <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#ffffff" }} />
@@ -27,7 +27,7 @@ const TermsPage = () => {
 
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">1. Acceptance of Terms.</h2>
+            <h2 className="text-primary-green">1. Acceptance of Terms.</h2>
             <p className="text-justify">
               1.1 Welcome to Verified! You acknowledge that these Terms and
               Conditions (the &quot;Terms&quot;) govern your use of our website
@@ -37,7 +37,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">2. Content and Services</h2>
+            <h2 className="text-primary-green">2. Content and Services</h2>
             <p className="text-justify">
               2.1 Verified provides information, news, and updates related to
               finance, cryptocurrency, and fiat currency. The content is for
@@ -51,7 +51,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">3. User Accounts</h2>
+            <h2 className="text-primary-green">3. User Accounts</h2>
             <p className="text-justify">
               3.1 To access certain features of the Service, you may be required
               to create an account. You agree to provide accurate, current, and
@@ -66,7 +66,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">4. User Conduct</h2>
+            <h2 className="text-primary-green">4. User Conduct</h2>
             <p className="text-justify">
               4.1 You agree to use the Service in accordance with all applicable
               laws and regulations.
@@ -84,7 +84,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">5. Intellectual Property</h2>
+            <h2 className="text-primary-green">5. Intellectual Property</h2>
             <p className="text-justify">
               5.1 The content on Verified Blog, including text, graphics, logos,
               and images, is the intellectual property of Verified Blog and is
@@ -98,7 +98,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">6. Third-Party Links</h2>
+            <h2 className="text-primary-green">6. Third-Party Links</h2>
             <p className="text-justify">
               6.1 The Service may contain links to third-party websites or
               services that are not owned or controlled by Verified. We are not
@@ -108,7 +108,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">7. Disclaimer of Warranties</h2>
+            <h2 className="text-primary-green">7. Disclaimer of Warranties</h2>
             <p className="text-justify">
               7.1 The Service is provided &quot;as is&quot; and &quot;as
               available&quot; without any explicit or implied warranties of any
@@ -119,7 +119,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">8. Limitation of Liability</h2>
+            <h2 className="text-primary-green">8. Limitation of Liability</h2>
             <p className="text-justify">
               8.1 In no event shall Verified be liable for any indirect,
               incidental, special, consequential, or punitive damages, or any
@@ -130,7 +130,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">9. Governing Law</h2>
+            <h2 className="text-primary-green">9. Governing Law</h2>
             <p className="text-justify">
               9.1 These Terms shall be governed by and construed in accordance
               with the laws of Nigeria.
@@ -138,7 +138,7 @@ const TermsPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">10. Changes to Terms</h2>
+            <h2 className="text-primary-green">10. Changes to Terms</h2>
             <p className="text-justify">
               10.1 These Terms are subject to amendment or modification at any
               time by us. It is advised that you frequently examine the Terms.
@@ -153,8 +153,8 @@ const TermsPage = () => {
           </p>
 
           <p className="text-justify">
-            <span className="text-cyan-600">Last updated:</span> 10, January,
-            2024.
+            <span className="text-primary-green">Last updated:</span> 10,
+            January, 2024.
           </p>
 
           <p className="text-justify">Thank you for using Verified!</p>

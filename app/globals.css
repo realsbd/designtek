@@ -9,6 +9,9 @@
     --gray-shade-5: #72757e;
     --gray-shade-10: #e0e5fa;
     --gray-shade-15: #f8f9fb;
+    --gray-shade-20: #f3f7fc;
+    --gray-shade-25: #e7ecf3;
+    --gray-shade-30: #667085;
     --black-shade-0: #323232;
 
     --background: 0 0% 100%;
@@ -93,6 +96,51 @@
 .active_nav {
   border-bottom: 1px solid var(--primary-green);
   color: var(--primary-green);
+}
+
+.circular-progress-status {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.circular-progress-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.circular-progress-title > p:nth-child(1) {
+  text-transform: uppercase;
+}
+
+.circular-progress-title > p:nth-child(2) {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.circular-progress-extra > p > span {
+  font-weight: 700;
+}
+
+.circle-background {
+  fill: none;
+  stroke: var(--gray-shade-20);
+}
+
+.circle-progress {
+  fill: none;
+  stroke: #ac0000;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circle-text {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1023px) {

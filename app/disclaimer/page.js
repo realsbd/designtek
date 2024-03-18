@@ -14,7 +14,7 @@ const DisclaimerPage = () => {
       <div className="px-4 md:px-0">
         <button
           href=""
-          className="w-9 h-9 rounded-full bg-cyan-600 flex items-center justify-center"
+          className="w-9 h-9 rounded-full bg-primary-green flex items-center justify-center"
           onClick={() => router.back()}
         >
           <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#ffffff" }} />

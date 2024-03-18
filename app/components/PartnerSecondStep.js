@@ -8,13 +8,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import AppliedCard from "./AppliedCard";
 
 const PartnerSecondStep = ({
   setCurrentStep,
   handleDocumentChange,
   handleFileChange,
   file,
+  success,
+  setSuccess,
 }) => {
+  if (success) {
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <AppliedCard />
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="flex md:justify-between flex-col md:flex-row h-full">
@@ -112,15 +123,12 @@ const PartnerSecondStep = ({
           </div>
         </div>
         <div className="flex md:flex-col justify-end">
-          <div className="flex gap-5">
-            <button onClick={() => setCurrentStep(1)}>
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
+          <div className="flex">
             <button
-              onClick={() => setCurrentStep(3)}
+              onClick={() => setCurrentStep(1)}
               className="bg-[#E8EDF4] hover:bg-primary-green duration-300 px-5 py-2 rounded-sm text-black hover:text-white"
             >
-              Next
+              Previous
             </button>
           </div>
         </div>

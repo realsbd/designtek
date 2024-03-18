@@ -1,19 +1,24 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import DashboardLayout from "../components/Layout/DashboardLayout";
 import NavDashboard from "@/components/NavDashboard";
-import Blurb from "@/app/components/Blurb";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faCircleCheck,
-  faCircleXmark,
-  faClock,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+// import Blurb from "@/app/components/Blurb";
+
+import DashboardPostsTab from "../components/DashboardPostsTab";
+import DashboardPostTab from "../components/DashboardPostTab";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Dashboard() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
   const [filter, setFilter] = useState("all");
+  const [currentTab, setCurrentTab] = useState(searchParams.get("tab") || 1);
+
+  useEffect(() => {
+    handleTabChange(searchParams.get("tab") || 1);
+  }, [searchParams, currentTab]);
 
   function formatCount(count) {
     if (count >= 1000) {
@@ -101,82 +106,49 @@ export default function Dashboard() {
     if (filter === "all") return true;
     return blurb.status === filter;
   });
+
+  const handleFilterChange = (value) => {
+    setFilter(value);
+  };
+
+  const handleTabChange = (value) => {
+    console.log("clicked", value);
+    setCurrentTab(value);
+  };
+
+  const showTab = (tab) => {
+    switch (tab) {
+      case 1:
+        return (
+          <DashboardPostsTab
+            filter={filter}
+            handleFilterChange={handleFilterChange}
+            // handleTabChange={handleTabChange}
+            formatCount={formatCount}
+            filteredBlurbs={filteredBlurbs}
+          />
+        );
+      case 2:
+        return (
+          <DashboardPostTab
+            filter={filter}
+            handleFilterChange={handleFilterChange}
+            formatCount={formatCount}
+            filteredBlurbs={filteredBlurbs}
+            // handleTabChange={handleTabChange}
+          />
+        );
+    }
+  };
+
   return (
     <DashboardLayout>
       <div className="px-5 md:px-20">
-        <NavDashboard />
-        <div className="flex flex-col justify-center w-full">
-          {/*<FilterPosts />*/}
-
-          <div className={"flex flex-wrap gap-8 w-full items-center"}>
-            <div
-              onClick={() => setFilter("all")}
-              className={`flex items-center cursor-pointer ${
-                filter === "all" ? "text-customBlue" : "text-gray-700"
-              }`}
-            >
-              <FontAwesomeIcon icon={faBars} />
-              <div className={"pl-2"}>All posts</div>
-            </div>
-            <div
-              onClick={() => setFilter("published")}
-              className={`flex items-center cursor-pointer ${
-                filter === "published" ? "text-customBlue" : "text-gray-700"
-              }`}
-            >
-              <FontAwesomeIcon icon={faCircleCheck} />
-              <div className={"pl-2"}>Approved posts</div>
-            </div>
-            <div
-              onClick={() => setFilter("pending")}
-              className={`flex items-center cursor-pointer ${
-                filter === "pending" ? "text-customBlue" : "text-gray-700"
-              }`}
-            >
-              <FontAwesomeIcon icon={faClock} />
-              <div className={"pl-2"}>Pending posts</div>
-            </div>
-            <div
-              onClick={() => setFilter("disapproved")}
-              className={`flex items-center cursor-pointer ${
-                filter === "disapproved" ? "text-customBlue" : "text-gray-700"
-              }`}
-            >
-              <FontAwesomeIcon icon={faCircleXmark} />
-              <div className={"pl-2"}>Disapproved posts</div>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-between sm:items-center">
-            <h2 className={"my-8 mx-3 text-2xl text-gray-700"}>
-              All Posts ({formatCount(filteredBlurbs.length)})
-            </h2>
-
-            <div className="flex items-center border border-solid border-gray-300 rounded-lg overflow-hidden px-3 py-1">
-              <input
-                type="text"
-                name="search"
-                placeholder="Search posts"
-                className="outline-none text-sm w-full"
-              />
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                style={{ color: "#63E6BE" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
-            {filteredBlurbs.map((blurb, index) => (
-              <Blurb
-                key={index}
-                link={blurb.link}
-                img={blurb.img}
-                title={blurb.title}
-              />
-            ))}
-          </div>
+        <div className="py-8">
+          <NavDashboard />
         </div>
+
+        <div>{showTab(parseInt(currentTab))}</div>
       </div>
     </DashboardLayout>
   );

@@ -10,6 +10,7 @@ import PartnerFourthStep from "@/app/components/PartnerFourthStep";
 
 const PartnerPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [success, setSuccess] = useState(false);
 
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [file, setFile] = useState(null);
@@ -35,6 +36,8 @@ const PartnerPage = () => {
             handleDocumentChange={handleDocumentChange}
             handleFileChange={handleFileChange}
             file={file}
+            success={success}
+            setSuccess={setSuccess}
           />
         );
       case 3:
@@ -49,8 +52,12 @@ const PartnerPage = () => {
   };
 
   const handleSubmit = () => {
-    setCurrentStep(4);
+    setSuccess(true);
     console.log("clicked");
+    setTimeout(() => {
+      setSuccess(false);
+      setCurrentStep(3);
+    }, 2000);
   };
 
   return (
@@ -61,9 +68,9 @@ const PartnerPage = () => {
       <div className="bg-black flex justify-end w-full py-2 px-20">
         <div className="">
           <button
-            disabled={!(currentStep === 3) || !(currentStep === 3)}
+            disabled={!(currentStep === 2)}
             className={`become-a-partner-submit-btn ${
-              currentStep >= 3 ? "bg-primary-green text-white" : ""
+              currentStep >= 2 ? "bg-primary-green text-white" : ""
             }`}
             onClick={handleSubmit}
           >

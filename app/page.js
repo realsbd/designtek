@@ -7,6 +7,7 @@ import Blurb from "./components/Blurb";
 import Pagination from "@/app/components/Pagination";
 import Image from "next/image";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import Link from "next/link";
 
 export default function Home() {
   const blurbsData = [
@@ -130,7 +131,7 @@ export default function Home() {
         </div>
 
         <div
-          className="mt-8 h-[482px] p-10 flex items-center max-sm:justify-center sm:items-end"
+          className="mt-8 h-[482px] p-5 sm:p-10 flex max-sm:justify-center items-end"
           style={{
             backgroundImage: "url('/img/hero-image.png')",
             backgroundSize: "cover",
@@ -138,7 +139,7 @@ export default function Home() {
             backgorundRepeat: "no-repeat",
           }}
         >
-          <div className="text-white max-sm:text-center">
+          <Link href="/update" className="text-white ">
             <div className="flex gap-5 items-center">
               <div className="w-[44px] h-[44px] flex justify-center items-center rounded-full overflow-hidden">
                 <Image
@@ -151,11 +152,11 @@ export default function Home() {
 
               <p className="text-lg">David Nelson. 20.Jan.2024</p>
             </div>
-            <p className="text-[32px] font-semibold tracking-tighter">
+            <p className="text-lg sm:text-[32px] font-semibold tracking-tighter">
               Latest updates on the financial exchange market that led to the
               crash of NGN
             </p>
-          </div>
+          </Link>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
@@ -169,7 +170,9 @@ export default function Home() {
             />
           ))}
         </div>
-        <Pagination />
+        <div className="max-md:pr-5">
+          <Pagination />
+        </div>
         <ScrollToTopButton />
       </div>
     </PageLayout>
