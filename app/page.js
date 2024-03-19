@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import PageLayout from "./components/Layout/PageLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -6,113 +7,83 @@ import Blurb from "./components/Blurb";
 import Pagination from "@/app/components/Pagination";
 import Image from "next/image";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import getPosts from "@/lib/posts";
-import {useEffect, useState} from "react";
+import Link from "next/link";
 
 export default function Home() {
-
   const blurbsData = [
     {
       link: "#",
       img: "/img/blurb-1.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-2.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-3.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-4.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-5.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-6.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-7.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-8.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-9.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-10.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-11.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
     {
       link: "#",
       img: "/img/blurb-12.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
     },
-  ]
-
-  const [posts, setPosts] = useState([]);
-  const [noContent, setNoContent] = useState(false);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("https://fintech-blog-749ab6e21c45.herokuapp.com/posts");
-
-        if (response.status === 204) {
-          setNoContent(true);
-          setPosts([]);
-        } else if (response.status === 200) {
-          const data = await response.json();
-          setPosts(data);
-          setNoContent(false);
-        } else {
-          // Handle other response statuses
-          console.error('Error fetching posts:', response.status);
-        }
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
+  ];
 
   return (
     <PageLayout>
@@ -160,7 +131,7 @@ export default function Home() {
         </div>
 
         <div
-          className="mt-8 h-[482px] p-10 flex items-center max-sm:justify-center sm:items-end"
+          className="mt-8 h-[482px] p-5 sm:p-10 flex max-sm:justify-center items-end"
           style={{
             backgroundImage: "url('/img/hero-image.png')",
             backgroundSize: "cover",
@@ -168,50 +139,40 @@ export default function Home() {
             backgorundRepeat: "no-repeat",
           }}
         >
-          <div className="text-white max-sm:text-center">
-            <p className="text-2xl font-normal">David Nelson. 20.Jan.2024</p>
-            <h3 className="text-4xl font-medium tracking-tighter">
-              Latest updates on the financial exchange market
-            </h3>
-            <p className="text-2xl font-normal mb-3">
-              Latest update on forex news
-            </p>
+          <Link href="/update" className="text-white ">
+            <div className="flex gap-5 items-center">
+              <div className="w-[44px] h-[44px] flex justify-center items-center rounded-full overflow-hidden">
+                <Image
+                  src="/img/author.jpg"
+                  width={50}
+                  height={50}
+                  alt="blog user"
+                />
+              </div>
 
-            <div className="flex gap-2 max-sm:justify-center items-center">
-              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
-                Crypto
-              </button>
-              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
-                Money
-              </button>
-              <button className="border border-solid duration-300 border-white rounded-lg py-1 px-7 hover:bg-primary-green hover:border-primary-green">
-                Market
-              </button>
+              <p className="text-lg">David Nelson. 20.Jan.2024</p>
             </div>
-          </div>
+            <p className="text-lg sm:text-[32px] font-semibold tracking-tighter">
+              Latest updates on the financial exchange market that led to the
+              crash of NGN
+            </p>
+          </Link>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
-          {/*{noContent ? (*/}
-          {/*    <p>No content available</p>*/}
-          {/*) : (*/}
-          {/*    <ul>*/}
-          {/*      {posts.map((post) => (*/}
-          {/*          <li key={post.id}>{post.title}</li>*/}
-          {/*      ))}*/}
-          {/*    </ul>*/}
-          {/*)}*/}
-          {blurbsData.map(blurb => (
-              <Blurb
-                  key={blurb.title}
-                  link={blurb.link}
-                  img={blurb.img}
-                  title={blurb.title}
-                  text={blurb.text}
-              />
+          {blurbsData.map((blurb) => (
+            <Blurb
+              key={blurb.title}
+              link={blurb.link}
+              img={blurb.img}
+              title={blurb.title}
+              text={blurb.text}
+            />
           ))}
         </div>
-        <Pagination />
+        <div className="max-md:pr-5">
+          <Pagination />
+        </div>
         <ScrollToTopButton />
       </div>
     </PageLayout>

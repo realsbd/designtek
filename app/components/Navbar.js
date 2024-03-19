@@ -12,7 +12,7 @@ export default function Navbar() {
   const navs = [
     {
       name: "Update",
-      href: "/update",
+      href: "/",
     },
     {
       name: "About us",
