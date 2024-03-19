@@ -11,6 +11,81 @@ import {useEffect, useState} from "react";
 
 export default function Home() {
 
+  const blurbsData = [
+    {
+      link: "#",
+      img: "/img/blurb-1.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-2.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-3.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-4.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-5.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-6.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-7.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-8.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-9.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-10.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-11.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+    {
+      link: "#",
+      img: "/img/blurb-12.png",
+      title: "When an unknown printer took a galley of type and scrambled",
+      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into."
+    },
+  ]
+
   const [posts, setPosts] = useState([]);
   const [noContent, setNoContent] = useState(false);
 
@@ -117,15 +192,15 @@ export default function Home() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
-          {noContent ? (
-              <p>No content available</p>
-          ) : (
-              <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>{post.title}</li>
-                ))}
-              </ul>
-          )}
+          {/*{noContent ? (*/}
+          {/*    <p>No content available</p>*/}
+          {/*) : (*/}
+          {/*    <ul>*/}
+          {/*      {posts.map((post) => (*/}
+          {/*          <li key={post.id}>{post.title}</li>*/}
+          {/*      ))}*/}
+          {/*    </ul>*/}
+          {/*)}*/}
           {blurbsData.map(blurb => (
               <Blurb
                   key={blurb.title}
