@@ -1,11 +1,13 @@
 import { useRouter } from 'next/navigation';
+import {logout} from "@/lib/auth";
 
-export function useLogout() {
+export function useSignout() {
     const router = useRouter();
 
-    const logout = () => {
+    const signout = () => {
         // Remove the session data from local storage or state
-        localStorage.removeItem('session');
+        logout().then(r => localStorage.removeItem('session'))
+
 
         // Optionally, clear any other user-related data or state
 
@@ -13,5 +15,5 @@ export function useLogout() {
         router.push('/login');
     };
 
-    return { logout };
+    return { signout };
 }

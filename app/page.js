@@ -126,6 +126,15 @@ export default function Home() {
                 ))}
               </ul>
           )}
+          {blurbsData.map(blurb => (
+              <Blurb
+                  key={blurb.title}
+                  link={blurb.link}
+                  img={blurb.img}
+                  title={blurb.title}
+                  text={blurb.text}
+              />
+          ))}
         </div>
         <Pagination />
         <ScrollToTopButton />

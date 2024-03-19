@@ -11,8 +11,8 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Link from "next/link";
-import {usePathname, useRouter} from "next/navigation";
-import {useLogout} from "@/app/hooks/useLogout";
+import {redirect, usePathname, useRouter} from "next/navigation";
+// import {logout} from "@/lib/auth";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
@@ -51,10 +51,13 @@ export default function Sidebar() {
       icon: faPhone,
     },
   ];
-  const {logout} = useLogout()
 
   const handleLogout = async () => {
-    logout()
+    const res = await fetch('https://fintech-blog-749ab6e21c45.herokuapp.com/secure/logout')
+
+    if (res.status === 200) {
+      redirect('/login')
+    }
   };
 
   return (

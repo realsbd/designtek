@@ -8,6 +8,8 @@ import {login} from "@/lib/auth";
 import "../styles/style.css";
 import PasswordField from "@/components/PasswordField";
 import PasswordModal from "@/components/PasswordModal";
+import {ErrorBoundary} from "next/dist/client/components/error-boundary";
+import Error from "@/app/login/error";
 
 export default function Login() {
 
@@ -40,38 +42,41 @@ export default function Login() {
           <div className="divider-text">or</div>
           <div className="divider-line bg-gray-300" />
         </div>
-        <form
-          action={async (formData) => {
-            "use server";
-            await login(formData)
-            redirect("/dashboard")
-          }}
-        >
-          <div className="form-group mb-3">
-            <label htmlFor="email">Email</label>
-            <div className="input-field">
-              <input
-                type="email"
-                id="email"
-                name="username"
-                aria-label="Enter your email"
-                placeholder="Enter your email"
-                required
-                className="w-full rounded border border-solid border-gray-300 px-3 py-[5px]"
-              />
-            </div>
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="password">Password</label>
-            <PasswordField />
-          </div>
-          <button
-            type="submit"
-            className="login-button w-full bg-gray-300 hover:bg-primary-green hover:text-white rounded py-2 my-3"
+        <ErrorBoundary errorComponent={<Error />}>
+          <form
+              action={async (formData) => {
+                "use server";
+                await login(formData)
+                redirect("/dashboard")
+              }}
           >
-            Log in
-          </button>
-        </form>
+            <div className="form-group mb-3">
+              <label htmlFor="email">Email</label>
+              <div className="input-field">
+                <input
+                    type="email"
+                    id="email"
+                    name="username"
+                    aria-label="Enter your email"
+                    placeholder="Enter your email"
+                    required
+                    className="w-full rounded border border-solid border-gray-300 px-3 py-[5px]"
+                />
+              </div>
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="password">Password</label>
+              <PasswordField />
+            </div>
+            <button
+                type="submit"
+                className="login-button w-full bg-gray-300 hover:bg-primary-green hover:text-white rounded py-2 my-3"
+            >
+              Log in
+            </button>
+          </form>
+        </ErrorBoundary>
+
         <PasswordModal />
 
         <div className="divider flex items-center gap-2 my-5 text-center">
