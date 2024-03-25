@@ -8,82 +8,30 @@ import Pagination from "@/app/components/Pagination";
 import Image from "next/image";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Link from "next/link";
+import {useEffect, useState} from "react";
 
 export default function Home() {
-  const blurbsData = [
-    {
-      link: "#",
-      img: "/img/blurb-1.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-2.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-3.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-4.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-5.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-6.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-7.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-8.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-9.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-10.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-11.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-    {
-      link: "#",
-      img: "/img/blurb-12.png",
-      title: "When an unknown printer took a galley of type and scrambled",
-      text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.",
-    },
-  ];
+  const [posts, setPosts] = useState([])
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('https://fintech-blog-749ab6e21c45.herokuapp.com/posts')
+
+        if (!response.ok) {
+          throw new Error(`HTTP error ${response.status}`)
+        }
+
+        const data = await response.json()
+        setPosts(data)
+      } catch (error) {
+        setError(error.message)
+      }
+    }
+
+    fetchPosts()
+  }, [])
 
   return (
     <PageLayout>
@@ -160,13 +108,13 @@ export default function Home() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-5 my-5 grid-cols-1 md:grid-cols-2 max-lg:px-5">
-          {blurbsData.map((blurb) => (
+          {posts.map((post) => (
             <Blurb
-              key={blurb.title}
-              link={blurb.link}
-              img={blurb.img}
-              title={blurb.title}
-              text={blurb.text}
+              key={post._id}
+              link={post.slug}
+              img={post.image}
+              title={post.title}
+              text={post.desc.length > 250 ? `${post.desc.slice(0, 250)}...` : post.desc}
             />
           ))}
         </div>
