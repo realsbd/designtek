@@ -112,7 +112,6 @@ export default function Dashboard() {
   };
 
   const handleTabChange = (value) => {
-    console.log("clicked", value);
     setCurrentTab(value);
   };
 
