@@ -32,8 +32,10 @@ function Signal() {
   const data = [
     {
       id: 1,
-      logo: "/img/signal/hfm.png",
-      proTrader: "Hot Forex Market",
+      proTraderAndLogo: {
+      logo: "/signal/hfm.png",
+      proTrader: "Hot Forex Market"
+      },
       time: "1707990253",
       order: "BUY",
       symbol: "GBP/USD",
@@ -42,8 +44,10 @@ function Signal() {
     },
     {
       id: 2,
-      logo: "/img/signal/kfa.png",
-      proTrader: "Kojo Forex Academy",
+      proTraderAndLogo: {
+        logo: "/signal/kfa.png",
+        proTrader: "Kojo Forex Academy"
+      },
       time: "1707990253",
       order: "BUY",
       symbol: "GBP/USD",
@@ -52,8 +56,10 @@ function Signal() {
     },
     {
       id: 3,
-      logo: "/img/signal/mff.png",
-      proTrader: "My Forex Fund",
+      proTraderAndLogo: {
+        logo: "/signal/mff.png",
+        proTrader: "My Forex Fund"
+      },
       time: "1707990253",
       order: "BUY",
       symbol: "GBP/USD",
@@ -62,8 +68,10 @@ function Signal() {
     },
     {
       id: 4,
-      logo: "/img/signal/exness.png",
-      proTrader: "Exness",
+      proTraderAndLogo: {
+        logo: "/signal/exness.png",
+        proTrader: "Exness"
+      },
       time: "1707990253",
       order: "BUY",
       symbol: "GBP/USD",
@@ -147,9 +155,9 @@ function Signal() {
       <div className="flex items-center justify-center py-14">
         <Input
           placeholder="Search Pro Trader"
-          value={table.getColumn("proTrader")?.getFilterValue() ?? ""}
+          value={table.getColumn("proTraderAndLogo")?.getFilterValue() ?? ""}
           onChange={(event) =>
-            table.getColumn("proTrader")?.setFilterValue(event.target.value)
+            table.getColumn("proTraderAndLogo")?.setFilterValue(event.target.value)
           }
           className="max-w-sm border border-blue-600"
         />

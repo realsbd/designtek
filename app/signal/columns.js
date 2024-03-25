@@ -5,15 +5,15 @@ import Image from "next/image";
 
 export const columns = [
     {
-        accessorKey: "proTrader",
+        accessorKey: "proTraderAndLogo",
         header: "Pro Trader",
         cell: ({row}) => {
-            const logo = row.getValue('logo')
-            const trader = row.getValue('proTrader')
+            const proTraderAndLogo = row.getValue('proTraderAndLogo')
+            if (!proTraderAndLogo) return null; // Add a check for undefined
 
             return <div className={"flex gap-2 flex-nowrap"}>
-                <Image src={logo} width={50} height={50} alt={'proTrader'}/>
-                <div>{trader}</div>
+                <Image src={proTraderAndLogo.logo} width={50} height={50} alt={'proTrader'}/>
+                <div>{proTraderAndLogo.proTrader}</div>
             </div>
         }
     },
