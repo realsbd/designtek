@@ -134,7 +134,7 @@ function Signal() {
           additional professional advice if needed.
         </p>
         <div
-          className="tradingview-widget-container hidden"
+          className="tradingview-widget-container"
           ref={container}
           style={{ height: "70vh", width: "100%" }}
         >
