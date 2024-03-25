@@ -1,11 +1,21 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faCheck} from "@fortawesome/free-solid-svg-icons";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 export const columns = [
     {
         accessorKey: "proTrader",
-        header: "Pro Trader"
+        header: "Pro Trader",
+        cell: ({row}) => {
+            const logo = row.getValue('logo')
+            const trader = row.getValue('proTrader')
+
+            return <div className={"flex gap-2 flex-nowrap"}>
+                <Image src={logo} width={50} height={50} alt={'proTrader'}/>
+                <div>{trader}</div>
+            </div>
+        }
     },
     {
         accessorKey: "time",

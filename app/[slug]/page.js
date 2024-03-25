@@ -8,8 +8,31 @@ import AuthorCard from "@/app/components/AuthorCard";
 import Comment from "@/app/components/Comment";
 import Blurb from "@/app/components/Blurb";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
+// import {useRouter} from "next/navigation";
+import {useEffect, useState} from "react";
 
-export default function Update() {
+export default function Slug({ params }) {
+  const slug = params.slug
+  const [post, setPost] = useState(null)
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(`https://fintech-blog-749ab6e21c45.herokuapp.com/posts/${slug}`)
+        const post = await response.json()
+        console.log(post)
+        setPost(post)
+      } catch (error) {
+        console.error('Error fetching post:', error)
+      }
+    }
+
+    if (slug) {
+      fetchPost()
+    }
+  }, [slug])
+
+
   const blurbsData = [
     {
       title: "Is EUR/USD bank on a free fall?",
@@ -27,15 +50,6 @@ export default function Update() {
       text: "When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
   ];
-
-  const blurbs = blurbsData.map((blurb) => (
-    <SignalBlurb
-      key={blurb.img}
-      img={blurb.img}
-      title={blurb.title}
-      text={blurb.text}
-    />
-  ));
 
   const recentPost = [
     {
@@ -68,36 +82,35 @@ export default function Update() {
     />
   ));
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    const options = { day: 'numeric', month: 'short', year: 'numeric' }
+    return date.toLocaleDateString('en-US', options)
+  }
+
   return (
     <PageLayout>
       <div className="px-3">
         <div className="date mt-16">
-          <p className="text-customBlue font-semibold">20. Jan, 2024</p>
+          <p className="text-customBlue font-semibold">{formatDate(post?.createdAt)}</p>
         </div>
-        <h1 className="my-6 font-bold text-4xl">
-          Latest Updates On The Financial Exchange Market
+        <h1 className="capitalize my-6 font-bold text-4xl">
+          {post?.title}
         </h1>
         <div className="mb-5">
           <Image
-            src="/img/blurb-2.png"
+            src={post?.image}
             alt="blurb"
             width={966}
             height={482}
             className="mx-auto"
           />
           <p className="mt-8 text-justify">
-            When an unknown printer took a galley of type and scrambled it to
-            make a type specimen book. It has survived not only five centuries,
-            but also the leap into.is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum has been the industry&lsquo;s
-            standard dummy text ever since the 1500s, when an unknown printer
-            took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries.
+            {post?.desc}
           </p>
         </div>
-        <div>{blurbs}</div>
         <Reaction />
-        <AuthorCard />
+        <AuthorCard username={post?.author.username} role={post?.author.role} />
         <Comment />
 
         <div

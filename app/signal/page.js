@@ -16,9 +16,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-// import { Button } from "@/components/ui/button"
-// import { Checkbox } from "@/components/ui/checkbox"
-// import { Input } from "@/components/ui/input"
 import {
   Table,
   TableBody,
@@ -137,7 +134,7 @@ function Signal() {
           additional professional advice if needed.
         </p>
         <div
-          className="tradingview-widget-container"
+          className="tradingview-widget-container hidden"
           ref={container}
           style={{ height: "70vh", width: "100%" }}
         >
