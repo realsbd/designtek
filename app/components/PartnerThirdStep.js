@@ -29,24 +29,16 @@ const PartnerThirdStep = ({ setCurrentStep }) => {
             <p className="text-gray-shade-5">
               Choose a comfortable date so we can meet you virtually.
             </p>
-            <div>
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                className="rounded-md border"
-              />
+            <div className="flex justify-center items-center w-full">
+              <div>
+                <Calendar
+                  mode="single"
+                  selected={date}
+                  onSelect={setDate}
+                  className="rounded-md border"
+                />
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex md:flex-col justify-end">
-          <div className="flex gap-5">
-            <button
-              onClick={() => setCurrentStep(2)}
-              className="bg-[#E8EDF4] hover:bg-primary-green duration-300 px-5 py-2 rounded-sm text-black hover:text-white"
-            >
-              Previous
-            </button>
           </div>
         </div>
       </div>

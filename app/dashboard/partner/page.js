@@ -67,20 +67,29 @@ const PartnerPage = () => {
       </div>
       <div className="bg-black flex justify-end w-full py-2 px-20">
         <div className="">
-          <button
-            disabled={!(currentStep === 2)}
-            className={`become-a-partner-submit-btn ${
-              currentStep >= 2 ? "bg-primary-green text-white" : ""
-            }`}
-            onClick={handleSubmit}
-          >
-            submit
-          </button>
+          {currentStep == 3 ? (
+            <button
+              className={`become-a-partner-submit-btn ${
+                currentStep >= 2 ? "bg-primary-green text-white" : ""
+              }`}
+              onClick={() => setCurrentStep(4)}
+            >
+              Submit
+            </button>
+          ) : (
+            <button
+              disabled={!(currentStep === 2)}
+              className={`become-a-partner-submit-btn ${
+                currentStep >= 2 ? "bg-primary-green text-white" : ""
+              }`}
+              onClick={handleSubmit}
+            >
+              submit
+            </button>
+          )}
         </div>
       </div>
-      <div className="px-4 md:px-20 h-[580px] overflow-y-auto py-5">
-        {showStep(currentStep)}
-      </div>
+      <div className="px-4 md:px-20 py-5">{showStep(currentStep)}</div>
     </DashboardLayout>
   );
 };
