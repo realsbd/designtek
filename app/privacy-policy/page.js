@@ -14,7 +14,7 @@ const PrivacyPage = () => {
       <div className="px-4 md:px-0">
         <button
           href=""
-          className="w-9 h-9 rounded-full bg-cyan-600 flex items-center justify-center"
+          className="w-9 h-9 rounded-full bg-primary-green flex items-center justify-center"
           onClick={() => router.back()}
         >
           <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#ffffff" }} />
@@ -27,7 +27,7 @@ const PrivacyPage = () => {
           <p>Effective Date: 2, December, 2023</p>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">1. Introduction</h2>
+            <h2 className="text-primary-green">1. Introduction</h2>
             <p className="text-justify">
               Welcome to blog (&quot;we,&quot; &quot;us,&quot; or
               &quot;our&quot;). This Privacy Policy explains how we collect,
@@ -39,7 +39,7 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">2. Information We Collect</h2>
+            <h2 className="text-primary-green">2. Information We Collect</h2>
             <p>a. Personal Information</p>
             <p>
               We may collect personal information, including but not limited to:
@@ -66,7 +66,9 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">3. How We Use Your Information</h2>
+            <h2 className="text-primary-green">
+              3. How We Use Your Information
+            </h2>
             <p className="text-justify">
               We use the collected information for the following purposes:
             </p>
@@ -81,7 +83,7 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">
+            <h2 className="text-primary-green">
               4. Cookies and Tracking Technologies
             </h2>
             <p className="text-justify">
@@ -94,7 +96,7 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">5. Security</h2>
+            <h2 className="text-primary-green">5. Security</h2>
             <p className="text-justify">
               We are committed to ensuring that your information is secure. We
               implement reasonable security measures to protect against
@@ -104,7 +106,7 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">6. Third-Party Links</h2>
+            <h2 className="text-primary-green">6. Third-Party Links</h2>
             <p className="text-justify">
               Our website may contain links to third-party websites. We have no
               control over the content or privacy practices of these sites and
@@ -113,7 +115,7 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">7. Your Choices</h2>
+            <h2 className="text-primary-green">7. Your Choices</h2>
             <p className="text-justify">
               You may choose to restrict the collection or use of your personal
               information. If you have previously agreed to us using your
@@ -123,7 +125,9 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">8. Updates to this Privacy Policy</h2>
+            <h2 className="text-primary-green">
+              8. Updates to this Privacy Policy
+            </h2>
             <p className="text-justify">
               We may update this Privacy Policy periodically. Please review this
               page for any changes.
@@ -131,7 +135,7 @@ const PrivacyPage = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h2 className="text-cyan-600">9. Contact Information</h2>
+            <h2 className="text-primary-green">9. Contact Information</h2>
           </div>
 
           <p className="text-justify">

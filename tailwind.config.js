@@ -19,6 +19,14 @@ module.exports = {
     extend: {
       colors: {
         "primary-green": "var(--primary-green)",
+        "gray-shade-0": "var(--gray-shade-0)",
+        "gray-shade-5": "var(--gray-shade-5)",
+        "gray-shade-10": "var(--gray-shade-10)",
+        "gray-shade-15": "var(--gray-shade-15)",
+        "gray-shade-20": "var(--gray-shade-20)",
+        "gray-shade-25": "var(--gray-shade-25)",
+        "gray-shade-30": "var(--gray-shade-30)",
+        "black-shade-0": "var(--black-shade-0)",
         customBlue: "#02A29E",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
