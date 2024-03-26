@@ -1,6 +1,5 @@
 import DashboardLayout from "@/app/components/Layout/DashboardLayout";
 import NavDashboard from "@/components/NavDashboard";
-import React from "react";
 
 const page = () => {
   return (

@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 const PartnerFirstStep = ({ setCurrentStep, userData, setUserData }) => {
   return (
     <div>

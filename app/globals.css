@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --primary-green: #02a29e;
+    --secondary-green: #f3f7ff;
     --gray-shade-0: #d0d5dd;
     --gray-shade-5: #72757e;
     --gray-shade-10: #e0e5fa;
@@ -12,6 +13,7 @@
     --gray-shade-20: #f3f7fc;
     --gray-shade-25: #e7ecf3;
     --gray-shade-30: #667085;
+    --gray-shade-35: #f9fafb;
     --black-shade-0: #323232;
 
     --background: 0 0% 100%;
@@ -141,6 +143,22 @@
 .circle-text {
   font-size: 20px;
   font-weight: bold;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-color: transparent;
+}
+
+.table-container th,
+.table-container td {
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-color: transparent;
 }
 
 @media screen and (max-width: 1023px) {

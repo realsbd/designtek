@@ -1,4 +1,3 @@
-import React from "react";
 import PostsFilter from "./PostsFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -58,6 +57,7 @@ const DashboardPostsTab = ({
                 link={blurb.link}
                 img={blurb.img}
                 title={blurb.title}
+                status={blurb.status}
                 handleTabChange={handleTabChange}
               />
             ))}

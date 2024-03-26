@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import DashboardLayout from "@/app/components/Layout/DashboardLayout";
 import PartnerFirstStep from "@/app/components/PartnerFirstStep";
 import PartnerSecondStep from "@/app/components/PartnerSecondStep";

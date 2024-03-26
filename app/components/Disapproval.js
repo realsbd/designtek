@@ -5,7 +5,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import React from "react";
 import CircularBar from "./CircularBar";
 
 const Disapproval = () => {
