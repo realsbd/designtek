@@ -11,7 +11,7 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Link from "next/link";
-import {redirect, usePathname, useRouter} from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 // import {logout} from "@/lib/auth";
 
 export default function Sidebar() {
@@ -58,10 +58,12 @@ export default function Sidebar() {
   ];
 
   const handleLogout = async () => {
-    const res = await fetch('https://fintech-blog-749ab6e21c45.herokuapp.com/secure/logout')
+    const res = await fetch(
+      "https://fintech-blog-749ab6e21c45.herokuapp.com/secure/logout"
+    );
 
     if (res.status === 200) {
-      redirect('/login')
+      redirect("/login");
     }
   };
 
@@ -85,7 +87,7 @@ export default function Sidebar() {
                 key={index}
                 href={link.href}
                 className={`${
-                  pathname === link.href && "bg-cyan-600"
+                  pathname === link.href && "bg-primary-green"
                 }  flex w-full flex-col justify-center content-center pl-3 pr-16 py-2 rounded-md items-start align-center`}
               >
                 <span className="flex items-center gap-3" role="banner">
@@ -106,7 +108,12 @@ export default function Sidebar() {
                 </div>
                 <div className="text-white text-sm leading-5">Contributor</div>
               </div>
-              <FontAwesomeIcon icon={faArrowRightFromBracket} color="white" className={"cursor-pointer"} onClick={handleLogout} />
+              <FontAwesomeIcon
+                icon={faArrowRightFromBracket}
+                color="white"
+                className={"cursor-pointer"}
+                onClick={handleLogout}
+              />
             </div>
           </div>
         </aside>
