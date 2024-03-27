@@ -2,6 +2,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faCheck} from "@fortawesome/free-solid-svg-icons";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import {formatDateTimeGMT} from "@/lib/utils";
 
 export const columns = [
     {
@@ -20,44 +21,56 @@ export const columns = [
     {
         accessorKey: "time",
         header: "Time (GMT)",
-        cell: ({row}) => {
-            const timestamp = row.getValue('time');
+        cell: ({ row }) => {
+            const time = row.getValue('time');
 
-            // Handle invalid timestamps
-            if(!timestamp || isNaN(timestamp)) {
+            if (!time || !time.from || !time.till) {
                 return <div>Invalid date</div>;
             }
 
-            // Convert to number if stored as string
-            const timeNum = Number(timestamp);
+            const fromNum = Number(time.from);
+            const tillNum = Number(time.till);
 
-            // Create Date object
-            const date = new Date(timeNum * 1000);
+            if (isNaN(fromNum) || isNaN(tillNum)) {
+                return <div>Invalid date</div>;
+            }
 
-            // Format date
-            const formatted = new Intl.DateTimeFormat('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                timeZone: 'GMT'
-            }).format(date);
+            const fromDate = new Date(fromNum * 1000);
+            const tillDate = new Date(tillNum * 1000);
 
-            return <div>{formatted}</div>;
-        }
+            const formattedTime = time.time; // Use this directly
+            const formattedFrom = formatDateTimeGMT(fromDate);
+            const formattedTill = formatDateTimeGMT(tillDate);
+
+            return (
+                <div>
+                    <div>{formattedTime}</div>
+                    <div className={''}>From: {formattedFrom}</div>
+                    <div className={''}>Till: {formattedTill}</div>
+                </div>
+            );
+        },
     },
     {
         accessorKey: "order",
-        header: "Order"
+        header: "Orders"
     },
     {
         accessorKey: "symbol",
-        header: "Symbol"
+        header: "Market"
     },
     {
         accessorKey: "price",
-        header: "Price"
+        header: "Price",
+        cell: ({row}) => {
+            const price = row.getValue('price')
+
+        return <div>
+            <div>Entry: {price.entry}</div>
+            <div>Stop Loss: {price.stop}</div>
+            <div>Profit: {price.profit}</div>
+        </div>
+        }
     },
     {
         accessorKey: "outcome",

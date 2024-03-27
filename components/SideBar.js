@@ -12,12 +12,13 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Link from "next/link";
 import {redirect, usePathname, useRouter} from "next/navigation";
-// import {logout} from "@/lib/auth";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
 
   const pathname = usePathname();
+
+  const router = useRouter();
 
   const links = [
     {
@@ -56,7 +57,11 @@ export default function Sidebar() {
     const res = await fetch('https://fintech-blog-749ab6e21c45.herokuapp.com/secure/logout')
 
     if (res.status === 200) {
-      redirect('/login')
+      // Remove cookies from localStorage
+      localStorage.removeItem('session');
+      localStorage.removeItem('user');
+      document.cookie = 'session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      router.push('/login')
     }
   };
 
