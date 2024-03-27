@@ -69,20 +69,29 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <div className="flex justify-center mt-4 lg:mt-0 items-center gap-5">
-            <Link
-              href="/login"
-              className="flex justify-center items-center text-primary-green text-sm py-2 px-5 rounded-lg max-md:px-5 hover:bg-primary-green hover:text-white transition-all duration-200 border border-solid border-primary-green lg:border-transparent"
-            >
-              Log in
-            </Link>
-            <Link
-              href="/signup"
-              className="flex justify-center items-center text-sm py-2 px-5 rounded-lg max-md:px-5 bg-black text-white hover:bg-primary-green hover:text-white transition-all duration-200"
-            >
-              Sign up
-            </Link>
-          </div>
+
+          {pathname === "/about" ? (
+            <div>
+              <button className="flex justify-center items-center text-sm py-2 px-5 rounded-lg max-md:px-5 bg-black text-white hover:bg-primary-green hover:text-white transition-all duration-200">
+                Download
+              </button>
+            </div>
+          ) : (
+            <div className="flex justify-center mt-4 lg:mt-0 items-center gap-5">
+              <Link
+                href="/login"
+                className="flex justify-center items-center text-primary-green text-sm py-2 px-5 rounded-lg max-md:px-5 hover:bg-primary-green hover:text-white transition-all duration-200 border border-solid border-primary-green lg:border-transparent"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className="flex justify-center items-center text-sm py-2 px-5 rounded-lg max-md:px-5 bg-black text-white hover:bg-primary-green hover:text-white transition-all duration-200"
+              >
+                Sign up
+              </Link>
+            </div>
+          )}
         </div>
       </nav>
     </>

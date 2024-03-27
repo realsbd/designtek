@@ -3,6 +3,9 @@ import Image from "next/image";
 const AboutHero = () => {
   return (
     <div className="max-lg:px-8">
+      <div className="w-[600px] h-[600px] bg-secondary-green rounded-full flex justify-center items-center absolute -top-10 right-0 -z-10">
+        <div className="w-[550px] h-[550px] bg-white rounded-full"></div>
+      </div>
       <div className="flex items-center gap-14 justify-between">
         <div>
           <h1 className="text-[42px] text-black font-bold leading-tight">
