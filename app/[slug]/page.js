@@ -2,14 +2,13 @@
 
 import PageLayout from "@/app/components/Layout/PageLayout";
 import Image from "next/image";
-import SignalBlurb from "@/app/components/SignalBlurb";
 import Reaction from "@/app/components/Reaction";
 import AuthorCard from "@/app/components/AuthorCard";
 import Comment from "@/app/components/Comment";
 import Blurb from "@/app/components/Blurb";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
-// import {useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
+import {notFound} from "next/navigation";
 
 export default function Slug({ params }) {
   const slug = params.slug
@@ -23,6 +22,7 @@ export default function Slug({ params }) {
         console.log(post)
         setPost(post)
       } catch (error) {
+        // notFound()
         console.error('Error fetching post:', error)
       }
     }

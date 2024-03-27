@@ -12,12 +12,14 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Link from "next/link";
 import { redirect, usePathname, useRouter } from "next/navigation";
-// import {logout} from "@/lib/auth";
+import UserRole from "@/components/UserRole";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
 
   const pathname = usePathname();
+
+  const router = useRouter();
 
   const links = [
     {
@@ -57,16 +59,6 @@ export default function Sidebar() {
     },
   ];
 
-  const handleLogout = async () => {
-    const res = await fetch(
-      "https://fintech-blog-749ab6e21c45.herokuapp.com/secure/logout"
-    );
-
-    if (res.status === 200) {
-      redirect("/login");
-    }
-  };
-
   return (
     <>
       {open ? (
@@ -100,22 +92,7 @@ export default function Sidebar() {
             ))}
           </div>
 
-          <div className=" mt-auto">
-            <div className="flex content-center justify-between gap-5 pl-2 pr-9 py-6 border-t border-zinc-300">
-              <div className="items-stretch flex flex-col" role="group">
-                <div className="text-stone-300 text-base font-medium leading-5 whitespace-nowrap">
-                  David Schoger
-                </div>
-                <div className="text-white text-sm leading-5">Contributor</div>
-              </div>
-              <FontAwesomeIcon
-                icon={faArrowRightFromBracket}
-                color="white"
-                className={"cursor-pointer"}
-                onClick={handleLogout}
-              />
-            </div>
-          </div>
+          <UserRole />
         </aside>
       ) : (
         <button

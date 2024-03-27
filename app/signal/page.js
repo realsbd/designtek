@@ -36,10 +36,18 @@ function Signal() {
       logo: "/signal/hfm.png",
       proTrader: "Hot Forex Market"
       },
-      time: "1707990253",
+      time: {
+        time: "7 hours ago",
+        from: "1707990253",
+        till: "1709560253"
+      },
       order: "BUY",
       symbol: "GBP/USD",
-      price: "SL 1.024567 - TP 1.90945",
+      price: {
+        entry: 1.024567,
+        stop: 1.024567,
+        profit: 1.024567
+      },
       outcome: true,
     },
     {
@@ -48,10 +56,18 @@ function Signal() {
         logo: "/signal/kfa.png",
         proTrader: "Kojo Forex Academy"
       },
-      time: "1707990253",
+      time: {
+        time: "7 hours ago",
+        from: "1707990253",
+        till: "1709560253"
+      },
       order: "BUY",
       symbol: "GBP/USD",
-      price: "SL 1.024567 - TP 1.90945",
+      price: {
+        entry: 1.024567,
+        stop: 1.024567,
+        profit: 1.024567
+      },
       outcome: true,
     },
     {
@@ -60,10 +76,18 @@ function Signal() {
         logo: "/signal/mff.png",
         proTrader: "My Forex Fund"
       },
-      time: "1707990253",
-      order: "BUY",
-      symbol: "GBP/USD",
-      price: "SL 1.024567 - TP 1.90945",
+      time: {
+        time: "7 hours ago",
+        from: "1707990253",
+        till: "1709560253"
+      },
+      orders: "BUY",
+      market: "GBP/USD",
+      price: {
+        entry: 1.024567,
+        stop: 1.024567,
+        profit: 1.024567
+      },
       outcome: false,
     },
     {
@@ -72,10 +96,18 @@ function Signal() {
         logo: "/signal/exness.png",
         proTrader: "Exness"
       },
-      time: "1707990253",
+      time: {
+        time: "7 hours ago",
+        from: "1707990253",
+        till: "1709560253"
+      },
       order: "BUY",
       symbol: "GBP/USD",
-      price: "SL 1.024567 - TP 1.90945",
+      price: {
+        entry: 1.024567,
+        stop: 1.024567,
+        profit: 1.024567
+      },
       outcome: true,
     },
   ];
