@@ -9,7 +9,6 @@ import "../styles/style.css";
 import PasswordField from "@/components/PasswordField";
 import PasswordModal from "@/components/PasswordModal";
 import {ErrorBoundary} from "next/dist/client/components/error-boundary";
-import Error from "@/app/login/error";
 
 export default function Login() {
 
@@ -42,7 +41,6 @@ export default function Login() {
           <div className="divider-text">or</div>
           <div className="divider-line bg-gray-300" />
         </div>
-        <ErrorBoundary errorComponent={<Error />}>
           <form
               action={async (formData) => {
                 "use server";
@@ -75,7 +73,6 @@ export default function Login() {
               Log in
             </button>
           </form>
-        </ErrorBoundary>
 
         <PasswordModal />
 
