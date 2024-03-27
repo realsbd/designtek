@@ -3,10 +3,10 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Pagination() {
   return (
-    <div className="flex justify-end items-center gap-5 pr-4 py-3.5">
-      <div className="rounded flex justify-between items-center gap-5">
+    <div className="flex justify-end items-center gap-5 py-3.5">
+      <div className="items-center rounded flex gap-5">
         <button
-          className="text-white text-justify text-base leading-6 tracking-tight whitespace-nowrap flex justify-center items-center rounded border bg-cyan-600 aspect-square h-6 px-2.5 border-solid border-cyan-600"
+          className="text-white text-base leading-6 tracking-tight whitespace-nowrap flex justify-center items-center rounded border bg-cyan-600 aspect-square h-6 px-2.5 border-solid border-cyan-600"
           aria-label="Button 1"
           role="button"
         >
