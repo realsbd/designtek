@@ -28,6 +28,7 @@ module.exports = {
         "gray-shade-25": "var(--gray-shade-25)",
         "gray-shade-30": "var(--gray-shade-30)",
         "gray-shade-35": "var(--gray-shade-35)",
+        "gray-shade-40": "var(--gray-shade-40)",
         "black-shade-0": "var(--black-shade-0)",
         customBlue: "#02A29E",
         border: "hsl(var(--border))",
