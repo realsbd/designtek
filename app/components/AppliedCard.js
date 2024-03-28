@@ -1,5 +1,3 @@
-import React from "react";
-
 const AppliedCard = () => {
   return (
     <div className="text-center flex flex-col gap-5">

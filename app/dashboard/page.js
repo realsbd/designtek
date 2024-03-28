@@ -3,15 +3,13 @@
 import { useEffect, useState } from "react";
 import DashboardLayout from "../components/Layout/DashboardLayout";
 import NavDashboard from "@/components/NavDashboard";
-// import Blurb from "@/app/components/Blurb";
 
 import DashboardPostsTab from "../components/DashboardPostsTab";
 import DashboardPostTab from "../components/DashboardPostTab";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function Dashboard() {
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   const [filter, setFilter] = useState("all");
   const [currentTab, setCurrentTab] = useState(searchParams.get("tab") || 1);

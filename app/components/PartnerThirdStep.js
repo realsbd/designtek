@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 
 const PartnerThirdStep = ({ setCurrentStep }) => {
