@@ -11,7 +11,7 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Link from "next/link";
-import {redirect, usePathname, useRouter} from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import UserRole from "@/components/UserRole";
 
 export default function Sidebar() {
@@ -59,7 +59,6 @@ export default function Sidebar() {
     },
   ];
 
-
   return (
     <>
       {open ? (
@@ -80,7 +79,7 @@ export default function Sidebar() {
                 key={index}
                 href={link.href}
                 className={`${
-                  pathname === link.href && "bg-cyan-600"
+                  pathname === link.href && "bg-primary-green"
                 }  flex w-full flex-col justify-center content-center pl-3 pr-16 py-2 rounded-md items-start align-center`}
               >
                 <span className="flex items-center gap-3" role="banner">

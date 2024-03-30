@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Post = (props) => {
   return (
-    <Link href={`dashboard?tab=2`} className="">
+    <Link href={`${props.status === "disapproved" ? "dashboard?tab=2" : ""}`}>
       <div className="flex justify-center">
         <div className="w-full rounded-lg overflow-hidden">
           <Image

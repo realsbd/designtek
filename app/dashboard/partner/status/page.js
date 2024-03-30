@@ -1,11 +1,10 @@
 import DashboardLayout from "@/app/components/Layout/DashboardLayout";
 import NavDashboard from "@/components/NavDashboard";
-import React from "react";
 
 const page = () => {
   return (
     <DashboardLayout>
-      <div className="px-5 py-3 md:px-20">
+      <div className="px-5 py-8 md:px-20">
         <NavDashboard />
       </div>
       <div className="bg-black flex justify-center w-full py-2 px-20">
