@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DashboardLayout from "@/app/components/Layout/DashboardLayout";
 import NavDashboard from "@/components/NavDashboard";
+import Tiptap from "@/components/TipTap";
 
 export default function NewPost() {
   return (
@@ -46,7 +47,7 @@ export default function NewPost() {
           </button>
         </div>
       </div>
-      <div className="px-20 py-10">Add new post</div>
+      <Tiptap />
     </DashboardLayout>
   );
 }
