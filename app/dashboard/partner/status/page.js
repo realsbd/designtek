@@ -4,9 +4,6 @@ import NavDashboard from "@/components/NavDashboard";
 const page = () => {
   return (
     <DashboardLayout>
-      <div className="px-5 py-8 md:px-20">
-        <NavDashboard />
-      </div>
       <div className="bg-black flex justify-center w-full py-2 px-20">
         <p className="text-white text-sm md:text-[25px] font-bold">
           64 hrs : 13 mins : 05 sec left

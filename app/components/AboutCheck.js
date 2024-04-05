@@ -64,7 +64,7 @@ const AboutCheck = () => {
                 </td>
               </tr>
               <tr>
-                <th className="bg-gray-shade-35">Meet an investor</th>
+                <th className="bg-gray-shade-35">Meet a pro trader</th>
                 <td className="bg-secondary-green border-secondary-green">
                   <div className="flex justify-center items-center w-full h-full">
                     <Image
@@ -97,7 +97,7 @@ const AboutCheck = () => {
                 </td>
               </tr>
               <tr>
-                <th>Crypto & fiat Transactions</th>
+                <th className="">Meet an investor</th>
                 <td className="bg-secondary-green border-secondary-green">
                   <div className="flex justify-center items-center w-full h-full">
                     <Image
@@ -129,6 +129,7 @@ const AboutCheck = () => {
                   </div>
                 </td>
               </tr>
+
               <tr>
                 <th className="bg-gray-shade-35">Fast payment process</th>
                 <td className="bg-secondary-green border-secondary-green">

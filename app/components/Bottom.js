@@ -9,7 +9,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function Bottom() {
+export default function Bottom({ signUp }) {
   const footerLinks = [
     {
       link: "/terms-condition",
@@ -27,29 +27,31 @@ export default function Bottom() {
 
   return (
     <div className="p-6 w-full mt-24 md:mt-38">
-      <div className="flex max-w-[501px] flex-col mx-auto">
-        <header className="text-zinc-800 text-xl font-semibold leading-6 self-center whitespace-nowrap">
-          Never Miss A Post!
-        </header>
-        <div className="text-zinc-900 text-sm text-center leading-6 self-center mt-4">
-          Sign up for free and be the first to get notified about updates.
+      {signUp && (
+        <div className="flex max-w-[501px] flex-col mx-auto">
+          <header className="text-zinc-800 text-xl font-semibold leading-6 self-center whitespace-nowrap">
+            Never Miss A Post!
+          </header>
+          <div className="text-zinc-900 text-sm text-center leading-6 self-center mt-4">
+            Sign up for free and be the first to get notified about updates.
+          </div>
+          <form className="items-center rounded flex w-full gap-2 mt-4 md:max-w-full">
+            <input
+              type="email"
+              id="email"
+              className="text-gray-500 px-3 py-1 w-full text-lg whitespace-nowrap border border-solid border-primary-green focus:outline-primary-green justify-center items-stretch rounded"
+              placeholder="Email Address"
+            />
+            <button
+              type="submit"
+              className="text-white text-sm leading-10 whitespace-nowrap justify-center items-stretch rounded bg-zinc-900 self-stretch px-6 max-md:px-5 hover:bg-primary-green duration-300"
+              aria-label="Subscribe"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
-        <form className="items-center rounded flex w-full gap-2 mt-4 md:max-w-full">
-          <input
-            type="email"
-            id="email"
-            className="text-gray-500 px-3 py-1 w-full text-lg whitespace-nowrap border border-solid border-primary-green focus:outline-primary-green justify-center items-stretch rounded"
-            placeholder="Email Address"
-          />
-          <button
-            type="submit"
-            className="text-white text-sm leading-10 whitespace-nowrap justify-center items-stretch rounded bg-zinc-900 self-stretch px-6 max-md:px-5 hover:bg-primary-green duration-300"
-            aria-label="Subscribe"
-          >
-            Subscribe
-          </button>
-        </form>
-      </div>
+      )}
 
       <div className="flex flex-wrap gap-4 mt-36 items-center justify-between pb-6 border-b border-gray-400">
         <div className="header">

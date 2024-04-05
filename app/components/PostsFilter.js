@@ -9,13 +9,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const PostsFilter = ({ filter, handleFilterChange, handleTabChange }) => {
   return (
     <div>
-      <div className={"flex flex-wrap gap-8 w-full items-center"}>
+      <div className={"flex flex-wrap gap-5 w-full items-center"}>
         <div
           onClick={() => {
             handleFilterChange("all");
           }}
           className={`flex items-center cursor-pointer ${
-            filter === "all" ? "text-customBlue" : "text-gray-700"
+            filter === "all" ? "text-primary-green" : "text-gray-700"
           }`}
         >
           <FontAwesomeIcon icon={faBars} />
@@ -26,7 +26,7 @@ const PostsFilter = ({ filter, handleFilterChange, handleTabChange }) => {
             handleFilterChange("published");
           }}
           className={`flex items-center cursor-pointer ${
-            filter === "published" ? "text-customBlue" : "text-gray-700"
+            filter === "published" ? "text-primary-green" : "text-gray-700"
           }`}
         >
           <FontAwesomeIcon icon={faCircleCheck} />
@@ -37,7 +37,7 @@ const PostsFilter = ({ filter, handleFilterChange, handleTabChange }) => {
             handleFilterChange("pending");
           }}
           className={`flex items-center cursor-pointer ${
-            filter === "pending" ? "text-customBlue" : "text-gray-700"
+            filter === "pending" ? "text-primary-green" : "text-gray-700"
           }`}
         >
           <FontAwesomeIcon icon={faClock} />
@@ -48,7 +48,7 @@ const PostsFilter = ({ filter, handleFilterChange, handleTabChange }) => {
             handleFilterChange("disapproved");
           }}
           className={`flex items-center cursor-pointer ${
-            filter === "disapproved" ? "text-customBlue" : "text-gray-700"
+            filter === "disapproved" ? "text-primary-green" : "text-gray-700"
           }`}
         >
           <FontAwesomeIcon icon={faCircleXmark} />
