@@ -141,10 +141,6 @@ export default function Dashboard() {
   return (
     <DashboardLayout>
       <div className="px-5 md:px-20">
-        <div className="py-8">
-          <NavDashboard />
-        </div>
-
         <div>{showTab(parseInt(currentTab))}</div>
       </div>
     </DashboardLayout>

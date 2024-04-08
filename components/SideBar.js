@@ -19,8 +19,6 @@ export default function Sidebar() {
 
   const pathname = usePathname();
 
-  const router = useRouter();
-
   const links = [
     {
       title: "Dashboard",
@@ -63,7 +61,7 @@ export default function Sidebar() {
     <>
       {open ? (
         <aside
-          className={`bg-black flex flex-col h-full z-40 w-64 py-4 px-6 transition-transform border-none duration-300 `}
+          className={`bg-black flex flex-col h-full z-40 w-64 min-[1440px]:w-[25%] min-[1500px]:w-96 py-4 px-6 transition-transform border-none duration-300 `}
         >
           {/* Hamburger menu icon */}
           <button

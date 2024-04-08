@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import PostsFilter from "./PostsFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -17,9 +20,15 @@ const DashboardPostsTab = ({
   filteredBlurbs,
   handleTabChange,
 }) => {
+  const [showStatistics, setShowStatistics] = useState(false);
+
+  const toggleStatistics = () => {
+    setShowStatistics(!showStatistics);
+  };
+
   return (
     <div>
-      <div className="flex gap-20">
+      <div className="flex gap-10 md:gap-20 flex-col pb-10 md:pb-0 md:flex-row">
         <div className="flex flex-col justify-center w-full">
           {/*<FilterPosts />*/}
 
@@ -64,7 +73,7 @@ const DashboardPostsTab = ({
           </div>
         </div>
 
-        <div className="mt-20 text-gray-shade-30">
+        <div className="md:mt-20 text-gray-shade-30">
           <h1 className="text-xl text-black">Statistics</h1>
           <div className="border-2 border-solid border-gray-shade-25 rounded-lg p-3 mt-3">
             <div className="flex flex-col gap-5">

@@ -1,15 +1,13 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle, faApple} from "@fortawesome/free-brands-svg-icons";
+import { faGoogle, faApple } from "@fortawesome/free-brands-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
 
 import "../styles/style.css";
-import {register} from "@/lib/auth";
+import { register } from "@/lib/auth";
 import PasswordField from "@/components/PasswordField";
 
 export default function Signup() {
-
-
   return (
     <AuthLayout>
       <div className="">
@@ -21,11 +19,11 @@ export default function Signup() {
         </div>
 
         <form
-            action={async (formData) => {
-              "use server";
-              await register(formData)
-              // redirect("/dashboard")
-            }}
+          action={async (formData) => {
+            "use server";
+            await register(formData);
+            // redirect("/dashboard")
+          }}
         >
           <div className="form-group mb-3">
             <label htmlFor="username" className="text-sm">
@@ -39,7 +37,7 @@ export default function Signup() {
                 aria-label="Enter your username"
                 placeholder="Enter your username"
                 required
-                className="w-full rounded border text-sm border-solid outline-none border-gray-300 px-3 py-[5px]"
+                className="w-full rounded border-2 text-sm focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
               />
             </div>
           </div>
@@ -55,7 +53,7 @@ export default function Signup() {
                 aria-label="Enter your email"
                 placeholder="Enter your email"
                 required
-                className="w-full rounded text-sm  border border-solid outline-none border-gray-300 px-3 py-[5px]"
+                className="w-full rounded border-2 text-sm focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
               />
             </div>
           </div>

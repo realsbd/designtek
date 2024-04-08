@@ -21,7 +21,7 @@ const AboutHero = () => {
 
           <div>
             <button className="text-white border border-solid border-primary-green duration-300 bg-primary-green hover:bg-white hover:text-primary-green px-5 py-2 rounded-lg">
-              Get Started
+              Download
             </button>
           </div>
           <p className="py-5 text-[12px]">

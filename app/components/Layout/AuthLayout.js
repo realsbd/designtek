@@ -11,11 +11,14 @@ export default function AuthLayout({ children }) {
         <div className="w-[800px] py-16 px-5 sm:px-24 md:px-28 lg:px-52 mx-auto h-full flex flex-col justify-center">
           <div className="flex flex-col justify-between gap-5">
             <div className="flex justify-between items-center">
-              <Link href="/" className="w-5">
+              <Link
+                href="/"
+                className="w-5 hover:text-primary-green duration-300"
+              >
                 <FontAwesomeIcon icon={faArrowLeft} />
               </Link>
 
-              <button>
+              <button className="hover:text-primary-green">
                 <FontAwesomeIcon icon={faHeadset} />
               </button>
             </div>

@@ -1,21 +1,17 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-// import { useState } from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DashboardLayout from "@/app/components/Layout/DashboardLayout";
-import NavDashboard from "@/components/NavDashboard";
 import Tiptap from "@/components/TipTap";
 
 export default function NewPost() {
+  const [editOptions, setEditOptions] = useState(false);
   return (
     <DashboardLayout>
-      <div className="px-5 py-8 md:px-20">
-        <NavDashboard />
-      </div>
       <div className="bg-black flex justify-end w-full py-2 px-20">
         <div className="flex gap-3">
-          <button>
+          <button onClick={() => setEditOptions(!editOptions)}>
             <Image
               src="/img/plus-circle.svg"
               width={24}
@@ -47,7 +43,9 @@ export default function NewPost() {
           </button>
         </div>
       </div>
-      <Tiptap />
+      <div className="py-5 px-20 relative">
+        <Tiptap editOptions={editOptions} />
+      </div>
     </DashboardLayout>
   );
 }

@@ -94,9 +94,6 @@ const PartnerSignalPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="px-5 py-8 md:px-20">
-        <NavDashboard />
-      </div>
       <div className="bg-black flex justify-end w-full py-2 px-5 md:px-20">
         <div>
           <button className="bg-[#E8EDF4] hover:bg-primary-green hover:text-white duration-300 text-black px-4 py-2 rounded-sm text-sm">

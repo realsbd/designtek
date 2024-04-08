@@ -62,9 +62,6 @@ const PartnerPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="px-5 py-8 md:px-20">
-        <NavDashboard />
-      </div>
       <div className="bg-black flex justify-end w-full py-2 px-20">
         <div className="">
           {currentStep == 3 ? (
