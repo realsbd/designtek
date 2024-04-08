@@ -8,30 +8,32 @@ import Pagination from "@/app/components/Pagination";
 import Image from "next/image";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [posts, setPosts] = useState([])
-  const [error, setError] = useState(null)
+  const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://fintech-blog-749ab6e21c45.herokuapp.com/posts')
+        const response = await fetch(
+          "https://fintech-blog-749ab6e21c45.herokuapp.com/posts"
+        );
 
         if (!response.ok) {
-          throw new Error(`HTTP error ${response.status}`)
+          throw new Error(`HTTP error ${response.status}`);
         }
 
-        const data = await response.json()
-        setPosts(data)
+        const data = await response.json();
+        setPosts(data);
       } catch (error) {
-        setError(error.message)
+        setError(error.message);
       }
-    }
+    };
 
-    fetchPosts()
-  }, [])
+    fetchPosts();
+  }, []);
 
   return (
     <PageLayout>
@@ -88,7 +90,7 @@ export default function Home() {
           }}
         >
           <Link href="/update" className="text-white ">
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-5 items-center mb-2">
               <div className="w-[44px] h-[44px] flex justify-center items-center rounded-full overflow-hidden">
                 <Image
                   src="/img/author.jpg"
@@ -100,7 +102,7 @@ export default function Home() {
 
               <p className="text-lg">David Nelson. 20.Jan.2024</p>
             </div>
-            <p className="text-lg sm:text-[32px] font-semibold tracking-tighter">
+            <p className="text-lg sm:text-[32px] font-semibold leading-normal">
               Latest updates on the financial exchange market that led to the
               crash of NGN
             </p>
@@ -114,7 +116,11 @@ export default function Home() {
               link={post.slug}
               img={post.image}
               title={post.title}
-              text={post.desc.length > 250 ? `${post.desc.slice(0, 250)}...` : post.desc}
+              text={
+                post.desc.length > 250
+                  ? `${post.desc.slice(0, 250)}...`
+                  : post.desc
+              }
             />
           ))}
         </div>
