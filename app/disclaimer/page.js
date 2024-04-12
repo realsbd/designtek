@@ -21,8 +21,8 @@ const DisclaimerPage = () => {
         </button>
       </div>
 
-      <div className=" xl:w-[966px] flex flex-col justify-center mx-auto">
-        <main className="px-4 md:px-16">
+      <div className="xl:w-4/6 flex flex-col justify-center mx-auto">
+        <main className="px-4 md:px-0">
           <h1 className="text-4xl font-medium text-center my-10">
             Disclaimer: Blog
           </h1>

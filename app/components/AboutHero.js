@@ -9,7 +9,7 @@ const AboutHero = () => {
       <div className="flex items-center gap-14 justify-between">
         <div>
           <h1 className="text-[42px] text-black font-bold leading-tight">
-            That smile when you get{" "}
+            That smile when you get <br className="hidden min-[1318px]:block" />
             <span className="text-primary-green bg-secondary-green">
               Verified.
             </span>
