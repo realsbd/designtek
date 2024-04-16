@@ -1,16 +1,18 @@
+
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faApple } from "@fortawesome/free-brands-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
-import { redirect } from "next/navigation";
-import { login } from "@/lib/auth";
 
 import "../styles/style.css";
 import PasswordField from "@/components/PasswordField";
 import PasswordModal from "@/components/PasswordModal";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+// import { useFormState } from 'react-dom'
+import { signIn } from "@/auth";
+import { authenticate } from "@/lib/action";
 
 export default function Login() {
+  // const [errorMessage, dispatch] = useFormState(authenticate, undefined)
   return (
     <AuthLayout>
       <div className="w-full">
@@ -22,11 +24,10 @@ export default function Login() {
         </div>
 
         <form
-          action={async (formData) => {
-            "use server";
-            await login(formData);
-            redirect("/dashboard");
-          }}
+            action={async (formData) => {
+              "use server"
+              await signIn("credentials", formData)
+            }}
         >
           <div className="form-group mb-3">
             <label htmlFor="email">Email</label>
@@ -52,6 +53,11 @@ export default function Login() {
           >
             Log in
           </button>
+          {/*{errorMessage && (*/}
+          {/*    <>*/}
+          {/*      <p className={'text-red-600'}>{errorMessage}</p>*/}
+          {/*    </>*/}
+          {/*)}*/}
         </form>
 
         <PasswordModal />
