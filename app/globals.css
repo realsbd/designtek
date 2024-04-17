@@ -15,7 +15,12 @@
     --gray-shade-30: #667085;
     --gray-shade-35: #f9fafb;
     --gray-shade-40: #f5f6f6;
+    --gray-shade-45: #344054;
+    --gray-shade-50: #c0c4d1;
+    --gray-shade-55: #e8edf4;
     --black-shade-0: #323232;
+    --admin-red-0: #fefbfb;
+    --green-shade-0: #ecf3fc;
 
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -227,8 +232,28 @@ body {
   border-color: transparent;
 }
 
+.admin-container th,
+.admin-container td {
+  padding: 10px 0;
+}
+
+/* Calendar styles */
+.css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root {
+  background-color: var(--gray-shade-40) !important;
+}
+
+.css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+  background-color: var(--primary-green) !important;
+}
+
 @media screen and (max-width: 1023px) {
   .active_nav {
     border-bottom: none;
   }
+}
+
+/* ADMIN PAGE */
+
+.screen_height {
+  height: 100svh;
 }
