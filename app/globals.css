@@ -257,3 +257,7 @@ body {
 .screen_height {
   height: 100svh;
 }
+
+.backdrop_bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}

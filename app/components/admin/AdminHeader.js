@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const AdminHeader = () => {
+const AdminHeader = ({ openModal }) => {
   return (
     <div>
       <div className="flex gap-3 items-center">
@@ -16,12 +16,12 @@ const AdminHeader = () => {
         </div>
         <div className="flex flex-col gap-1">
           <p>Aisha Akintola</p>
-          <Link
-            href="/admin/profile"
+          <button
+            onClick={openModal}
             className="text-sm text-gray-shade-45 text-left hover:text-primary-green duration-300"
           >
             Edit profile
-          </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -5,19 +5,40 @@ import Layout from "../components/admin/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../components/Pagination";
+import ProfileEdit from "../components/admin/ProfileEdit";
+import AddNewUserModal from "../components/admin/AddNewUserModal";
+import UserCreate from "../components/admin/UserCreate";
 
 const AdminPage = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [userModal, setUserModal] = useState(false);
+  const [profileModal, setProfileModal] = useState(false);
+  const [showUserCreate, setShowUserCreate] = useState(false); // Add state to control UserCreate visibility
+  const [scroll, setScroll] = useState(true);
+  const [flex, setFlex] = useState(true);
+
+  const openProfileModal = () => {
+    setProfileModal(true);
+  };
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest(".profile-edit")) {
+      setProfileModal(false);
+    }
+  };
 
   const handleUserChange = (value) => {
-    console.log(value);
     if (value === "add-new-user") {
+      setUserModal(true);
+      setScroll(false);
+      console.log(flex);
+    } else {
+      setUserModal(false);
     }
   };
 
   return (
-    <Layout>
+    <Layout openModal={openProfileModal}>
       <div className="mt-10">
         <h1 className="text-2xl">Admin Dashboard</h1>
         <div className="mt-5 flex flex-wrap-reverse gap-2 justify-between items-center w-full">
@@ -94,7 +115,6 @@ const AdminPage = () => {
               />
               <input
                 className="w-full outline-none"
-                id="username"
                 type="text"
                 placeholder="Search users"
                 onFocus={() => setIsFocused(true)}
@@ -171,7 +191,41 @@ const AdminPage = () => {
         </div>
       </div>
 
-      {}
+      {/* PROFILE EDIT */}
+
+      {profileModal && (
+        <div
+          className={`z-10 fixed w-full screen_height top-0 right-0 overflow-x-hidden left-0 backdrop_bg rm_scroll ${
+            scroll ? "overflex-y-scroll" : "overflow-y-hidden"
+          }`}
+          onClick={handleClickOutside}
+        >
+          <ProfileEdit setScroll={setScroll} />
+        </div>
+      )}
+
+      {/* ADD USER */}
+
+      {userModal && (
+        <div
+          className={`z-10 fixed w-full screen_height top-0 right-0 overflow-x-hidden left-0 backdrop_bg rm_scroll ${
+            scroll ? "overflex-y-scroll" : "overflow-y-hidden"
+          } ${flex && "flex justify-center items-center"}`}
+          onClick={handleClickOutside}
+        >
+          {showUserCreate ? (
+            <UserCreate setScroll={setScroll} />
+          ) : (
+            <AddNewUserModal
+              setUserModal={setUserModal}
+              setScroll={setScroll}
+              setFlex={setFlex}
+              setShowUserCreate={setShowUserCreate}
+              flex={flex}
+            />
+          )}
+        </div>
+      )}
     </Layout>
   );
 };

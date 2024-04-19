@@ -1,11 +1,11 @@
 import Image from "next/image";
 import AdminHeader from "./AdminHeader";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, openModal }) => {
   return (
     <div className="flex flex-col min-h-screen p-5 md:p-10">
       <div>
-        <AdminHeader />
+        <AdminHeader openModal={openModal} />
       </div>
       <main className="flex-grow">{children}</main>
       <footer className="mt-auto">
