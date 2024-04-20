@@ -1,54 +1,67 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import ConfirmEdit from "@/app/components/admin/ConfirmEdit";
+import CloseButton from "./CloseButton";
+import ConfirmExit from "./ConfirmExit";
 
-const UserCreate = ({ setScroll }) => {
+const UserCreate = ({
+  setScroll,
+  setShowUserCreate,
+  setFlex,
+  setUserModal,
+  selectedRole,
+}) => {
   const [slideIn, setSlideIn] = useState(false);
-  const [showConfirmEdit, setShowConfirmEdit] = useState(false);
+  const [showConfirmExit, setShowConfirmExit] = useState(false);
 
   useEffect(() => {
     setSlideIn(true);
     return () => setSlideIn(false);
   }, []);
 
-  const handleRoleDropdownClick = () => {
-    setShowConfirmEdit(true);
-    setScroll(false);
+  const handleCloseConfirmExit = () => {
+    setShowConfirmExit(false);
+    setScroll(true);
   };
 
-  const handleCloseConfirmEdit = () => {
-    setShowConfirmEdit(false);
+  const handleCloseCreate = () => {
+    setShowConfirmExit(true);
+    setScroll(false);
+    setFlex(false);
+  };
+
+  const handleConfirmExit = () => {
+    setShowConfirmExit(false);
     setScroll(true);
+    setFlex(true);
+    setUserModal(false);
+    setShowUserCreate(false);
   };
 
   return (
     <div
-      className={`profile-edit w-[90%] lg:max-w-[1118px] ml-auto bg-white transition-transform duration-300 transform ${
+      className={`profile-edit w-[90%]relative lg:max-w-[1118px] ml-auto bg-white transition-transform duration-300 transform ${
         slideIn ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      {showConfirmEdit && (
+      {showConfirmExit && (
         <div className="fixed z-50 top-0 right-0 left-0 w-full screen_height overflow-hidden">
-          <ConfirmEdit onClose={handleCloseConfirmEdit} />
+          <ConfirmExit
+            onClose={handleCloseConfirmExit}
+            onConfirm={handleConfirmExit}
+          />
         </div>
       )}
-      <div className="pt-10 px-3 sm:px-10 md:px-[100px] pb-[100px]">
-        <div className="flex justify-end">
-          <button className="hover:text-primary-green flex items-center gap-3">
-            Sign{" "}
-            <Image
-              src="/img/signout.svg"
-              width={30}
-              height={30}
-              alt="signout button"
-            />
-          </button>
-        </div>
 
+      <CloseButton onClose={handleCloseCreate} />
+      <div className="pt-10 px-3 sm:px-10 md:px-[100px] pb-[100px]">
+        <h1 className="text-xl md:text-[32px] font-medium mt-20 mb-14">
+          Add as {selectedRole}
+        </h1>
         <div className="flex gap-10 mt-7">
           <div className="relative">
             <div className="w-[100px] h-[100px] rounded-full overflow-hidden flex justify-center items-center">
@@ -79,33 +92,22 @@ const UserCreate = ({ setScroll }) => {
               <div className="w-full flex flex-col gap-4">
                 {/* first part */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="password1">Enter old password</label>
+                  <label htmlFor="new-password">Enter new password</label>
                   <div className="input-field">
                     <input
                       type="password"
-                      id="password1"
+                      id="new-password"
                       className="w-full rounded border-2 text-sm focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
                     ></input>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="password2">Enter new password</label>
+                  <label htmlFor="password2">Re-enter password</label>
                   <div className="input-field">
                     <input
                       type="password"
                       id="password2"
-                      className="w-full rounded border-2 text-sm focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
-                    ></input>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="password3">Re-enter new password</label>
-                  <div className="input-field">
-                    <input
-                      type="password"
-                      id="password3"
                       className="w-full rounded border-2 text-sm focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
                     ></input>
                   </div>
@@ -138,20 +140,6 @@ const UserCreate = ({ setScroll }) => {
 
               <div className="w-full flex flex-col gap-4">
                 {/* second part */}
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="role" onClick={handleRoleDropdownClick}>
-                    Role
-                  </label>
-                  <div className="input-field">
-                    <select
-                      id="role"
-                      className="w-full rounded border-2 text-sm focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
-                    >
-                      <option>Administrator</option>
-                      <option>Creator</option>
-                    </select>
-                  </div>
-                </div>
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="firstname">First Name</label>
@@ -247,24 +235,6 @@ const UserCreate = ({ setScroll }) => {
               </div>
             </div>
           </form>
-        </div>
-
-        <div className="mt-7 flex flex-col gap-5">
-          <p className="text-sm">
-            <span className="text-[#AC0000] font-medium">Warning:</span>{" "}
-            Deleting the admin account on the Fintech blog may lead to loss of
-            crucial data and functionality. Exercise caution and ensure
-            alternative administrative arrangements are in place before
-            proceeding.
-          </p>
-
-          <button
-            type="submit"
-            className="flex gap-2 items-center justify-center w-full bg-gray-300 rounded py-2 my-3 border border-solid border-transparent hover:bg-primary-green hover:text-white duration-300"
-          >
-            <FontAwesomeIcon icon={faTrashCan} />
-            Delete Account
-          </button>
         </div>
       </div>
     </div>

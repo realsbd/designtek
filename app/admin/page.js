@@ -16,6 +16,7 @@ const AdminPage = () => {
   const [showUserCreate, setShowUserCreate] = useState(false); // Add state to control UserCreate visibility
   const [scroll, setScroll] = useState(true);
   const [flex, setFlex] = useState(true);
+  const [selectedRole, setSelectedRole] = useState(null);
 
   const openProfileModal = () => {
     setProfileModal(true);
@@ -31,7 +32,6 @@ const AdminPage = () => {
     if (value === "add-new-user") {
       setUserModal(true);
       setScroll(false);
-      console.log(flex);
     } else {
       setUserModal(false);
     }
@@ -214,14 +214,21 @@ const AdminPage = () => {
           onClick={handleClickOutside}
         >
           {showUserCreate ? (
-            <UserCreate setScroll={setScroll} />
+            <UserCreate
+              setScroll={setScroll}
+              setShowUserCreate={setShowUserCreate}
+              setFlex={setFlex}
+              setUserModal={setUserModal}
+              selectedRole={selectedRole}
+            />
           ) : (
             <AddNewUserModal
               setUserModal={setUserModal}
               setScroll={setScroll}
               setFlex={setFlex}
               setShowUserCreate={setShowUserCreate}
-              flex={flex}
+              selectedRole={selectedRole}
+              setSelectedRole={setSelectedRole}
             />
           )}
         </div>

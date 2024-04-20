@@ -202,6 +202,7 @@ const ProfileEdit = ({ setScroll }) => {
                     <select
                       id="role"
                       ref={roleRef}
+                      disabled={showConfirmEdit}
                       onFocus={() => handleFieldEditClick("role")}
                       className="w-full rounded border-2 text-sm focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
                     >

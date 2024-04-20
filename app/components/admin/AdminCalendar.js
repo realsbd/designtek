@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import dayjs from "dayjs";
-import Badge from "@mui/material/Badge";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { PickersDay } from "@mui/x-date-pickers/PickersDay";
@@ -29,27 +28,43 @@ function fakeFetch(date, { signal }) {
   });
 }
 
-const initialValue = dayjs("2022-04-17");
+const initialValue = dayjs();
 
 function ServerDay(props) {
-  const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
+  const {
+    highlightedDays = [],
+    day,
+    outsideCurrentMonth,
+    onClick,
+    ...other
+  } = props;
 
   const isSelected =
     !props.outsideCurrentMonth &&
     highlightedDays.indexOf(props.day.date()) >= 0;
 
+  const isCurrentDay = day.isSame(dayjs(), "day"); // Check if the day is the current day
+
+  let classes = "";
+  if (isSelected) {
+    classes += "selectedDay ";
+  }
+  if (isCurrentDay) {
+    classes += "currentDay";
+  }
+
+  const handleClick = () => {
+    onClick(day);
+  };
+
   return (
-    <Badge
-      key={props.day.toString()}
-      overlap="circular"
-      badgeContent={isSelected ? "🌚" : undefined}
-    >
-      <PickersDay
-        {...other}
-        outsideCurrentMonth={outsideCurrentMonth}
-        day={day}
-      />
-    </Badge>
+    <PickersDay
+      {...other}
+      outsideCurrentMonth={outsideCurrentMonth}
+      day={day}
+      className={classes} // Apply the CSS class based on selection
+      onClick={handleClick} // Handle click event
+    />
   );
 }
 
@@ -57,6 +72,7 @@ export default function AdminCalendar() {
   const requestAbortController = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const [highlightedDays, setHighlightedDays] = useState([1, 2, 15]);
+  const [selectedDate, setSelectedDate] = useState(null); // State to store selected date
 
   const fetchHighlightedDays = (date) => {
     const controller = new AbortController();
@@ -95,20 +111,28 @@ export default function AdminCalendar() {
     fetchHighlightedDays(date);
   };
 
+  const handleDayClick = (date) => {
+    setSelectedDate(date);
+    console.log(selectedDate);
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar
-        defaultValue={initialValue}
+        value={selectedDate} // Using value instead of defaultValue
+        onChange={setSelectedDate} // Update selectedDate state
+        // defaultValue={initialValue}
         loading={isLoading}
         onMonthChange={handleMonthChange}
         renderLoading={() => <DayCalendarSkeleton />}
         slots={{
-          day: ServerDay,
-        }}
-        slotProps={{
-          day: {
-            highlightedDays,
-          },
+          day: (props) => (
+            <ServerDay
+              {...props}
+              onClick={handleDayClick}
+              highlightedDays={highlightedDays}
+            />
+          ),
         }}
       />
     </LocalizationProvider>
