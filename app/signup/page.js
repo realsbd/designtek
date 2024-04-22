@@ -1,13 +1,49 @@
+'use client'
 import Link from "next/link";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faApple } from "@fortawesome/free-brands-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
 
 import "../styles/style.css";
-import { register } from "@/lib/auth";
 import PasswordField from "@/components/PasswordField";
+import { createUser } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import { register } from "@/lib/action";
 
 export default function Signup() {
+  const [message, setMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+  async function onSubmit(event) {
+    event.preventDefault()
+    setIsLoading(true)
+    setError(null) // Clear previous errors when a new request starts
+
+    try {
+      // const formData = new FormData(event.currentTarget)
+
+      const formData = new FormData(event.target)
+      const response = await register(formData.get('username'), formData.get('email'), formData.get('password'))
+
+      if (response.success === true) {
+        // Handle Success (201)
+        const data = await response.json();
+        setMessage("Registered Successfully. Please Login");
+        return data;
+      } else {
+        // Handle other status codes if necessary
+        throw new Error('Failed to submit the data. Please try again. :(');
+      }
+    } catch (error) {
+      // Capture the error message to display to the user
+      setError(error.message)
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
+
+  }
   return (
     <AuthLayout>
       <div className="">
@@ -18,13 +54,10 @@ export default function Signup() {
           Welcome! Please enter your details.
         </div>
 
+        {message && <div style={{ color: 'green' }}>{message}</div>}
+
         <form
-          action={async (formData) => {
-            "use server";
-            await register(formData);
-            // redirect("/dashboard")
-          }}
-        >
+          onSubmit={onSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="username" className="text-sm">
               Username
@@ -64,7 +97,7 @@ export default function Signup() {
             <PasswordField />
           </div>
           <div className=" my-3 flex items-center gap-2">
-            <input type="checkbox" className="" />
+            <input type="checkbox" className="" name="agree" required />
             <p className="text-sm">
               By signing up, you Agree to our{" "}
               <Link href="/terms-condition" className="text-primary-green">
@@ -76,12 +109,14 @@ export default function Signup() {
               </Link>
             </p>
           </div>
+          {error && <div style={{ color: 'red' }}>{error}</div>}
           <button
             type="submit"
             className="login-button w-full bg-gray-300 rounded py-2 my-3 border border-solid border-transparent hover:bg-primary-green hover:text-white duration-300"
-          >
-            Sign up
+            disabled={isLoading}>
+            {isLoading ? 'Loading...' : 'Sign up'}
           </button>
+
         </form>
 
         <div className="divider flex items-center gap-2 my-3 text-center">

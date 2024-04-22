@@ -7,7 +7,7 @@ import { z } from 'zod'
 import { getUser } from './lib/auth'
 
 export const { auth, signIn, signOut } = NextAuth({
-    authConfig,
+    ...authConfig,
     providers: [
         Credentials({
         credentials: {
@@ -18,20 +18,22 @@ export const { auth, signIn, signOut } = NextAuth({
             try {
                 let user = null
 
-                const { username, password } = await signInSchema.parseAsync(credentials)
-                console.log(username, password)
+                // const { username, password } = await signInSchema.parseAsync(credentials)
+                // console.log(username, password)
+                // console.log("credentials: ", credentials);
 
-                user = await getUser(username,password)
+                user = await getUser(credentials.username, credentials.password)
+
+                console.log('user: ', user);
 
                 if (!user) {
+                    console.log('User not found');
                     throw new Error('User not found')
                 }
 
                 return user
             }catch (error){
-                if (error instanceof ZodError){
-                    return null
-                }
+                throw error
             }
         }
     })]

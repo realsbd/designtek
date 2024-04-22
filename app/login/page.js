@@ -1,4 +1,4 @@
-
+// "use client"
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faApple } from "@fortawesome/free-brands-svg-icons";
@@ -7,8 +7,9 @@ import AuthLayout from "../components/Layout/AuthLayout";
 import "../styles/style.css";
 import PasswordField from "@/components/PasswordField";
 import PasswordModal from "@/components/PasswordModal";
-// import { useFormState } from 'react-dom'
 import { signIn } from "@/auth";
+// import { AuthError } from "next-auth";
+// import { useFormState } from 'react-dom'
 import { authenticate } from "@/lib/action";
 
 export default function Login() {
@@ -24,10 +25,11 @@ export default function Login() {
         </div>
 
         <form
-            action={async (formData) => {
-              "use server"
-              await signIn("credentials", formData)
-            }}
+          action={async (formData) => {
+            "use server"
+            // await dispatch(formData)
+            await signIn("credentials", formData)
+          }}
         >
           <div className="form-group mb-3">
             <label htmlFor="email">Email</label>
@@ -53,11 +55,11 @@ export default function Login() {
           >
             Log in
           </button>
-          {/*{errorMessage && (*/}
-          {/*    <>*/}
-          {/*      <p className={'text-red-600'}>{errorMessage}</p>*/}
-          {/*    </>*/}
-          {/*)}*/}
+          {/* {errorMessage && (
+            <>
+              <p className={'text-red-600'}>{errorMessage}</p>
+            </>
+          )} */}
         </form>
 
         <PasswordModal />
