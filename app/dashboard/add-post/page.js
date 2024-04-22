@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import DashboardLayout from "@/app/components/Layout/DashboardLayout";
-import Tiptap from "@/components/TipTap";
+import BlogPostEditor from "@/components/TipTap";
 
 export default function NewPost() {
   const [editOptions, setEditOptions] = useState(false);
@@ -44,7 +44,7 @@ export default function NewPost() {
         </div>
       </div>
       <div className="py-5 px-20 relative">
-        <Tiptap editOptions={editOptions} />
+        <BlogPostEditor />
       </div>
     </DashboardLayout>
   );

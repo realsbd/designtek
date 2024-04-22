@@ -1,27 +1,87 @@
-"use client";
+'use client'
 
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import MenuBar from "@/components/MenuBar";
+import { useEditor, EditorContent } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+import { useEffect, useState } from 'react';
 
-const Tiptap = ({ editOptions }) => {
+const BlogPostEditor = () => {
+  // const [content, setContent] = useState('');
+  const [title, setTitle] = useState('')
+  const [categories, setCategories] = useState('')
+  const [error, setError] = useState('')
+  const [msg, setMsg] = useState('')
+
   const editor = useEditor({
-    extensions: [StarterKit],
-    content: "<p>Hello World! 🌎️</p>",
-  });
+    extensions: [
+      StarterKit,
+      // Add other extensions as needed
+    ],
+    content: `<p>Hello, World!</p>`, // Optional, initial content for the editor
+  })
+
+  const handleSubmit = async () => {
+    const editorContent = editor.getJSON()
+    // Do something with the content, e.g., send it to the server
+    const data = await fetch('https://fintech-blog-749ab6e21c45.herokuapp.com/posts/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title,
+        categories,
+        content: editorContent
+      })
+    })
+    if (data.status !== 200) {
+      console.log(data)
+      setError(data.message)      
+    }
+    setMsg(data.message)
+  }
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const response = await fetch('https://fintech-blog-749ab6e21c45.herokuapp.com/categories')
+      const data = await response.json()
+      console.log(data)
+      setCategories(data)
+    }
+    fetchCategories()
+  }, [])
 
   return (
     <div>
-      <div
-        className={`absolute right-0 top-0 w-[400px] duration-300 ${
-          editOptions ? "h-52 visible" : "h-0 hidden"
-        }`}
-      >
-        <MenuBar editor={editor} />
+      {msg && <p className='text-green'>{msg}</p>}
+      <input
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <div>
+        Select category:
+        <select>
+          {categories && Array.isArray(categories) && categories.length > 0 ? (
+            categories.map((category) => (
+              <option key={category.id} value={category.name}>{category.name}</option>
+            ))
+          ) : (
+            <option value="">No categories available</option>
+          )}
+        </select>
       </div>
+      <input
+        type="text"
+        placeholder="Category"
+        value={categories}
+        onChange={(e) => setCategories(e.target.value)}
+      />
       <EditorContent editor={editor} />
+      <button onClick={handleSubmit}>Submit</button>
+      {error && <p className='text-red'>{error}</p>}
     </div>
-  );
+  )
 };
 
-export default Tiptap;
+export default BlogPostEditor
