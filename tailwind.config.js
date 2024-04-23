@@ -35,6 +35,7 @@ module.exports = {
         "green-shade-0": "var(--green-shade-0)",
         "black-shade-0": "var(--black-shade-0)",
         "admin-red-0": "var(--admin-red-0)",
+        "admin-red-5": "var(--admin-red-5)",
         customBlue: "#02A29E",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

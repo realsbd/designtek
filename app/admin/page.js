@@ -3,11 +3,104 @@
 import { useState } from "react";
 import Layout from "../components/admin/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faMagnifyingGlass,
+  faPen,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../components/Pagination";
 import ProfileEdit from "../components/admin/ProfileEdit";
 import AddNewUserModal from "../components/admin/AddNewUserModal";
 import UserCreate from "../components/admin/UserCreate";
+import Image from "next/image";
+import NormalFilters from "../components/admin/NormalFilters";
+import SelectionButtons from "../components/admin/SelectionButtons";
+import PostsTable from "../components/admin/PostsTable";
+import UsersTable from "../components/admin/UsersTable";
+
+const users = {
+  columns: [
+    "Username",
+    "Name",
+    "Email",
+    "Role",
+    "Posts",
+    "2FA Status",
+    "Last Login",
+    "",
+  ],
+  user: [
+    {
+      username: "Valeta Squad",
+      name: "David Bolanle",
+      email: "davidbolanle08@gmail.com",
+      role: "Editor",
+      posts: 232,
+      status: "Verified",
+      duration: "6 min ago",
+    },
+    {
+      username: "Valeta Squad",
+      name: "David Bolanle",
+      email: "davidbolanle08@gmail.com",
+      role: "Editor",
+      posts: 232,
+      status: "Verified",
+      duration: "6 min ago",
+    },
+    {
+      username: "Valeta Squad",
+      name: "David Bolanle",
+      email: "davidbolanle08@gmail.com",
+      role: "Editor",
+      posts: 232,
+      status: "Verified",
+      duration: "6 min ago",
+    },
+  ],
+};
+
+const deletedPosts = {
+  columns: [
+    "Username",
+    "Name",
+    "Posts",
+    "Role",
+    "Recent Date",
+    "Time",
+    "Reason",
+  ],
+  users: [
+    {
+      username: "Valeta Squad",
+      name: "David Bolanle",
+      posts: 32,
+      role: "Contributor",
+      recentDate: "14 . February . 2024",
+      time: "6 min ago",
+      reason: "AI generated",
+    },
+    {
+      username: "Valeta Squad",
+      name: "David Bolanle",
+      posts: 32,
+      role: "Editor",
+      recentDate: "14 . February . 2024",
+      time: "6 min ago",
+      reason: "AI generated",
+    },
+    {
+      username: "Valeta Squad",
+      name: "David Bolanle",
+      posts: 32,
+      role: "Contributor",
+      recentDate: "14 . February . 2024",
+      time: "6 min ago",
+      reason: "AI generated",
+    },
+  ],
+};
 
 const AdminPage = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -17,6 +110,19 @@ const AdminPage = () => {
   const [scroll, setScroll] = useState(true);
   const [flex, setFlex] = useState(true);
   const [selectedRole, setSelectedRole] = useState(null);
+  const [singleCheck, setSingleCheck] = useState(false);
+  const [multipleCheck, setMultipleCheck] = useState(false);
+  const [isSelectionMode, setIsSelectionMode] = useState(false);
+  const [userSelection, setUserSelection] = useState({});
+  const [filter, setFilter] = useState("all-users");
+
+  // Function to toggle selection for a specific user
+  const toggleUserSelection = (userId) => {
+    setUserSelection((prevState) => ({
+      ...prevState,
+      [userId]: !prevState[userId],
+    }));
+  };
 
   const openProfileModal = () => {
     setProfileModal(true);
@@ -37,13 +143,26 @@ const AdminPage = () => {
     }
   };
 
+  const toggleSingleCheck = () => {
+    setSingleCheck(!singleCheck);
+    toggleSelectionMode();
+  };
+
+  const toggleMultipleCheck = () => {
+    setMultipleCheck(!multipleCheck);
+  };
+
+  const toggleSelectionMode = () => {
+    setIsSelectionMode(!isSelectionMode);
+  };
+
   return (
     <Layout openModal={openProfileModal}>
       <div className="mt-10">
         <h1 className="text-2xl">Admin Dashboard</h1>
         <div className="mt-5 flex flex-wrap-reverse gap-2 justify-between items-center w-full">
           <div className="overflow-auto py-1">
-            <div className="flex gap-4 items-center max-[847px]:w-[700px] text-[13px]">
+            {/* <div className="flex gap-4 items-center max-[847px]:w-[700px] text-[13px]">
               <div>
                 <select className="w-28 outline-none">
                   <option value="all-profiles">All profiles</option>
@@ -92,7 +211,15 @@ const AdminPage = () => {
               <div>
                 <button>Site kits</button>
               </div>
-            </div>
+            </div> */}
+            {!isSelectionMode ? (
+              <NormalFilters
+                setFilter={setFilter}
+                handleUserChange={handleUserChange}
+              />
+            ) : (
+              <SelectionButtons />
+            )}
           </div>
 
           <div className="flex items-center gap-6">
@@ -126,14 +253,40 @@ const AdminPage = () => {
 
         <div className="my-3">
           <div className="flex gap-4 text-[13px]">
-            <div className="flex gap-2">
-              <input type="checkbox" id="select" />
-              <label htmlFor="select">Select</label>
+            <div className="flex items-center gap-2">
+              <button onClick={toggleSingleCheck}>
+                <Image
+                  src={`${
+                    singleCheck ? "/img/check-box.svg" : "/img/uncheck-box.svg"
+                  }`}
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                  alt="check"
+                />
+              </button>
+              <label htmlFor="select" className="leading-none">
+                {!singleCheck ? "Select" : "Unselect"}
+              </label>
             </div>
 
-            <div className="flex gap-2">
-              <input type="checkbox" id="multiple-selection" />
-              <label htmlFor="multiple-selection">Multiple selection</label>
+            <div className="flex items-center gap-2">
+              <button onClick={toggleMultipleCheck}>
+                <Image
+                  src={`${
+                    multipleCheck
+                      ? "/img/check-box.svg"
+                      : "/img/uncheck-box.svg"
+                  }`}
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                  alt="check"
+                />
+              </button>
+              <label htmlFor="multiple-selection" className="leading-none">
+                {!multipleCheck ? "Multiple selection" : "Unselect multiple"}
+              </label>
             </div>
           </div>
         </div>
@@ -142,48 +295,23 @@ const AdminPage = () => {
           <h2 className="mb-5 text-xl">All users(300)</h2>
 
           <div className="overflow-auto">
-            <table className="w-full text-left admin-container max-[919px]:w-[900px] text-sm">
-              <thead className="font-medium">
-                <tr>
-                  <th>Username</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Posts</th>
-                  <th>2FA Status</th>
-                  <th>Last Login</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Valeta Squad</td>
-                  <td>David Bolanle</td>
-                  <td>davidbolanle08@gmail.com</td>
-                  <td>Editor</td>
-                  <td>232</td>
-                  <td>Verified</td>
-                  <td>6 min ago</td>
-                </tr>
-                <tr>
-                  <td>Valeta Squad</td>
-                  <td>David Bolanle</td>
-                  <td>davidbolanle08@gmail.com</td>
-                  <td>Editor</td>
-                  <td>232</td>
-                  <td>Verified</td>
-                  <td>6 min ago</td>
-                </tr>
-                <tr>
-                  <td>Valeta Squad</td>
-                  <td>David Bolanle</td>
-                  <td>davidbolanle08@gmail.com</td>
-                  <td>Editor</td>
-                  <td>232</td>
-                  <td>Verified</td>
-                  <td>6 min ago</td>
-                </tr>
-              </tbody>
-            </table>
+            {filter === "all-users" && (
+              <UsersTable
+                data={users}
+                isSelectionMode={isSelectionMode}
+                toggleUserSelection={toggleUserSelection}
+                userSelection={userSelection}
+              />
+            )}
+
+            {filter === "deleted-posts" && (
+              <PostsTable
+                data={deletedPosts}
+                isSelectionMode={isSelectionMode}
+                toggleUserSelection={toggleUserSelection}
+                userSelection={userSelection}
+              />
+            )}
           </div>
         </div>
         <div className="my-3">
