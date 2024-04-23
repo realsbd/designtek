@@ -39,7 +39,7 @@ const LoginPage = () => {
           </button>
 
           <div className="flex gap-1 justify-center">
-            <p>Don’t have an account?</p>
+            <p>Don&lsquo;t have an account?</p>
             <Link href="admin/register" className="text-primary-green">
               Sign Up
             </Link>
