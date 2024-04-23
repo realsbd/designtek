@@ -28,12 +28,14 @@ export const { auth, signIn, signOut } = NextAuth({
 
                 if (!user) {
                     console.log('User not found');
-                    throw new Error('User not found')
+                    // throw new Error('User not found')
+                    return null
                 }
 
                 return user
             }catch (error){
-                throw error
+                // throw error
+                return null
             }
         }
     })]

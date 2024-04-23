@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="working on authentication">
-      <change beforePath="$PROJECT_DIR$/app/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/signup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/signup/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UserRole.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserRole.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
-    </list>
+    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="working on authentication" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +92,7 @@
       <updated>1713262975525</updated>
       <workItem from="1713262977821" duration="21093000" />
       <workItem from="1713690438014" duration="14312000" />
+      <workItem from="1713868771674" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="working on authentication">
       <created>1713277317275</created>
@@ -135,7 +128,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/action.js</url>
           <line>1</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

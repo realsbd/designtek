@@ -11,6 +11,7 @@ import { signIn } from "@/auth";
 // import { AuthError } from "next-auth";
 // import { useFormState } from 'react-dom'
 import { authenticate } from "@/lib/action";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 export default function Login() {
   // const [errorMessage, dispatch] = useFormState(authenticate, undefined)
@@ -27,8 +28,13 @@ export default function Login() {
         <form
           action={async (formData) => {
             "use server"
-            // await dispatch(formData)
-            await signIn("credentials", formData)
+            try {
+              // await dispatch(formData)
+              await signIn("credentials", formData)
+
+            } catch (error) {
+              throw new Error('Invalid credentials. From page: login')
+            }
           }}
         >
           <div className="form-group mb-3">
