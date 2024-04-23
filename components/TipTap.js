@@ -11,15 +11,15 @@ const Tiptap = ({ editOptions }) => {
   });
 
   return (
-    <div>
+    <div className="h-full">
       <div
-        className={`absolute right-0 top-0 w-[400px] duration-300 ${
+        className={`absolute right-0 top-0 w-[400px] duration-300 z-10 ${
           editOptions ? "h-52 visible" : "h-0 hidden"
         }`}
       >
         <MenuBar editor={editor} />
       </div>
-      <EditorContent editor={editor} />
+      <EditorContent className="h-full outline-none" editor={editor} />
     </div>
   );
 };

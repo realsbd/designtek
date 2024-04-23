@@ -43,7 +43,7 @@ export default function NewPost() {
           </button>
         </div>
       </div>
-      <div className="py-5 px-20 relative">
+      <div className="py-5 px-20 relative h-full">
         <Tiptap editOptions={editOptions} />
       </div>
     </DashboardLayout>
