@@ -39,7 +39,7 @@ export default function AuthLayout({ children }) {
             monetize my passion. I love the payment structure as I get paid
             immediately my posts are approved! Thanks to Veerified...”
           </h3>
-          <AuthorCard user={user} />
+          <AuthorCard username={user.username} role={user.role} />
         </div>
       </div>
     </>
