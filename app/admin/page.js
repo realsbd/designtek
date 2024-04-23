@@ -18,6 +18,7 @@ import NormalFilters from "../components/admin/NormalFilters";
 import SelectionButtons from "../components/admin/SelectionButtons";
 import PostsTable from "../components/admin/PostsTable";
 import UsersTable from "../components/admin/UsersTable";
+import DeletedPost from "../components/admin/DeletedPost";
 
 const users = {
   columns: [
@@ -115,6 +116,7 @@ const AdminPage = () => {
   const [isSelectionMode, setIsSelectionMode] = useState(false);
   const [userSelection, setUserSelection] = useState({});
   const [filter, setFilter] = useState("all-users");
+  const [showDeletedPost, setShowDeletedPost] = useState(false);
 
   // Function to toggle selection for a specific user
   const toggleUserSelection = (userId) => {
@@ -265,9 +267,9 @@ const AdminPage = () => {
                   alt="check"
                 />
               </button>
-              <label htmlFor="select" className="leading-none">
+              <p className="leading-none">
                 {!singleCheck ? "Select" : "Unselect"}
-              </label>
+              </p>
             </div>
 
             <div className="flex items-center gap-2">
@@ -284,9 +286,9 @@ const AdminPage = () => {
                   alt="check"
                 />
               </button>
-              <label htmlFor="multiple-selection" className="leading-none">
+              <p className="leading-none">
                 {!multipleCheck ? "Multiple selection" : "Unselect multiple"}
-              </label>
+              </p>
             </div>
           </div>
         </div>
@@ -310,6 +312,7 @@ const AdminPage = () => {
                 isSelectionMode={isSelectionMode}
                 toggleUserSelection={toggleUserSelection}
                 userSelection={userSelection}
+                setShowDeletedPost={setShowDeletedPost}
               />
             )}
           </div>
@@ -359,6 +362,22 @@ const AdminPage = () => {
               setSelectedRole={setSelectedRole}
             />
           )}
+        </div>
+      )}
+
+      {/* DELETED POSTS */}
+
+      {showDeletedPost && (
+        <div
+          className={`z-10 fixed w-full screen_height top-0 right-0 overflow-x-hidden left-0 backdrop_bg rm_scroll ${
+            scroll ? "overflex-y-scroll" : "overflow-y-hidden"
+          }`}
+          onClick={handleClickOutside}
+        >
+          <DeletedPost
+            setShowDeletedPost={setShowDeletedPost}
+            setScroll={setScroll}
+          />
         </div>
       )}
     </Layout>

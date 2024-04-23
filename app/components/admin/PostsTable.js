@@ -1,21 +1,17 @@
-"use client";
-
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 const PostsTable = ({
   data,
   isSelectionMode,
   toggleUserSelection,
   userSelection,
+  setShowDeletedPost,
 }) => {
-  const router = useRouter();
-
   const handleViewDeletedPost = (id) => {
-    console.log("clicked");
-    router.push(`/admin/deletedpost/${id}`);
+    console.log("clicked", id);
+    setShowDeletedPost(true);
   };
   return (
     <table className="w-full text-left admin-container max-[919px]:w-[900px] text-sm">
