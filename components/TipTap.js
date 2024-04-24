@@ -16,7 +16,7 @@ const BlogPostEditor = () => {
       StarterKit,
       // Add other extensions as needed
     ],
-    content: `<p>Hello, World!</p>`, // Optional, initial content for the editor
+    content: `<p>Write your content here!</p>`, // Optional, initial content for the editor
   })
 
   const handleSubmit = async () => {
@@ -35,7 +35,7 @@ const BlogPostEditor = () => {
     })
     if (data.status !== 200) {
       console.log(data)
-      setError(data.message)      
+      setError(data.message)
     }
     setMsg(data.message)
   }
@@ -53,31 +53,34 @@ const BlogPostEditor = () => {
   return (
     <div>
       {msg && <p className='text-green'>{msg}</p>}
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
       <div>
-        Select category:
-        <select>
-          {categories && Array.isArray(categories) && categories.length > 0 ? (
-            categories.map((category) => (
-              <option key={category.id} value={category.name}>{category.name}</option>
-            ))
-          ) : (
-            <option value="">No categories available</option>
-          )}
-        </select>
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <div>
+          Select category:
+          <select>
+            {categories && Array.isArray(categories) && categories.length > 0 ? (
+              categories.map((category) => (
+                <option
+                  key={category.id}
+                  value={category.name}
+                  onChange={(e) => setCategories(e.target.value)}
+                >
+                  {category.name}
+                </option>
+              ))
+            ) : (
+              <option value="">No categories available</option>
+            )}
+          </select>
+        </div>
       </div>
-      <input
-        type="text"
-        placeholder="Category"
-        value={categories}
-        onChange={(e) => setCategories(e.target.value)}
-      />
-      <EditorContent editor={editor} />
+
+      <EditorContent editor={editor} className='border border-solid border-primary-green' />
       <button onClick={handleSubmit}>Submit</button>
       {error && <p className='text-red'>{error}</p>}
     </div>
