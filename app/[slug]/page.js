@@ -7,31 +7,32 @@ import AuthorCard from "@/app/components/AuthorCard";
 import Comment from "@/app/components/Comment";
 import Blurb from "@/app/components/Blurb";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
-import {useEffect, useState} from "react";
-import {notFound} from "next/navigation";
+import { useEffect, useState } from "react";
+import { notFound } from "next/navigation";
 
 export default function Slug({ params }) {
-  const slug = params.slug
-  const [post, setPost] = useState(null)
+  const slug = params.slug;
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`https://fintech-blog-749ab6e21c45.herokuapp.com/posts/${slug}`)
-        const post = await response.json()
-        console.log(post)
-        setPost(post)
+        const response = await fetch(
+          `https://fintech-blog-749ab6e21c45.herokuapp.com/posts/${slug}`
+        );
+        const post = await response.json();
+        console.log(post);
+        setPost(post);
       } catch (error) {
         // notFound()
-        console.error('Error fetching post:', error)
+        console.error("Error fetching post:", error);
       }
-    }
+    };
 
     if (slug) {
-      fetchPost()
+      fetchPost();
     }
-  }, [slug])
-
+  }, [slug]);
 
   const blurbsData = [
     {
@@ -83,31 +84,29 @@ export default function Slug({ params }) {
   ));
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    const options = { day: 'numeric', month: 'short', year: 'numeric' }
-    return date.toLocaleDateString('en-US', options)
-  }
+    const date = new Date(dateString);
+    const options = { day: "numeric", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-US", options);
+  };
 
   return (
     <PageLayout>
       <div className="px-3">
         <div className="date mt-16">
-          <p className="text-customBlue font-semibold">{formatDate(post?.createdAt)}</p>
+          <p className="text-customBlue font-semibold">
+            {formatDate(post?.createdAt)}
+          </p>
         </div>
-        <h1 className="capitalize my-6 font-bold text-4xl">
-          {post?.title}
-        </h1>
+        <h1 className="capitalize my-6 font-bold text-4xl">{post?.title}</h1>
         <div className="mb-5">
           <Image
             src={post?.image}
             alt="blurb"
             width={966}
             height={482}
-            className="mx-auto"
+            className="w-full"
           />
-          <p className="mt-8 text-justify">
-            {post?.desc}
-          </p>
+          <p className="mt-8 text-justify">{post?.desc}</p>
         </div>
         <Reaction />
         <AuthorCard username={post?.author.username} role={post?.author.role} />
