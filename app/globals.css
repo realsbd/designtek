@@ -15,7 +15,13 @@
     --gray-shade-30: #667085;
     --gray-shade-35: #f9fafb;
     --gray-shade-40: #f5f6f6;
+    --gray-shade-45: #344054;
+    --gray-shade-50: #c0c4d1;
+    --gray-shade-55: #e8edf4;
     --black-shade-0: #323232;
+    --admin-red-0: #fefbfb;
+    --admin-red-5: #ac0000;
+    --green-shade-0: #ecf3fc;
 
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -106,6 +112,8 @@ body {
 
 /* Basic editor styles */
 .tiptap {
+  height: 100% !important;
+  outline: none !important;
 }
 .tiptap > * + * {
   margin-top: 0.75em;
@@ -227,8 +235,65 @@ body {
   border-color: transparent;
 }
 
+.admin-container th,
+.admin-container td {
+  padding: 10px 0;
+}
+
+/* Calendar styles */
+.css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root {
+  background-color: var(--gray-shade-40) !important;
+}
+
+.css-1rtg91x-MuiDateCalendar-root {
+  width: 100% !important;
+  /* height: 336px; */
+}
+
+.css-1aqny2q-MuiPickersCalendarHeader-root {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.css-i5q14k-MuiDayCalendar-header {
+  justify-content: space-between !important;
+}
+
+.css-flbe84-MuiDayCalendar-weekContainer {
+  justify-content: space-between !important;
+}
+
+.css-1c32n2y-MuiBadge-root {
+  margin: 5px 0 !important;
+}
+
+.css-flbe84-MuiDayCalendar-weekContainer {
+  margin: 10px 0 !important;
+}
+
+.selectedDay {
+  background-color: black !important;
+  color: white !important;
+}
+
+.currentDay {
+  background-color: var(--primary-green) !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
 @media screen and (max-width: 1023px) {
   .active_nav {
     border-bottom: none;
   }
+}
+
+/* ADMIN PAGE */
+
+.screen_height {
+  height: 100svh;
+}
+
+.backdrop_bg {
+  background-color: rgba(0, 0, 0, 0.5);
 }

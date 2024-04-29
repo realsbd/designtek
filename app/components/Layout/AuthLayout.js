@@ -5,6 +5,7 @@ import { faArrowLeft, faHeadset } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function AuthLayout({ children }) {
+  const user = { username: "Aishat Akintola", role: "Content Writer" };
   return (
     <>
       <div className="w-full flex justify-center align-center item-center h-screen">
@@ -25,20 +26,20 @@ export default function AuthLayout({ children }) {
             {children}
           </div>
         </div>
-        <div className="w-[600px] bg-indigo-200 hidden md:block px-10 lg:px-20 h-full">
-          <div className="flex gap-2 mt-28 mb-4 justify-end">
+        <div className="w-[600px] bg-green-shade-0 hidden md:block px-10 lg:px-20 h-full">
+          <div className="flex gap-2 mt-20 mb-4 justify-end">
             <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
             <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
             <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
             <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
             <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
           </div>
-          <h3 className="text-2xl">
+          <h3 className="text-3xl text-justify mb-10 leading-relaxed">
             “Veerified has been able to help me tap into my creativity and
             monetize my passion. I love the payment structure as I get paid
             immediately my posts are approved! Thanks to Veerified...”
           </h3>
-          <AuthorCard />
+          <AuthorCard username={user.username} role={user.role} />
         </div>
       </div>
     </>

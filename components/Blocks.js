@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Blocks = ({ editor }) => {
   return (
     <div>
-      <div className="flex border border-solid items-center border-primary-green rounded-md p-2">
+      <div className="flex border border-solid items-center border-primary-green rounded-md p-2 my-3">
         <input
           type="text"
           placeholder="Search"

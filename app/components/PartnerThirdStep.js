@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
+import AdminCalendar from "./admin/AdminCalendar";
 
 const PartnerThirdStep = ({ setCurrentStep }) => {
   const [date, setDate] = useState(new Date());
@@ -30,13 +31,8 @@ const PartnerThirdStep = ({ setCurrentStep }) => {
               Choose a comfortable date so we can meet you virtually.
             </p>
             <div className="flex justify-center items-center w-full">
-              <div>
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  className="rounded-md border"
-                />
+              <div className="w-full">
+                <AdminCalendar />
               </div>
             </div>
           </div>
