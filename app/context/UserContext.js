@@ -18,17 +18,12 @@ export const UserProvider = ({ children }) => {
     msg: '',
   });
 
-  // Load user data from localStorage on component mount
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
-
   // Function to update user data
   const updateUser = (newUserData) => {
-    setUser(newUserData);
+    setUser((prevUser) => ({
+      ...prevUser,
+      ...newUserData,
+    }));
     localStorage.setItem('user', JSON.stringify(newUserData));
   };
 
@@ -56,10 +51,10 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-      <UserContext.Provider value={{ user, updateUser, login }}>
+      <UserContext.Provider value={{ user, setUser}}>
         {children}
       </UserContext.Provider>
   );
 };
 
-export default {UserProvider, UserContext};
+export default UserProvider;

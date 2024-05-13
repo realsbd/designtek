@@ -1,12 +1,13 @@
 import Sidebar from "@/components/SideBar";
 import NavDashboard from "@/components/NavDashboard";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import {UserProvider} from "@/app/context/UserContext";
 
 export default function DashboardLayout({ children }) {
   // const session = await auth()
   // console.log('session: ', session);
   return (
-    <ProtectedRoute>
+    <UserProvider>
       <div className="w-full h-screen overflow-y-hidden m-0 flex">
         <Sidebar />
         <div className="w-full h-screen flex flex-col">
@@ -16,6 +17,6 @@ export default function DashboardLayout({ children }) {
           <div className="h-full overflow-y-scroll rm_scroll">{children}</div>
         </div>
       </div>
-    </ProtectedRoute>
+    </UserProvider>
   );
 }

@@ -22,6 +22,7 @@ export const useUser = () => {
             },
         };
     }
+    // const {user, updateUser, login} = useContext(UserContext);
     const {user, updateUser, login} = context;
     return {user, updateUser, login};
 }
