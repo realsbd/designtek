@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/navigation";
-import {logout} from "@/lib/action";
+// import {logout} from "@/lib/action";
 
 export default function UserRole(){
 
@@ -18,10 +18,7 @@ export default function UserRole(){
                     </div>
                     <div className="text-white text-sm leading-5">Contributor</div>
                 </div>
-                <form action={async () => {
-                    await logout()
-                }
-                }>
+                <form>
                     <button type={"submit"}>
                         <FontAwesomeIcon icon={faArrowRightFromBracket} color="white" className={"cursor-pointer"} />
                     </button>

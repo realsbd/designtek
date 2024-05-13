@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-export default function PasswordField() {
+export default function PasswordField({ref}) {
   // const { showPassword, togglePassword } = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -23,6 +23,7 @@ export default function PasswordField() {
         type={showPassword ? "text" : "password"}
         id="password"
         name="password"
+        ref={ref}
         aria-label="Enter your password"
         placeholder="Enter your password"
         required

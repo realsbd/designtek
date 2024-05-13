@@ -3,11 +3,12 @@ import AuthorCard from "../AuthorCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faHeadset } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import {UserProvider} from "../../context/UserContext";
 
 export default function AuthLayout({ children }) {
-  const user = { username: "Aishat Akintola", role: "Content Writer" };
+  const usercard = { username: "Aishat Akintola", role: "Content Writer" };
   return (
-    <>
+    <UserProvider>
       <div className="w-full flex justify-center align-center item-center h-screen">
         <div className="w-[800px] py-16 px-5 sm:px-24 md:px-28 lg:px-52 mx-auto h-full flex flex-col justify-center">
           <div className="flex flex-col justify-between gap-5">
@@ -39,9 +40,9 @@ export default function AuthLayout({ children }) {
             monetize my passion. I love the payment structure as I get paid
             immediately my posts are approved! Thanks to Veerified...”
           </h3>
-          <AuthorCard username={user.username} role={user.role} />
+          <AuthorCard username={usercard.username} role={usercard.role} />
         </div>
       </div>
-    </>
+    </UserProvider>
   );
 }

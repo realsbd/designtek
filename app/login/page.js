@@ -1,20 +1,56 @@
-// "use client"
+"use client"
 import Link from "next/link";
+import {redirect, useRouter} from 'next/navigation';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faApple } from "@fortawesome/free-brands-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
 
 import "../styles/style.css";
 import PasswordField from "@/components/PasswordField";
 import PasswordModal from "@/components/PasswordModal";
-import { signIn } from "@/auth";
-// import { AuthError } from "next-auth";
-// import { useFormState } from 'react-dom'
-import { authenticate } from "@/lib/action";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { useState, useRef } from "react";
+import {useUser} from "@/app/hooks/useUser";
 
 export default function Login() {
-  // const [errorMessage, dispatch] = useFormState(authenticate, undefined)
+
+  const router = useRouter()
+
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const { user, updateUser, login } = useUser();
+
+  // redirect to dashboard if user is loggedin
+  if (user.accessToken !== '') {
+    redirect('/dashboard');
+    return null;
+  }
+
+  const handleLogin = async (email, password) => {
+    try {
+      const response = await login(email, password);
+      console.log('login response:', response);
+      if (response && response.success) {
+        // Redirect to the dashboard
+        router.push('/dashboard');
+      } else {
+        // Handle login error
+        console.error('Login error:', response || 'Login failed');
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+    }
+  };
+
   return (
     <AuthLayout>
       <div className="w-full">
@@ -26,15 +62,12 @@ export default function Login() {
         </div>
 
         <form
-          action={async (formData) => {
-            "use server"
-            try {
-              // await dispatch(formData)
-              await signIn("credentials", formData)
+          onSubmit={(e) => {
+            e.preventDefault();
+            const username = usernameRef.current.value;
+            const password = passwordRef.current.value;
 
-            } catch (error) {
-              throw new Error('Invalid credentials. From page: login')
-            }
+            username && password && handleLogin(username, password);
           }}
         >
           <div className="form-group mb-3">
@@ -44,6 +77,7 @@ export default function Login() {
                 type="email"
                 id="email"
                 name="username"
+                ref={usernameRef}
                 aria-label="Enter your email"
                 placeholder="Enter your email"
                 required
@@ -53,7 +87,35 @@ export default function Login() {
           </div>
           <div className="form-group my-3">
             <label htmlFor="password">Password</label>
-            <PasswordField />
+            <div
+              className={`flex gap-1 items-center input-field w-full rounded border-2 border-solid ${isFocused ? "border-primary-green" : "border-gray-300"
+                }`}
+            >
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                ref={passwordRef}
+                aria-label="Enter your password"
+                placeholder="Enter your password"
+                required
+                className="w-full rounded px-3 py-[5px] outline-none"
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+              />
+              <span
+                onClick={togglePassword}
+                className={`pointer p-2 ${isFocused ? "text-primary-green" : "text-gray-400"
+                  }`}
+              >
+                {showPassword ? (
+                  <FontAwesomeIcon icon={faEye} />
+                ) : (
+                  <FontAwesomeIcon icon={faEyeSlash} />
+                )}
+              </span>
+            </div>
+            {/* <PasswordField ref={passwordRef} /> */}
           </div>
           <button
             type="submit"

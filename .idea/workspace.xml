@@ -4,11 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="working on authentication" />
+    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="working on authentication">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Layout/AuthLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Layout/AuthLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Layout/DashboardLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Layout/DashboardLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/PasswordField.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/PasswordField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserRole.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserRole.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/action.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodyActiveAccount">
+    <option name="activeAccountId" value="VXNlcjo0MTEyNjI=" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -59,20 +76,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.CodyAccountHistoryMigration": "true",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
+    "RunOnceActivity.CodyProjectSettingsMigration": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -93,6 +116,9 @@
       <workItem from="1713262977821" duration="21093000" />
       <workItem from="1713690438014" duration="14312000" />
       <workItem from="1713868771674" duration="3000" />
+      <workItem from="1715252989329" duration="1556000" />
+      <workItem from="1715291191936" duration="3872000" />
+      <workItem from="1715591193581" duration="7777000" />
     </task>
     <task id="LOCAL-00001" summary="working on authentication">
       <created>1713277317275</created>
@@ -121,16 +147,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working on authentication" />
     <option name="LAST_COMMIT_MESSAGE" value="working on authentication" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/lib/action.js</url>
-          <line>1</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
