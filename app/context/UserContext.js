@@ -51,8 +51,27 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  // logout function
+    const logout = () => {
+    //   delete user form local storage
+      localStorage.removeItem('user');
+      updateUser({
+        accessToken: '',
+        userDetails: {
+          _id: '',
+          username: '',
+          email: '',
+          role: '',
+          bookmarks: [],
+          __v: 0,
+        },
+        success: false,
+        msg: '',
+      })
+    }
+
   return (
-      <UserContext.Provider value={{ user, setUser, login}}>
+      <UserContext.Provider value={{ user, setUser, login, logout}}>
         {children}
       </UserContext.Provider>
   );

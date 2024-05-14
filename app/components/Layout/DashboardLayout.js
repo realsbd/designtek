@@ -3,12 +3,17 @@ import NavDashboard from "@/components/NavDashboard";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import {UserProvider} from "@/app/context/UserContext";
 import {useUser} from "@/app/hooks/useUser";
+import {redirect, useRouter} from "next/navigation";
 
 export default function DashboardLayout({ children }) {
+    const router = useRouter()
     const {user} = useUser();
 
-    if (user.accessToken === null){
+    console.log('user: ', user);
+
+    if (!user.success){
         console.log(user)
+        router.push('/login')
     }
   return (
       <div className="w-full h-screen overflow-y-hidden m-0 flex">

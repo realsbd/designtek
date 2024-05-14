@@ -17,7 +17,7 @@ export default function Login() {
 
   const router = useRouter()
 
-
+  const [message, setMessage] = useState('')
   const [showPassword, setShowPassword] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -48,9 +48,11 @@ export default function Login() {
       } else {
         // Handle login error
         console.error('Login error:', response || 'Login failed');
+        setMessage(response.msg)
       }
     } catch (error) {
       console.error('Error logging in:', error);
+      setMessage(error)
     }
   };
 
@@ -63,6 +65,10 @@ export default function Login() {
         <div className="welcome-message text-gray-500 mb-6">
           Welcome! Please enter your details.
         </div>
+
+        {message ? (
+            <div className={'text-red-600 font-bold'}>{message}</div>
+        ) : ''}
 
         <form
           onSubmit={(e) => {
