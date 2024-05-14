@@ -1,9 +1,7 @@
 import Sidebar from "@/components/SideBar";
 import NavDashboard from "@/components/NavDashboard";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import {UserProvider} from "@/app/context/UserContext";
 import {useUser} from "@/app/hooks/useUser";
-import {redirect, useRouter} from "next/navigation";
+import {useRouter} from "next/navigation";
 
 export default function DashboardLayout({ children }) {
     const router = useRouter()

@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from "react";
 import DashboardLayout from "../components/Layout/DashboardLayout";
-import NavDashboard from "@/components/NavDashboard";
 
 import DashboardPostsTab from "../components/DashboardPostsTab";
 import DashboardPostTab from "../components/DashboardPostTab";
-import {useRouter, useSearchParams} from "next/navigation";
+import {useSearchParams} from "next/navigation";
 import {useUser} from "@/app/hooks/useUser";
 
 export default function Dashboard() {

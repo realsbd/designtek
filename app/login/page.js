@@ -7,11 +7,9 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import AuthLayout from "../components/Layout/AuthLayout";
 
 import "../styles/style.css";
-import PasswordField from "@/components/PasswordField";
 import PasswordModal from "@/components/PasswordModal";
 import { useState, useRef } from "react";
 import {useUser} from "@/app/hooks/useUser";
-import {getUser} from "@/lib/auth";
 
 export default function Login() {
 
