@@ -1,4 +1,5 @@
-import {createContext, useState, useEffect, useContext} from 'react';
+'use client'
+import {createContext, useState} from 'react';
 import {getUser} from "@/lib/auth";
 
 export const UserContext = createContext();
@@ -32,10 +33,10 @@ export const UserProvider = ({ children }) => {
       const response = await getUser(username, password);
       console.log('getUser response:', response);
 
-      if (response && response.status === 200 && response.data) {
+      if (response && response.success === true) {
         updateUser({
-          accessToken: response.data.accessToken,
-          userDetails: response.data.userDetails,
+          accessToken: response.accessToken,
+          userDetails: response.userDetails,
           success: true,
           msg: 'Login successful',
         });
@@ -51,7 +52,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-      <UserContext.Provider value={{ user, setUser}}>
+      <UserContext.Provider value={{ user, setUser, login}}>
         {children}
       </UserContext.Provider>
   );

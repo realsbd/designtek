@@ -6,23 +6,15 @@ import NavDashboard from "@/components/NavDashboard";
 
 import DashboardPostsTab from "../components/DashboardPostsTab";
 import DashboardPostTab from "../components/DashboardPostTab";
-import { useSearchParams } from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 import {useUser} from "@/app/hooks/useUser";
 
 export default function Dashboard() {
 
-  const { user, updateUser} = useUser();
   const searchParams = useSearchParams();
 
   const [filter, setFilter] = useState("all");
   const [currentTab, setCurrentTab] = useState(searchParams.get("tab") || 1);
-
-  // check if user.token exist
-  if (user.accessToken === '') {
-      // redirect to login page if user is not logged in
-      router.push('/login');
-      return null;
-  }
 
   useEffect(() => {
     handleTabChange(searchParams.get("tab") || 1);

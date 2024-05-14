@@ -28,20 +28,21 @@ export default function Login() {
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
 
-  const { user, setUser, login } = useUser();
+  const { user, updateUser, login } = useUser();
 
   // redirect to dashboard if user is loggedin
   if (user.accessToken !== '') {
+    console.log(user.accessToken);
     redirect('/dashboard');
     return null;
   }
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await getUser(email, password);
+      const response = await login(email, password);
       console.log('login response:', response);
       if (response && response.success) {
-        setUser(response)
+        updateUser(response)
         // Redirect to the dashboard
         router.push('/dashboard');
       } else {
