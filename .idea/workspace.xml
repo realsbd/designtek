@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="Conext has been fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
+    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="registration page fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Layout/DashboardLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Layout/DashboardLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/context/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/context/UserContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/hooks/useUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/hooks/useUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/signup/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/signup/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UserRole.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserRole.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +108,8 @@
       <workItem from="1715291191936" duration="3872000" />
       <workItem from="1715591193581" duration="14269000" />
       <workItem from="1715672869887" duration="2024000" />
-      <workItem from="1715679338036" duration="2019000" />
+      <workItem from="1715679338036" duration="2572000" />
+      <workItem from="1715682067122" duration="561000" />
     </task>
     <task id="LOCAL-00001" summary="working on authentication">
       <created>1713277317275</created>
@@ -132,7 +125,21 @@
       <option name="project" value="LOCAL" />
       <updated>1715679401764</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="registration page fixed">
+      <created>1715681715640</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715681715640</updated>
+    </task>
+    <task id="LOCAL-00004" summary="registration page fixed">
+      <created>1715681868302</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715681868302</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +171,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working on authentication" />
     <MESSAGE value="Conext has been fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Conext has been fixed" />
+    <MESSAGE value="registration page fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="registration page fixed" />
   </component>
 </project>
