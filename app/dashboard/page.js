@@ -14,7 +14,7 @@ export default function Dashboard() {
 
   console.log('user: ', user);
 
-  if (!user.success){
+  if (!user){
     console.log(user)
     router.push('/login')
   }

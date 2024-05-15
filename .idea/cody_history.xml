@@ -57,6 +57,32 @@
                   </llm>
                 </llm>
               </chat>
+              <chat>
+                <internalId value="efe73de7-5a61-4b39-9e0e-86ccb014d384" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="/dashboard route is giving my this error&#10;&#10; ⨯ Error: Cannot find module './vendor-chunks/@swc.js'&#10;Require stack:&#10;- C:\Users\DELL\Desktop\designtek\.next\server\webpack-runtime.js&#10;- C:\Users\DELL\Desktop\designtek\.next\server\app\[slug]\page.js&#10;- C:\Users\DELL\Desktop\designtek\node_modules\next\dist\server\require.js&#10;- C:\Users\DELL\Desktop\designtek\node_modules\next\dist\server\load-components.js&#10;- C:\Users\DELL\Desktop\designtek\node_modules\next\dist\build\utils.js&#10;- C:\Users\DELL\Desktop\designtek\node_modules\next\dist\server\dev\static-paths-worker.js&#10;- C:\Users\DELL\Desktop\designtek\node_modules\next\dist\compiled\jest-worker\processChild.js&#10;    at Module._resolveFilename (node:internal/modules/cjs/loader:1048:15)&#10;    at C:\Users\DELL\Desktop\designtek\node_modules\next\dist\server\require-hook.js:55:36&#10;    at Module._load (node:internal/modules/cjs/loader:901:27)&#10;    at Module.require (node:internal/modules/cjs/loader:1115:19)&#10;    at mod.require (C:\Users\DELL\Desktop\designtek\node_modules\next\dist\server\require-hook.js:65:28)&#10;    at require (node:internal/modules/helpers:130:18)&#10;    at __webpack_require__.f.require (C:\Users\DELL\Desktop\designtek\.next\server\webpack-runtime.js:203:28)&#10;    at C:\Users\DELL\Desktop\designtek\.next\server\webpack-runtime.js:111:40&#10;    at Array.reduce (&amp;lt;anonymous&amp;gt;)&#10;    at __webpack_require__.e (C:\Users\DELL\Desktop\designtek\.next\server\webpack-runtime.js:110:67) {&#10;  type: 'Error',&#10;  code: 'MODULE_NOT_FOUND',&#10;  requireStack: [&#10;    'C:\\Users\\DELL\\Desktop\\designtek\\.next\\server\\webpack-runtime.js',&#10;    'C:\\Users\\DELL\\Desktop\\designtek\\.next\\server\\app\\[slug]\\page.js',&#10;    'C:\\Users\\DELL\\Desktop\\designtek\\node_modules\\next\\dist\\server\\require.js',&#10;    'C:\\Users\\DELL\\Desktop\\designtek\\node_modules\\next\\dist\\server\\load-components.js',&#10;    'C:\\Users\\DELL\\Desktop\\designtek\\node_modules\\next\\dist\\build\\utils.js',&#10;    'C:\\Users\\DELL\\Desktop\\designtek\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',&#10;    'C:\\Users\\DELL\\Desktop\\designtek\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'&#10;  ],&#10;  page: '/dashboard'&#10;}&#10;" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="The error `Cannot find module './vendor-chunks/@swc.js'` typically occurs when there is an issue with the Next.js build process or the webpack configuration. This error usually happens when Next.js is unable to find or load the required modules during the build process.&#10;&#10;Here are a few steps you can try to resolve this issue:&#10;&#10;1. **Clean the Next.js Cache**:&#10;   - Delete the `.next` folder in your project directory.&#10;   - Run `npm run build` or `yarn build` to rebuild the project.&#10;&#10;2. **Check for Outdated Dependencies**:&#10;   - Update your Next.js and React versions to the latest stable versions by running `npm install next@latest react@latest react-dom@latest` or `yarn add next@latest react@latest react-dom@latest`.&#10;   - Update other dependencies by running `npm install` or `yarn install`.&#10;&#10;3. **Verify the Next.js Configuration**:&#10;   - Check your `next.config.js` file for any custom configurations that might be causing conflicts.&#10;   - If you have any custom webpack configurations, double-check them for any potential issues.&#10;&#10;4. **Check for Conflicting Packages**:&#10;   - Some packages may conflict with Next.js or cause issues during the build process.&#10;   - Try removing any unnecessary packages or updating them to their latest versions.&#10;&#10;5. **Restart the Development Server**:&#10;   - Stop the Next.js development server (if it's running) by pressing `Ctrl + C` in the terminal.&#10;   - Clear the terminal cache by running `npm run clean` or `yarn clean`.&#10;   - Restart the development server with `npm run dev` or `yarn dev`.&#10;&#10;6. **Reinstall Node.js and Dependencies**:&#10;   - If the issue persists, try reinstalling Node.js and the project dependencies.&#10;   - Remove the `node_modules` folder and the `package-lock.json` or `yarn.lock` file.&#10;   - Reinstall Node.js from the official website (https://nodejs.org).&#10;   - Run `npm install` or `yarn install` to reinstall the project dependencies.&#10;&#10;If none of these steps work, you may need to create a new Next.js project and copy your existing code into the new project to see if the issue is resolved." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-05-15T04:31:17.9759416" />
+              </chat>
+              <chat>
+                <internalId value="33371704-12e9-44fc-aaa7-aadaa2ab9572" />
+              </chat>
             </list>
           </chats>
           <defaultLlm>

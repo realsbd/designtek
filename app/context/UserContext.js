@@ -5,19 +5,7 @@ import {getUser} from "@/lib/auth";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({
-    accessToken: '',
-    userDetails: {
-      _id: '',
-      username: '',
-      email: '',
-      role: '',
-      bookmarks: [],
-      __v: 0,
-    },
-    success: false,
-    msg: '',
-  });
+  const [user, setUser] = useState(null);
 
   // Function to update user data
   const updateUser = (newUserData) => {

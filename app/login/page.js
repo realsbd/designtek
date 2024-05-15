@@ -29,7 +29,7 @@ export default function Login() {
   const { user, updateUser, login } = useUser();
 
   // redirect to dashboard if user is loggedin
-  if (user.accessToken !== '') {
+  if (user && user.accessToken !== null) {
     console.log(user.accessToken);
     redirect('/dashboard');
     return null;
