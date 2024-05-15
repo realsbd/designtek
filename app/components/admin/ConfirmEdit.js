@@ -14,7 +14,7 @@ const ConfirmEdit = ({ onClose, onConfirm }) => {
 
   return (
     <div
-      className={`fixed px-3 md:px-0 top-0 left-0 w-full screen_height flex justify-center items-center bg-white transition-transform duration-300 transform ${
+      className={`fixed px-3 md:px-0 top-0 bottom-0 left-0 w-full screen_height flex justify-center items-center bg-white transition-transform duration-300 transform ${
         slideIn ? "translate-x-0" : "translate-x-full"
       }`}
     >

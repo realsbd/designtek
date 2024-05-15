@@ -164,56 +164,6 @@ const AdminPage = () => {
         <h1 className="text-2xl">Admin Dashboard</h1>
         <div className="mt-5 flex flex-wrap-reverse gap-2 justify-between items-center w-full">
           <div className="overflow-auto py-1">
-            {/* <div className="flex gap-4 items-center max-[847px]:w-[700px] text-[13px]">
-              <div>
-                <select className="w-28 outline-none">
-                  <option value="all-profiles">All profiles</option>
-                  <option value="active-profiles">Active profiles</option>
-                  <option value="inactive-profiles">Inactive profiles</option>
-                </select>
-              </div>
-
-              <div>
-                <select
-                  className="w-24 outline-none"
-                  onChange={(e) => handleUserChange(e.target.value)}
-                >
-                  <option value="all-users">All users</option>
-                  <option value="add-new-user">Add new users</option>
-                  <option value="administrators">Administrators</option>
-                  <option value="editors">Editors</option>
-                  <option value="contributors">Contibutors</option>
-                </select>
-              </div>
-
-              <div>
-                <select className="w-24 outline-none">
-                  <option value="deleted">Deleted</option>
-                  <option value="deleted-profiles">Deleted profiles</option>
-                  <option value="deleted-posts">Deleted posts</option>
-                </select>
-              </div>
-
-              <div>
-                <button>View Posts</button>
-              </div>
-
-              <div>
-                <button>Back up</button>
-              </div>
-
-              <div>
-                <button>Plugins</button>
-              </div>
-
-              <div>
-                <button>Revenue</button>
-              </div>
-
-              <div>
-                <button>Site kits</button>
-              </div>
-            </div> */}
             {!isSelectionMode ? (
               <NormalFilters
                 setFilter={setFilter}
