@@ -35,7 +35,7 @@ export default function AuthLayout({ children }) {
               <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
               <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
             </div>
-            <h3 className="text-3xl text-justify mb-10 leading-relaxed">
+            <h3 className="text-3xl text-justify mb-10 leading-relaxed font-poppins">
               “Veerified has been able to help me tap into my creativity and
               monetize my passion. I love the payment structure as I get paid
               immediately my posts are approved! Thanks to Veerified...”
