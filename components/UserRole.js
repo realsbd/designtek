@@ -1,11 +1,24 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/navigation";
-import {logout} from "@/lib/action";
+import {useUser} from "@/app/hooks/useUser";
+// import {logout} from "@/lib/action";
 
 export default function UserRole(){
 
     const router = useRouter()
+
+    const {logout} = useUser()
+
+
+    const handleLogout = async () => {
+        try {
+            await logout()
+            router.push('/login')
+        } catch (error) {
+            throw new Error('Error logging out:', error)
+        }
+    }
 
 
 
@@ -18,11 +31,8 @@ export default function UserRole(){
                     </div>
                     <div className="text-white text-sm leading-5">Contributor</div>
                 </div>
-                <form action={async () => {
-                    await logout()
-                }
-                }>
-                    <button type={"submit"}>
+                <form>
+                    <button type={"submit"} onClick={() => handleLogout()} >
                         <FontAwesomeIcon icon={faArrowRightFromBracket} color="white" className={"cursor-pointer"} />
                     </button>
                 </form>

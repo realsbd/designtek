@@ -2,13 +2,23 @@
 
 import { useEffect, useState } from "react";
 import DashboardLayout from "../components/Layout/DashboardLayout";
-import NavDashboard from "@/components/NavDashboard";
 
 import DashboardPostsTab from "../components/DashboardPostsTab";
 import DashboardPostTab from "../components/DashboardPostTab";
-import { useSearchParams } from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
+// import {useUser} from "@/app/hooks/useUser";
 
 export default function Dashboard() {
+  const router = useRouter()
+  // const {user} = useUser();
+
+  // console.log('user: ', user);
+
+  // if (!user){
+  //   console.log(user)
+  //   router.push('/login')
+  // }
+
   const searchParams = useSearchParams();
 
   const [filter, setFilter] = useState("all");
