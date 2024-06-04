@@ -5,7 +5,7 @@ import { faArrowLeft, faHeadset } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function AuthLayout({ children }) {
-  const user = { username: "Aishat Akintola", role: "Content Writer" };
+  const usercard = { username: "Aishat Akintola", role: "Content Writer" };
   return (
     <>
       <div className="w-full flex justify-center align-center item-center h-screen">
@@ -39,7 +39,7 @@ export default function AuthLayout({ children }) {
             monetize my passion. I love the payment structure as I get paid
             immediately my posts are approved! Thanks to Veerified...”
           </h3>
-          <AuthorCard username={user.username} role={user.role} />
+          <AuthorCard username={usercard.username} role={usercard.role} />
         </div>
       </div>
     </>
