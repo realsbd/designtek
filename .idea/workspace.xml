@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="pre-render error fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="pre-render error fixed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,6 +111,7 @@
       <workItem from="1715769601497" duration="2063000" />
       <workItem from="1715772907488" duration="659000" />
       <workItem from="1715873887214" duration="592000" />
+      <workItem from="1716981948517" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="working on authentication">
       <created>1713277317275</created>
