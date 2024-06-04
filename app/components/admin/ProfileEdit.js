@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import ConfirmEdit from "@/app/components/admin/ConfirmEdit";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 
 const ProfileEdit = ({ setScroll }) => {
   const [slideIn, setSlideIn] = useState(false);
@@ -87,13 +88,14 @@ const ProfileEdit = ({ setScroll }) => {
       }`}
     >
       {showConfirmEdit && (
-        <div className="fixed z-50 top-0 right-0 left-0 w-full screen_height overflow-hidden">
+        <div className="fixed z-50 top-0 bottom-0 right-0 left-0 w-full h-full overflow-hidden">
           <ConfirmEdit
             onClose={handleCloseConfirmEdit}
             onConfirm={() => handleConfirmEdit(confirmField)}
           />
         </div>
       )}
+
       <div className="pt-10 px-3 sm:px-10 md:px-[100px] pb-[100px]">
         <div className="flex justify-end">
           <button className="hover:text-primary-green flex items-center gap-3">
@@ -198,6 +200,7 @@ const ProfileEdit = ({ setScroll }) => {
                 {/* second part */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="role">Role</label>
+
                   <div className="input-field">
                     <select
                       id="role"
