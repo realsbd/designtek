@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const DashboardPostsTab = ({
   filter,
@@ -19,6 +20,7 @@ const DashboardPostsTab = ({
   formatCount,
   filteredBlurbs,
   handleTabChange,
+  loadingPosts,
 }) => {
   const [showStatistics, setShowStatistics] = useState(false);
 
@@ -29,7 +31,7 @@ const DashboardPostsTab = ({
   return (
     <div>
       <div className="flex gap-10 md:gap-20 flex-col pb-10 md:pb-0 md:flex-row">
-        <div className="flex flex-col justify-center w-full">
+        <div className="flex flex-col w-full">
           {/*<FilterPosts />*/}
 
           <div>
@@ -59,18 +61,51 @@ const DashboardPostsTab = ({
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 my-5 grid-cols-1 max-lg:px-5">
-            {filteredBlurbs.map((blurb, index) => (
-              <Post
-                key={index}
-                link={blurb.link}
-                img={blurb.img}
-                title={blurb.title}
-                status={blurb.status}
-                handleTabChange={handleTabChange}
-              />
-            ))}
-          </div>
+          {loadingPosts ? (
+            <div className="grid lg:grid-cols-2 gap-8 my-5 grid-cols-1 max-lg:px-5">
+              <div className="flex flex-col space-y-3 w-full">
+                <Skeleton className="h-[125px] w-full rounded-xl" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+              <div className="flex flex-col space-y-3 w-full">
+                <Skeleton className="h-[125px] w-full rounded-xl" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+              <div className="flex flex-col space-y-3 w-full">
+                <Skeleton className="h-[125px] w-full rounded-xl" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+              <div className="flex flex-col space-y-3 w-full">
+                <Skeleton className="h-[125px] w-full rounded-xl" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="grid lg:grid-cols-2 gap-8 my-5 grid-cols-1 max-lg:px-5">
+              {filteredBlurbs.map((blurb, index) => (
+                <Post
+                  key={index}
+                  link={index}
+                  img={blurb.image}
+                  title={blurb.slug}
+                  status={blurb.status}
+                  handleTabChange={handleTabChange}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="md:mt-20 text-gray-shade-30">
