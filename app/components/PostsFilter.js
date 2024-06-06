@@ -23,10 +23,10 @@ const PostsFilter = ({ filter, handleFilterChange, handleTabChange }) => {
         </div>
         <div
           onClick={() => {
-            handleFilterChange("published");
+            handleFilterChange("Approved");
           }}
           className={`flex items-center cursor-pointer ${
-            filter === "published" ? "text-primary-green" : "text-gray-700"
+            filter === "Approved" ? "text-primary-green" : "text-gray-700"
           }`}
         >
           <FontAwesomeIcon icon={faCircleCheck} />
@@ -34,10 +34,10 @@ const PostsFilter = ({ filter, handleFilterChange, handleTabChange }) => {
         </div>
         <div
           onClick={() => {
-            handleFilterChange("pending");
+            handleFilterChange("Pending");
           }}
           className={`flex items-center cursor-pointer ${
-            filter === "pending" ? "text-primary-green" : "text-gray-700"
+            filter === "Pending" ? "text-primary-green" : "text-gray-700"
           }`}
         >
           <FontAwesomeIcon icon={faClock} />
@@ -45,10 +45,10 @@ const PostsFilter = ({ filter, handleFilterChange, handleTabChange }) => {
         </div>
         <div
           onClick={() => {
-            handleFilterChange("disapproved");
+            handleFilterChange("Disapproved");
           }}
           className={`flex items-center cursor-pointer ${
-            filter === "disapproved" ? "text-primary-green" : "text-gray-700"
+            filter === "Disapproved" ? "text-primary-green" : "text-gray-700"
           }`}
         >
           <FontAwesomeIcon icon={faCircleXmark} />

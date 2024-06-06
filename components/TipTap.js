@@ -7,7 +7,8 @@ import MenuBar from "@/components/MenuBar";
 const Tiptap = ({ editOptions }) => {
   const editor = useEditor({
     extensions: [StarterKit],
-    content: "<p>Hello World! 🌎️</p>",
+    content:
+      "<div><h1 className='text-[50px] font-semibold'>Add title</h1> <p>Write a finance related blog post not less than 700 words....</p></div>",
   });
 
   return (

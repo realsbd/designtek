@@ -22,6 +22,37 @@ export default function Dashboard() {
 
   const [filter, setFilter] = useState("all");
   const [currentTab, setCurrentTab] = useState(searchParams.get("tab") || 1);
+  const [posts, setPosts] = useState([]);
+  const [loadingPosts, setLoadingPosts] = useState(false);
+
+  const BASE_API = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
+
+  //function to fetch posts for a particular contributor
+  const fetchUserPosts = async () => {
+    setLoadingPosts(true);
+
+    try {
+      const response = await fetch(
+        `${BASE_API}posts/user/65fc04d475e0d8c3ab1aebe9` // Making use of fixed UserId at the moment, will have to update it to the current user of the applications ID later in development
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
+
+      const data = await response.json();
+      setLoadingPosts(false);
+      setPosts(data);
+    } catch (error) {
+      console.log(error.message);
+      setLoadingPosts(false);
+    }
+  };
+
+  //Useeffect to fetch the posts anytime the page reloads
+  useEffect(() => {
+    fetchUserPosts();
+  }, []);
 
   useEffect(() => {
     handleTabChange(searchParams.get("tab") || 1);
@@ -39,77 +70,77 @@ export default function Dashboard() {
       link: "#",
       img: "/img/blurb-1.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "published",
+      status: "Approved",
     },
     {
       link: "#",
       img: "/img/blurb-2.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "published",
+      status: "Approved",
     },
     {
       link: "#",
       img: "/img/blurb-3.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "published",
+      status: "Approved",
     },
     {
       link: "#",
       img: "/img/blurb-4.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "published",
+      status: "Approved",
     },
     {
       link: "#",
       img: "/img/blurb-5.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "published",
+      status: "Approved",
     },
     {
       link: "#",
       img: "/img/blurb-6.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "disapproved",
+      status: "Disapproved",
     },
     {
       link: "#",
       img: "/img/blurb-7.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "disapproved",
+      status: "Disapproved",
     },
     {
       link: "#",
       img: "/img/blurb-8.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "published",
+      status: "Approved",
     },
     {
       link: "#",
       img: "/img/blurb-9.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "published",
+      status: "Approved",
     },
     {
       link: "#",
       img: "/img/blurb-10.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "pending",
+      status: "Pending",
     },
     {
       link: "#",
       img: "/img/blurb-11.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "pending",
+      status: "Pending",
     },
     {
       link: "#",
       img: "/img/blurb-12.png",
       title: "When an unknown printer took a galley of type and scrambled",
-      status: "pending",
+      status: "Pending",
     },
   ];
 
-  const filteredBlurbs = blurbsData.filter((blurb) => {
+  const filteredBlurbs = posts.filter((blurb) => {
     if (filter === "all") return true;
     return blurb.status === filter;
   });
@@ -132,6 +163,7 @@ export default function Dashboard() {
             // handleTabChange={handleTabChange}
             formatCount={formatCount}
             filteredBlurbs={filteredBlurbs}
+            loadingPosts={loadingPosts}
           />
         );
       case 2:
