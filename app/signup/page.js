@@ -8,8 +8,6 @@ import AuthLayout from "../components/Layout/AuthLayout";
 import "../styles/style.css";
 import PasswordField from "@/components/PasswordField";
 import { createUser } from "@/lib/auth";
-import { redirect } from "next/navigation";
-import { register } from "@/lib/action";
 
 export default function Signup() {
   const [message, setMessage] = useState('')
@@ -24,16 +22,17 @@ export default function Signup() {
       // const formData = new FormData(event.currentTarget)
 
       const formData = new FormData(event.target)
-      const response = await register(formData.get('username'), formData.get('email'), formData.get('password'))
+      const response = await createUser(formData.get('username'), formData.get('email'), formData.get('password'))
 
-      if (response.success === true) {
+      console.log('client res:', response)
+
+      if (response && response.success === true) {
         // Handle Success (201)
-        const data = await response.json();
+        // const data = await response.json();
         setMessage("Registered Successfully. Please Login");
-        return data;
       } else {
         // Handle other status codes if necessary
-        throw new Error('Failed to submit the data. Please try again. :(');
+        setError(response);
       }
     } catch (error) {
       // Capture the error message to display to the user

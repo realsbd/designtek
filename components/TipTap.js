@@ -14,7 +14,7 @@ const Tiptap = ({ editOptions }) => {
   return (
     <div className="h-full">
       <div
-        className={`absolute right-0 top-0 w-[400px] duration-300 z-10 ${
+        className={`absolute right-0 top-0 w-[400px] duration-300 z-10 h-52 visible ${
           editOptions ? "h-52 visible" : "h-0 hidden"
         }`}
       >

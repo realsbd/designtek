@@ -5,9 +5,19 @@ import DashboardLayout from "../components/Layout/DashboardLayout";
 
 import DashboardPostsTab from "../components/DashboardPostsTab";
 import DashboardPostTab from "../components/DashboardPostTab";
-import { useSearchParams } from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
+import {useUser} from "@/app/hooks/useUser";
 
 export default function Dashboard() {
+  const router = useRouter()
+  const {user} = useUser();
+
+  useEffect(() => {
+    if (!user) {
+      router.push('/login');
+    }
+  }, [user, router]);
+
   const searchParams = useSearchParams();
 
   const [filter, setFilter] = useState("all");
