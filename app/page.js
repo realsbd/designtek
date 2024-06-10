@@ -9,6 +9,7 @@ import Image from "next/image";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { formatDate } from "@/lib/utils";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -83,13 +84,13 @@ export default function Home() {
         <div
           className="mt-8 h-[482px] p-5 sm:p-10 flex max-sm:justify-center items-end"
           style={{
-            backgroundImage: "url('/img/hero-image.png')",
+            backgroundImage: posts[0]?.image? `url(${posts[0].image})` : "none",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgorundRepeat: "no-repeat",
           }}
         >
-          <Link href="/update" className="text-white ">
+          <Link href={posts[0]?.slug? posts[0].slug : '#'} className="text-white ">
             <div className="flex gap-5 items-center mb-2">
               <div className="w-[44px] h-[44px] flex justify-center items-center rounded-full overflow-hidden">
                 <Image
@@ -100,11 +101,10 @@ export default function Home() {
                 />
               </div>
 
-              <p className="text-lg">David Nelson. 20.Jan.2024</p>
+              <p className="text-lg">{posts[0]?.author.username}. {formatDate(posts[0]?.createdAt)}</p>
             </div>
             <p className="text-lg sm:text-[32px] font-semibold leading-normal">
-              Latest updates on the financial exchange market that led to the
-              crash of NGN
+              {posts[0]?.title}
             </p>
           </Link>
         </div>

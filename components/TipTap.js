@@ -1,26 +1,32 @@
 "use client";
 
 import { useEditor, EditorContent } from "@tiptap/react";
+import Toolbar from "./Toolbar";
 import StarterKit from "@tiptap/starter-kit";
+import Underline from "@tiptap/extension-underline";
 import MenuBar from "@/components/MenuBar";
 
-const Tiptap = ({ editOptions }) => {
+const Tiptap = ({ onChange, content }) => {
+
+  const handleChange = (newContent) => {
+    onChange(newContent);
+  }
   const editor = useEditor({
-    extensions: [StarterKit],
-    content:
-      "<div><h1 className='text-[50px] font-semibold'>Add title</h1> <p>Write a finance related blog post not less than 700 words....</p></div>",
+    extensions: [StarterKit, Underline],
+    editorProps: {
+      attributes: {
+        class: "flex flex-col px-4 py-3 justify-start border-b border-r border-l border-gray-700 text-gray-400 items-start w-full gap-3 font-medium text-[16px] pt-4 rounded-bl-md rounded-br-md outline-none",
+      },
+    },
+    onUpdate: ({ editor }) => {
+      handleChange(editor.getHTML());
+    },
   });
 
   return (
-    <div className="h-full">
-      <div
-        className={`absolute right-0 top-0 w-[400px] duration-300 z-10 h-52 visible ${
-          editOptions ? "h-52 visible" : "h-0 hidden"
-        }`}
-      >
-        <MenuBar editor={editor} />
-      </div>
-      <EditorContent className="h-full outline-none" editor={editor} />
+    <div className="w-full px-4">
+      <Toolbar editor={editor} content={content} />
+      <EditorContent style={{ whiteSpace: "pre-line" }} editor={editor} />
     </div>
   );
 };

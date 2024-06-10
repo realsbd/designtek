@@ -9,6 +9,7 @@ import Blurb from "@/app/components/Blurb";
 import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
+import { formatDate } from "@/lib/utils";
 
 export default function Slug({ params }) {
   const slug = params.slug;
@@ -82,12 +83,6 @@ export default function Slug({ params }) {
       text={blurb.text}
     />
   ));
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { day: "numeric", month: "short", year: "numeric" };
-    return date.toLocaleDateString("en-US", options);
-  };
 
   return (
     <PageLayout>
