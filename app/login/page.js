@@ -81,7 +81,7 @@ export default function Login() {
             <label htmlFor="email">Email</label>
             <div className="input-field">
               <input
-                type="email"
+                type="text"
                 id="email"
                 name="username"
                 ref={usernameRef}

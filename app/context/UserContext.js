@@ -1,5 +1,5 @@
 'use client'
-import {createContext, useState} from 'react';
+import {createContext, useEffect, useState} from 'react';
 import {getUser} from "@/lib/auth";
 
 export const UserContext = createContext();
@@ -7,13 +7,21 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   // Function to update user data
-  const updateUser = (newUserData) => {
-    setUser((prevUser) => ({
-      ...prevUser,
-      ...newUserData,
-    }));
-    localStorage.setItem('user', JSON.stringify(newUserData));
+  const updateUser = (userData) => {
+    setUser(userData);
+    if (userData) {
+      localStorage.setItem('user', JSON.stringify(userData));
+    } else {
+      localStorage.removeItem('user');
+    }
   };
 
   const login = async (username, password) => {
@@ -22,20 +30,21 @@ export const UserProvider = ({ children }) => {
       console.log('getUser response:', response);
 
       if (response && response.success === true) {
-        updateUser({
+        const userData = {
           accessToken: response.accessToken,
           userDetails: response.userDetails,
           success: true,
           msg: 'Login successful',
-        });
-        localStorage.setItem('user', JSON.stringify(response.data));
-        return response.data;
+        };
+        updateUser(userData);
+        localStorage.setItem('user', JSON.stringify(userData));
+        return userData;
       } else {
-        return { success: false, msg: 'Invalid credentials' };
+        return { success: false, msg: response.msg || 'Invalid credentials' };
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      return { error };
+      return { success: false, msg: error.message || 'An error occurred during login' };
     }
   };
 

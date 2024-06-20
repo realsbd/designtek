@@ -33,7 +33,7 @@ export default function Dashboard() {
 
     try {
       const response = await fetch(
-        `${BASE_API}posts/user/65fc04d475e0d8c3ab1aebe9` // Making use of fixed UserId at the moment, will have to update it to the current user of the applications ID later in development
+        `https://fintech-blog-749ab6e21c45.herokuapp.com/posts/user/${user.userDetails._id}` // Making use of fixed UserId at the moment, will have to update it to the current user of the applications ID later in development
       );
 
       if (!response.ok) {

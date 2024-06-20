@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="pre-render error fixed" />
+    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="pre-render error fixed">
+      <change afterPath="$PROJECT_DIR$/lib/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/login/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/admin/AdminHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/admin/AdminHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/context/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/context/UserContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dashboard/add-post/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/add-post/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +84,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -112,6 +125,8 @@
       <workItem from="1715772907488" duration="659000" />
       <workItem from="1715873887214" duration="592000" />
       <workItem from="1716981948517" duration="601000" />
+      <workItem from="1718911372942" duration="96000" />
+      <workItem from="1718911490511" duration="9175000" />
     </task>
     <task id="LOCAL-00001" summary="working on authentication">
       <created>1713277317275</created>

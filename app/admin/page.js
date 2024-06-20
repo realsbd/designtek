@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Layout from "../components/admin/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -19,48 +19,10 @@ import SelectionButtons from "../components/admin/SelectionButtons";
 import PostsTable from "../components/admin/PostsTable";
 import UsersTable from "../components/admin/UsersTable";
 import DeletedPost from "../components/admin/DeletedPost";
-
-const users = {
-  columns: [
-    "Username",
-    "Name",
-    "Email",
-    "Role",
-    "Posts",
-    "2FA Status",
-    "Last Login",
-    "",
-  ],
-  user: [
-    {
-      username: "Valeta Squad",
-      name: "David Bolanle",
-      email: "davidbolanle08@gmail.com",
-      role: "Editor",
-      posts: 232,
-      status: "Verified",
-      duration: "6 min ago",
-    },
-    {
-      username: "Valeta Squad",
-      name: "David Bolanle",
-      email: "davidbolanle08@gmail.com",
-      role: "Editor",
-      posts: 232,
-      status: "Verified",
-      duration: "6 min ago",
-    },
-    {
-      username: "Valeta Squad",
-      name: "David Bolanle",
-      email: "davidbolanle08@gmail.com",
-      role: "Editor",
-      posts: 232,
-      status: "Verified",
-      duration: "6 min ago",
-    },
-  ],
-};
+import {useUser} from "@/app/hooks/useUser";
+import {useRouter} from "next/navigation";
+import getUsers from "@/lib/user";
+import {getAccessToken} from "@/lib/utils";
 
 const deletedPosts = {
   columns: [
@@ -104,6 +66,7 @@ const deletedPosts = {
 };
 
 const AdminPage = () => {
+  const {user} = useUser();
   const [isFocused, setIsFocused] = useState(false);
   const [userModal, setUserModal] = useState(false);
   const [profileModal, setProfileModal] = useState(false);
@@ -117,6 +80,50 @@ const AdminPage = () => {
   const [userSelection, setUserSelection] = useState({});
   const [filter, setFilter] = useState("all-users");
   const [showDeletedPost, setShowDeletedPost] = useState(false);
+
+  const router = useRouter();
+
+  // get users list
+    const userList = async () => {
+      try {
+        // const accessToken = getAccessToken();
+        const response = await fetch("https://fintech-blog-749ab6e21c45.herokuapp.com/users", {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${user.accessToken}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        // console response header
+          console.log(response.headers);
+        if (!response.ok) {
+          throw new Error('Failed to fetch users');
+        }
+        const users = await response.json();
+        return {users};
+      } catch (error) {
+        return {error};
+      }
+    }
+
+  // get list of users
+  const users = {
+    columns: [
+      "Username",
+      "Name",
+      "Email",
+      "Role",
+      "Posts",
+      "2FA Status",
+      "Last Login",
+      "",
+    ],
+    user: [userList()],
+  };
+
+
+
 
   // Function to toggle selection for a specific user
   const toggleUserSelection = (userId) => {
@@ -157,6 +164,17 @@ const AdminPage = () => {
   const toggleSelectionMode = () => {
     setIsSelectionMode(!isSelectionMode);
   };
+
+  useEffect(() => {
+    console.log(user?.accessToken);
+    if (!user || !user.userDetails || user.userDetails.role !== 'Admin') {
+      router.push('/admin/login');
+    }
+    // userList().then((data) => {
+    //     console.log(data);
+    // });
+  }, [user, router]);
+    ;
 
   return (
     <Layout openModal={openProfileModal}>

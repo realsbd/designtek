@@ -2,15 +2,51 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import {useUser} from "@/app/hooks/useUser";
 
 import FormFields from "@/app/components/admin/FormFields";
+import {useRef, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
 
 const LoginPage = () => {
   const router = useRouter();
+  const {user, updateUser, login} = useUser();
+  const [message, setMessage] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    router.push("/admin");
+  const togglePassword = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  // redirect to admin if user role is admin
+    if (user && user.accessToken !== null && user.userDetails.role === "Admin") {
+        router.push("/admin");
+        return null;
+    }
+  const handleSubmit = async (email, password) => {
+    try {
+      const response = await login(email, password);
+      console.log('login response:', response);
+      if (response.success) {
+        console.log(response.userDetails.role);
+        if (response.userDetails.role === "Admin") {
+          router.push("/admin");
+        } else {
+          router.push('/dashboard');
+        }
+      } else {
+        console.error('Login error:', response.msg);
+        setMessage(response.msg);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      setMessage(error.message || 'An error occurred during login');
+    }
   };
 
   return (
@@ -19,31 +55,77 @@ const LoginPage = () => {
         <h1 className="text-3xl text-primary-green">Log In</h1>
         <p className="text-gray-shade-30 py-4">Welcome back to blog</p>
 
-        <form className="w-full" onSubmit={handleSubmit}>
-          <FormFields />
+        {message ? (
+            <div className={'text-red-600 font-bold'}>{message}</div>
+        ) : ''}
 
-          <div className="flex justify-end">
-            <Link
-              href=""
-              className="text-sm font-medium text-primary-green py-7"
+        <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const username = usernameRef.current.value;
+              const password = passwordRef.current.value;
+
+              username && password && handleSubmit(username, password);
+            }}
+        >
+          <div className="form-group mb-3">
+            <label htmlFor="email">Email</label>
+            <div className="input-field">
+              <input
+                  type="text"
+                  id="email"
+                  name="username"
+                  ref={usernameRef}
+                  aria-label="Enter your email"
+                  placeholder="Enter your email"
+                  required
+                  className="w-full rounded border-2 focus:outline-primary-green border-solid border-gray-300 px-3 py-[8px]"
+              />
+            </div>
+          </div>
+          <div className="form-group my-3">
+            <label htmlFor="password">Password</label>
+            <div
+                className={`flex gap-1 items-center input-field w-full rounded border-2 border-solid ${isFocused ? "border-primary-green" : "border-gray-300"
+                }`}
             >
-              Forgot password?
-            </Link>
+              <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  name="password"
+                  ref={passwordRef}
+                  aria-label="Enter your password"
+                  placeholder="Enter your password"
+                  required
+                  className="w-full rounded px-3 py-[5px] outline-none"
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
+              />
+              <span
+                  onClick={togglePassword}
+                  className={`pointer p-2 ${isFocused ? "text-primary-green" : "text-gray-400"
+                  }`}
+              >
+                {showPassword ? (
+                    <FontAwesomeIcon icon={faEye} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} />
+                )}
+              </span>
+            </div>
+            {/* <PasswordField ref={passwordRef} /> */}
           </div>
-
           <button
-            type="submit"
-            className="login-button w-full bg-gray-300 rounded py-2 my-3 border border-solid border-transparent hover:bg-primary-green hover:text-white duration-300"
+              type="submit"
+              className="login-button w-full bg-gray-300 hover:bg-primary-green hover:text-white rounded py-2 my-3"
           >
-            Log In
+            Log in
           </button>
-
-          <div className="flex gap-1 justify-center">
-            <p>Don&lsquo;t have an account?</p>
-            <Link href="admin/register" className="text-primary-green">
-              Sign Up
-            </Link>
-          </div>
+          {/* {errorMessage && (
+            <>
+              <p className={'text-red-600'}>{errorMessage}</p>
+            </>
+          )} */}
         </form>
       </div>
     </div>

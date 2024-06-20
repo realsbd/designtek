@@ -63,8 +63,7 @@ export default function NewPost() {
           </button>
         </div>
       </div>
-      <form
-        onSubmit={handleSubmit}
+      <div
         className="w-2/3 grid place-items-center mx-auto pt-10 mb-10"
       >
         <div className="text-3xl text-center text-sky-300 mb-10">
@@ -75,7 +74,7 @@ export default function NewPost() {
           onChange={(newContent) => handleContentChange(newContent)}
         />
 
-      </form>
+      </div>
     </DashboardLayout>
   );
 }

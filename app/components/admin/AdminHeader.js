@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import {useUser} from "@/app/hooks/useUser";
 
 const AdminHeader = ({ openModal }) => {
+  const {user} = useUser();
   return (
     <div>
       <div className="flex gap-3 items-center">
@@ -15,7 +17,7 @@ const AdminHeader = ({ openModal }) => {
           />
         </div>
         <div className="flex flex-col gap-1">
-          <p>Aisha Akintola</p>
+          <p>{user?.userDetails.username}</p>
           <button
             onClick={openModal}
             className="text-sm text-gray-shade-45 text-left hover:text-primary-green duration-300"
