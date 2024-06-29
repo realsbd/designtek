@@ -5,18 +5,19 @@ import DashboardLayout from "../components/Layout/DashboardLayout";
 
 import DashboardPostsTab from "../components/DashboardPostsTab";
 import DashboardPostTab from "../components/DashboardPostTab";
-import {useRouter, useSearchParams} from "next/navigation";
-import {useUser} from "@/app/hooks/useUser";
+import { useRouter, useSearchParams } from "next/navigation";
+// import {useUser} from "@/app/hooks/useUser";
+import { getPostsByUserId } from "@/lib/posts";
 
 export default function Dashboard() {
   const router = useRouter()
-  const {user} = useUser();
+  // const {user} = useUser();
 
-  useEffect(() => {
-    if (!user) {
-      router.push('/login');
-    }
-  }, [user, router]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.push('/login');
+  //   }
+  // }, [user, router]);
 
   const searchParams = useSearchParams();
 
@@ -27,30 +28,28 @@ export default function Dashboard() {
 
   const BASE_API = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
 
-  //function to fetch posts for a particular contributor
-  const fetchUserPosts = async () => {
-    setLoadingPosts(true);
-
-    try {
-      const response = await fetch(
-        `https://fintech-blog-749ab6e21c45.herokuapp.com/posts/user/${user.userDetails._id}` // Making use of fixed UserId at the moment, will have to update it to the current user of the applications ID later in development
-      );
-
-      if (!response.ok) {
-        throw new Error(`HTTP error ${response.status}`);
-      }
-
-      const data = await response.json();
-      setLoadingPosts(false);
-      setPosts(data);
-    } catch (error) {
-      console.log(error.message);
-      setLoadingPosts(false);
-    }
-  };
-
   //Useeffect to fetch the posts anytime the page reloads
   useEffect(() => {
+    //function to fetch posts for a particular contributor
+    // const user = localStorage.getItem("user");
+    // const userId = JSON.parse(user).userDetails._id;
+    const fetchUserPosts = async () => {
+      // setLoadingPosts(true);
+      try {
+        const res = await getPostsByUserId();
+
+        if (!res.ok) {
+          throw new Error(`HTTP error ${response.status}`);
+        }
+
+        const data = await response.json();
+        setLoadingPosts(false);
+        setPosts(data);
+      } catch (error) {
+        console.log(error.message);
+        setLoadingPosts(false);
+      }
+    };
     fetchUserPosts();
   }, []);
 
@@ -173,7 +172,7 @@ export default function Dashboard() {
             handleFilterChange={handleFilterChange}
             formatCount={formatCount}
             filteredBlurbs={filteredBlurbs}
-            // handleTabChange={handleTabChange}
+          // handleTabChange={handleTabChange}
           />
         );
     }

@@ -38,6 +38,10 @@ export const UserProvider = ({ children }) => {
         };
         updateUser(userData);
         localStorage.setItem('user', JSON.stringify(userData));
+
+        // set a cookie for server-side
+        document.cookie = `user=${JSON.stringify(userData)}; path=/; max-age=86400;`
+
         return userData;
       } else {
         return { success: false, msg: response.msg || 'Invalid credentials' };
@@ -52,6 +56,7 @@ export const UserProvider = ({ children }) => {
     const logout = () => {
     //   delete user form local storage
       localStorage.removeItem('user');
+      document.cookie = 'user=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       updateUser({
         accessToken: '',
         userDetails: {

@@ -172,14 +172,14 @@ const Toolbar = ({ editor, content }) => {
           <Redo className="w-5 h-5" />
         </button>
       </div>
-      {content && (
+      {/* {content && (
         <button
           type="submit"
           className="px-4 bg-sky-700 text-white py-2 rounded-md"
         >
           Add
         </button>
-      )}
+      )} */}
     </div>
   );
 };

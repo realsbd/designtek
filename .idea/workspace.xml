@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="pre-render error fixed">
-      <change afterPath="$PROJECT_DIR$/lib/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/login/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/admin/AdminHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/admin/AdminHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/context/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/context/UserContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/add-post/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/add-post/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.js" afterDir="false" />
-    </list>
+    <list default="true" id="1c169ced-e57e-4d3e-95ae-14f2903f5865" name="Changes" comment="adjust the context api to optimize login on user and admin page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +114,7 @@
       <workItem from="1715873887214" duration="592000" />
       <workItem from="1716981948517" duration="601000" />
       <workItem from="1718911372942" duration="96000" />
-      <workItem from="1718911490511" duration="9175000" />
+      <workItem from="1718911490511" duration="9242000" />
     </task>
     <task id="LOCAL-00001" summary="working on authentication">
       <created>1713277317275</created>
@@ -170,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715772939148</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="adjust the context api to optimize login on user and admin page">
+      <created>1718921995224</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718921995224</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +200,7 @@
     <MESSAGE value="registration page fixed" />
     <MESSAGE value="fixinf prerender error" />
     <MESSAGE value="pre-render error fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="pre-render error fixed" />
+    <MESSAGE value="adjust the context api to optimize login on user and admin page" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust the context api to optimize login on user and admin page" />
   </component>
 </project>
